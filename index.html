@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniTools - The Premium Free Creator & Developer Utility Hub</title>
+    <meta name="description" content="OmniTools is a 100% free, private, and offline-first creator & developer utility hub. Generate custom gradient QR codes, compress images, generate glassmorphism CSS, and calculate compound interest.">
+    
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OmniTools - Premium Free Creator & Developer Utilities">
+    <meta property="og:description" content="100% private, browser-based utilities: Custom QR codes, offline image compressor, CSS glassmorphism builder, and compound interest charts.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Third Party CDN Libraries (100% Free & Client-Side) -->
+    <!-- Lucide Icons for clean UI vectors -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js for gorgeous financial visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- QR Code Styling library for rounded dots, gradients, and custom logos -->
+    <script src="https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js"></script>
+</head>
+<body>
+
+    <!-- App Shell Layout -->
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="brand-logo">
+                <div class="logo-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <span>OmniTools</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active" id="nav-dashboard" onclick="switchTab('dashboard')">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="nav-label">Utilities</div>
+                <a href="#qr-generator" class="nav-item" id="nav-qr-generator" onclick="switchTab('qr-generator')">
+                    <i data-lucide="qr-code"></i>
+                    <span>Custom QR Generator</span>
+                </a>
+                <a href="#image-compressor" class="nav-item" id="nav-image-compressor" onclick="switchTab('image-compressor')">
+                    <i data-lucide="image"></i>
+                    <span>Image Compressor</span>
+                </a>
+                <a href="#css-builder" class="nav-item" id="nav-css-builder" onclick="switchTab('css-builder')">
+                    <i data-lucide="code-2"></i>
+                    <span>CSS Studio</span>
+                </a>
+                <a href="#finance-calc" class="nav-item" id="nav-finance-calc" onclick="switchTab('finance-calc')">
+                    <i data-lucide="trending-up"></i>
+                    <span>FIRE Interest Calc</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="privacy-badge">
+                    <i data-lucide="shield-check"></i>
+                    <span>100% Client-Side Private</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Body Wrapper -->
+        <div class="main-wrapper">
+            
+            <!-- Header -->
+            <header class="app-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="header-search">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="Search tools..." id="toolSearch" oninput="searchTools()">
+                </div>
+                <div class="header-actions">
+                    <a href="https://github.com" target="_blank" class="header-action-btn" title="View Project Source">
+                        <i data-lucide="github"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content Panels -->
+            <main class="content-viewport" id="contentViewport">
+                
+                <!-- TAB 1: DASHBOARD -->
+                <section class="tab-panel active" id="panel-dashboard">
+                    <div class="hero-section">
+                        <h1>Premium Creator & Developer Toolbox</h1>
+                        <p class="subtitle">Free, blazing-fast, and completely secure. Everything runs client-side inside your browser—your files never touch a server.</p>
+                        <div class="hero-stats">
+                            <div class="stat-badge">
+                                <i data-lucide="activity"></i>
+                                <span>No Server Latency</span>
+                            </div>
+                            <div class="stat-badge">
+                                <i data-lucide="lock"></i>
+                                <span>100% Encrypted & Private</span>
+                            </div>
+                            <div class="stat-badge">
+                                <i data-lucide="coins"></i>
+                                <span>Free Forever</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool Grid List -->
+                    <div class="tools-grid">
+                        <div class="tool-card animate-card" onclick="switchTab('qr-generator')">
+                            <div class="tool-card-icon qr-gradient">
+                                <i data-lucide="qr-code"></i>
+                            </div>
+                            <h3>Custom QR Code Generator</h3>
+                            <p>Generate highly stylized QR codes with gradient fills, round custom corners, and upload your brand logo for free.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+                        
+                        <div class="tool-card animate-card" onclick="switchTab('image-compressor')">
+                            <div class="tool-card-icon compress-gradient">
+                                <i data-lucide="image"></i>
+                            </div>
+                            <h3>Browser Image Compressor</h3>
+                            <p>Reduce file size of your JPEG, PNG, or convert them directly to WebP completely offline using Canvas.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+                        
+                        <div class="tool-card animate-card" onclick="switchTab('css-builder')">
+                            <div class="tool-card-icon css-gradient">
+                                <i data-lucide="code-2"></i>
+                            </div>
+                            <h3>Advanced Glassmorphism Studio</h3>
+                            <p>Create visual CSS gradients and glassmorphism layouts with direct slider controls and instant code exports.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+                        
+                        <div class="tool-card animate-card" onclick="switchTab('finance-calc')">
+                            <div class="tool-card-icon finance-gradient">
+                                <i data-lucide="trending-up"></i>
+                            </div>
+                            <h3>Compound Interest & FIRE Calc</h3>
+                            <p>Forecast your savings, compound growth, and outline your financial independence targets with dynamic charts.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 2: QR GENERATOR -->
+                <section class="tab-panel" id="panel-qr-generator">
+                    <div class="panel-header">
+                        <h2>Custom QR Code Generator</h2>
+                        <p>Design a spectacular branded QR code. Add custom gradients, round dot styles, and embed your own logo instantly.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls panel -->
+                        <div class="workspace-controls glass-card">
+                            <div class="control-group">
+                                <label class="control-label">QR Content / Target Link</label>
+                                <input type="text" id="qrText" class="form-control" placeholder="https://yourwebsite.com" value="https://omnitools.co" oninput="generateQRCode()">
+                            </div>
+
+                            <div class="control-tabs">
+                                <button class="control-tab-btn active" onclick="switchControlSubTab('qr-colors', this)">Colors</button>
+                                <button class="control-tab-btn" onclick="switchControlSubTab('qr-corners', this)">Shapes & Style</button>
+                                <button class="control-tab-btn" onclick="switchControlSubTab('qr-logo', this)">Branding Logo</button>
+                            </div>
+
+                            <!-- Color Subtab -->
+                            <div class="control-subpanel active" id="subpanel-qr-colors">
+                                <div class="control-group">
+                                    <label class="control-label">Fill Style</label>
+                                    <select id="qrColorType" class="form-control" onchange="toggleQRColorFields()">
+                                        <option value="single">Single Color</option>
+                                        <option value="gradient">Gradient Blend</option>
+                                    </select>
+                                </div>
+                                <div id="qrSingleColorGroup" class="control-group">
+                                    <label class="control-label">Foreground Color</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="qrColorMain" value="#00f2fe" onchange="generateQRCode()">
+                                        <input type="text" id="qrColorMainText" class="form-control hex-text" value="#00f2fe" readonly>
+                                    </div>
+                                </div>
+                                <div id="qrGradientGroup" class="control-group hidden">
+                                    <div class="grid-2">
+                                        <div>
+                                            <label class="control-label">Gradient Start</label>
+                                            <input type="color" id="qrColorGradStart" class="w-100" value="#00f2fe" onchange="generateQRCode()">
+                                        </div>
+                                        <div>
+                                            <label class="control-label">Gradient End</label>
+                                            <input type="color" id="qrColorGradEnd" class="w-100" value="#4facfe" onchange="generateQRCode()">
+                                        </div>
+                                    </div>
+                                    <label class="control-label mt-2">Gradient Angle</label>
+                                    <input type="range" id="qrGradAngle" min="0" max="360" value="45" oninput="generateQRCode()">
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Background Color</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="qrColorBg" value="#ffffff" onchange="generateQRCode()">
+                                        <input type="text" id="qrColorBgText" class="form-control hex-text" value="#ffffff" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shapes & Style Subtab -->
+                            <div class="control-subpanel" id="subpanel-qr-corners">
+                                <div class="control-group">
+                                    <label class="control-label">Dot Block Style</label>
+                                    <select id="qrDotStyle" class="form-control" onchange="generateQRCode()">
+                                        <option value="rounded">Rounded Dots (Premium)</option>
+                                        <option value="dots">Circular Dots</option>
+                                        <option value="square" selected>Standard Square Blocks</option>
+                                        <option value="extra-rounded">Gently Rounded Corners</option>
+                                    </select>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Corner Ring Outer Style</label>
+                                    <select id="qrCornerOuterStyle" class="form-control" onchange="generateQRCode()">
+                                        <option value="square" selected>Square Ring</option>
+                                        <option value="dot">Circular Ring</option>
+                                        <option value="rounded">Rounded Outer Ring</option>
+                                    </select>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Corner Eye Inner Style</label>
+                                    <select id="qrCornerInnerStyle" class="form-control" onchange="generateQRCode()">
+                                        <option value="square" selected>Square Eye</option>
+                                        <option value="dot">Circular Eye</option>
+                                        <option value="rounded">Rounded Inner Eye</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Branding Logo Subtab -->
+                            <div class="control-subpanel" id="subpanel-qr-logo">
+                                <div class="control-group">
+                                    <label class="control-label">Custom Logo Image</label>
+                                    <div class="file-upload-zone" id="qrLogoDropzone">
+                                        <i data-lucide="upload-cloud"></i>
+                                        <span>Click or drag logo here</span>
+                                        <p class="file-size-limit">SVG, PNG, or JPG recommended</p>
+                                        <input type="file" id="qrLogoFile" accept="image/*" class="hidden-file-input" onchange="loadQRLogo(event)">
+                                    </div>
+                                </div>
+                                <div id="qrLogoPreviewContainer" class="logo-preview-box hidden">
+                                    <img id="qrLogoPreview" src="" alt="Selected Brand Logo">
+                                    <button class="remove-logo-btn" onclick="removeQRLogo()">Remove Logo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview panel -->
+                        <div class="workspace-preview glass-card flex-center-column">
+                            <div class="qr-output-wrapper">
+                                <div id="qrCodeCanvas" class="qr-canvas-holder"></div>
+                            </div>
+                            <div class="preview-actions mt-3">
+                                <button class="btn btn-primary" onclick="downloadQRCode('png')">
+                                    <i data-lucide="download"></i> Download PNG
+                                </button>
+                                <button class="btn btn-outline" onclick="downloadQRCode('svg')">
+                                    <i data-lucide="download"></i> Download SVG
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Juice / Rich Informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Frequently Asked Questions & Guide</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: QR Codes ko customized banana kyun faidamand hai?</h4>
+                                <p>Standard black-and-white QR codes purane ho chuke hain. Customized gradient aur logo-based QR codes users ko secure aur professional feel karwate hain, jis se scanning click rate 30% tak barh jata hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Kya mere brand ka logo scan capability ko affect karega?</h4>
+                                <p>Nahi. QR code styling engine high-error correction use karta hai. Iska matlab hai agar code ka 30% area logo se cover ho jaye, tab bhi scanner camera QR code ko 100% sahi se read kar sakta hai.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 3: IMAGE COMPRESSOR -->
+                <section class="tab-panel" id="panel-image-compressor">
+                    <div class="panel-header">
+                        <h2>Client-Side Image Compressor & WebP Converter</h2>
+                        <p>Reduce image size instantly. Everything runs directly on your computer—100% private, secure, and lightning-fast.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls & Upload panel -->
+                        <div class="workspace-controls glass-card">
+                            <div class="control-group">
+                                <label class="control-label">Upload Image</label>
+                                <div class="file-upload-zone" id="compressDropzone" onclick="triggerCompressFileInput()">
+                                    <i data-lucide="image" class="large-upload-icon"></i>
+                                    <span>Click to upload or drag & drop</span>
+                                    <p class="file-size-limit">Supports JPG, PNG, WebP (Max 25MB)</p>
+                                    <input type="file" id="compressFileInput" accept="image/*" class="hidden-file-input" onchange="handleCompressImageUpload(event)">
+                                </div>
+                            </div>
+
+                            <div id="compressionControls" class="hidden">
+                                <div class="control-group">
+                                    <label class="control-label d-flex justify-between">
+                                        <span>Compression Level (Quality)</span>
+                                        <span id="compressQualityVal">80%</span>
+                                    </label>
+                                    <input type="range" id="compressQuality" min="10" max="100" value="80" oninput="updateCompressQualityLabel(); triggerImageCompression()">
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">Output Target Format</label>
+                                    <select id="compressFormat" class="form-control" onchange="triggerImageCompression()">
+                                        <option value="image/webp">Convert to WebP (Recommended - Smallest)</option>
+                                        <option value="image/jpeg">Convert to JPEG</option>
+                                        <option value="image/png">Convert to PNG (Lossless)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview panel -->
+                        <div class="workspace-preview glass-card flex-center-column">
+                            <div id="compressPreviewHolder" class="compress-preview-wrapper flex-center-column">
+                                <div class="empty-preview-state">
+                                    <i data-lucide="file-image"></i>
+                                    <p>Upload an image to see real-time compression preview</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Stat indicators -->
+                            <div id="compressionStats" class="compress-stat-grid hidden w-100 mt-3">
+                                <div class="stat-box">
+                                    <span>Original Size</span>
+                                    <strong id="statOrigSize">0 KB</strong>
+                                </div>
+                                <div class="stat-box arrow-box">
+                                    <i data-lucide="chevrons-right"></i>
+                                </div>
+                                <div class="stat-box">
+                                    <span>Compressed Size</span>
+                                    <strong id="statCompSize" class="text-success">0 KB</strong>
+                                </div>
+                                <div class="stat-box percent-box">
+                                    <span>Savings</span>
+                                    <strong id="statSavings" class="text-success">0%</strong>
+                                </div>
+                            </div>
+
+                            <div class="preview-actions mt-3 w-100 flex-center">
+                                <button id="btnDownloadCompressed" class="btn btn-primary w-100 hidden" onclick="downloadCompressedImage()">
+                                    <i data-lucide="download"></i> Download Optimized Image
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Content / Rich Informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Guides & Insights on Image Compression</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: WebP format kya hai aur iska website speed par kya asar hota hai?</h4>
+                                <p>WebP ek modern web image format hai jo JPEG aur PNG ke muqable 30% se 50% chota size deta hai bina image quality kharab kiye. WebP use karne se website ka load time drastically decrease ho jata hai aur SEO ranking improve hoti hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Kya browser mein photo compress karna bilkul safe hai?</h4>
+                                <p>Ji haan! Hamara compressor **HTML5 Canvas** technology use karta hai jo compression user ke hi machine/browser par karti hai. Aapki image internet par kisi server par upload nahi hoti, jo ise 100% private banata hai.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 4: CSS STUDIO -->
+                <section class="tab-panel" id="panel-css-builder">
+                    <div class="panel-header">
+                        <h2>Advanced CSS Glassmorphism Studio</h2>
+                        <p>Generate highly-rated CSS3 glassmorphism cards and modern HSL gradients instantly. Tweak visual sliders and export production-ready markup.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls panel -->
+                        <div class="workspace-controls glass-card">
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Backdrop Opacity</span>
+                                    <span id="glassOpacityVal">0.25</span>
+                                </label>
+                                <input type="range" id="glassOpacity" min="0" max="1" step="0.01" value="0.25" oninput="updateGlassStudio()">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Backdrop Blur (pixels)</span>
+                                    <span id="glassBlurVal">12px</span>
+                                </label>
+                                <input type="range" id="glassBlur" min="0" max="40" step="1" value="12" oninput="updateGlassStudio()">
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Border Opacity</span>
+                                    <span id="glassBorderOpacityVal">0.15</span>
+                                </label>
+                                <input type="range" id="glassBorderOpacity" min="0" max="1" step="0.01" value="0.15" oninput="updateGlassStudio()">
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Glass Theme Tone</label>
+                                <div class="grid-2">
+                                    <div>
+                                        <label class="small-label">Base Color</label>
+                                        <input type="color" id="glassBaseColor" class="w-100" value="#ffffff" onchange="updateGlassStudio()">
+                                    </div>
+                                    <div>
+                                        <label class="small-label">Border Color</label>
+                                        <input type="color" id="glassBorderColor" class="w-100" value="#ffffff" onchange="updateGlassStudio()">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Background Simulation Preset</label>
+                                <select id="glassBgPreset" class="form-control" onchange="updateGlassBackgroundSimulation()">
+                                    <option value="neon-gradient">Neon Gradient (Deep Vibe)</option>
+                                    <option value="sunset-mesh">Sunset Mesh (Warm Vibe)</option>
+                                    <option value="minimalist-dark">Space Minimalist Dark</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Preview panel -->
+                        <div class="workspace-preview glass-card flex-center-column" id="glassPreviewContainer">
+                            <!-- Target simulated card element -->
+                            <div id="simulatedGlassCard" class="simulated-glass-card">
+                                <div class="card-chip"></div>
+                                <div class="card-details">
+                                    <p class="card-number">•••• •••• •••• 2026</p>
+                                    <div class="d-flex justify-between w-100 align-end mt-3">
+                                        <div>
+                                            <p class="card-label">Card Holder</p>
+                                            <p class="card-holder-name">OMNITOOLS PRESTIGE</p>
+                                        </div>
+                                        <div class="brand-small-logo">
+                                            <i data-lucide="zap"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Markup Output block -->
+                            <div class="code-export-box w-100 mt-3">
+                                <pre><code id="glassCssCode">// CSS styling properties</code></pre>
+                                <button class="copy-code-btn" id="btnCopyGlassCss" onclick="copyGlassCssToClipboard()">
+                                    <i data-lucide="copy"></i> Copy CSS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Guide / Informational Content -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Interactive Glassmorphic Cards FAQ</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: Glassmorphism design system kya hai?</h4>
+                                <p>Glassmorphism ek popular graphic layout concept hai jo translucent frosted-glass aesthetic par focused hai. Ye interfaces ko high-end, visual depth aur futuristic glowing look deta hai. Ise achieve karne ke liye standard CSS borders aur `backdrop-filter: blur()` properties utilize hoti hain.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Kya glassmorphism elements har ek browser mein support hote hain?</h4>
+                                <p>Ji haan, modern major browsers (Chrome, Safari, Edge, Firefox, iOS, Android browsers) `backdrop-filter` property ko support karte hain. Purane browsers ke fallback ke liye hum ek translucent standard background color fallback automatically provide kar dete hain.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 5: FINANCE CALCULATOR -->
+                <section class="tab-panel" id="panel-finance-calc">
+                    <div class="panel-header">
+                        <h2>Compound Interest & FIRE Target Calculator</h2>
+                        <p>Calculate your retirement wealth trajectory. Tweak interest yields, track growth schedules, and visualize targets instantly.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls panel -->
+                        <div class="workspace-controls glass-card">
+                            <div class="control-group">
+                                <label class="control-label">Initial Investment / Principal ($)</label>
+                                <input type="number" id="finPrincipal" class="form-control" value="10000" oninput="calculateFinancialGrowth()">
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Monthly Additions ($)</label>
+                                <input type="number" id="finMonthly" class="form-control" value="500" oninput="calculateFinancialGrowth()">
+                            </div>
+                            <div class="control-group">
+                                <div class="grid-2">
+                                    <div>
+                                        <label class="control-label">Annual Yield (%)</label>
+                                        <input type="number" id="finRate" class="form-control" value="9" min="1" max="50" step="0.1" oninput="calculateFinancialGrowth()">
+                                    </div>
+                                    <div>
+                                        <label class="control-label">Timeframe (Years)</label>
+                                        <input type="number" id="finYears" class="form-control" value="25" min="1" max="50" oninput="calculateFinancialGrowth()">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Compounding Frequency</label>
+                                <select id="finCompounding" class="form-control" onchange="calculateFinancialGrowth()">
+                                    <option value="12" selected>Monthly Compounding</option>
+                                    <option value="1">Annual Compounding</option>
+                                    <option value="4">Quarterly Compounding</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Preview panel (with Canvas Chart) -->
+                        <div class="workspace-preview glass-card flex-center-column">
+                            <div class="chart-canvas-holder w-100">
+                                <canvas id="financeChart"></canvas>
+                            </div>
+                            
+                            <!-- Financial Stats -->
+                            <div class="finance-stat-grid w-100 mt-3">
+                                <div class="stat-box highlight-box">
+                                    <span>Total Value</span>
+                                    <strong id="finTotalValue">$0.00</strong>
+                                </div>
+                                <div class="stat-box">
+                                    <span>Total Deposits</span>
+                                    <strong id="finTotalDeposits">$0.00</strong>
+                                </div>
+                                <div class="stat-box text-success">
+                                    <span>Total Interest Earned</span>
+                                    <strong id="finTotalInterest">$0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Guide / Rich Informational Content -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Understanding Compound Growth & FIRE</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: Compound Interest kya hota hai aur ye kaise kaam karta hai?</h4>
+                                <p>Compound Interest (murakkab sood) ko Albert Einstein ne dunia ka 8th ajooba kaha tha. Iska asan matlab hai ke aapko apne shuruyati paiso (principal) par toh interest milta hi hai, par sath hi jo interest aap kama chuke hain, us interest par bhi interest milta rehta hai. Ye time ke sath exponentially barhta hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: FIRE movement kya hai?</h4>
+                                <p>FIRE ka matlab hai **Financial Independence, Retire Early** (Mali taur par khudmukhtari aur jald retirement). Is movement ka maqsad hai ke log apni jawani mein zyada se zyada savings aur smart investments karein, taake unka interest investment unke monthly expenses ko cover kar sake aur woh apni job chor kar azaad ho sakein.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+            </main>
+
+            <!-- Sticky Toast Notification popup -->
+            <div id="toastAlert" class="toast-alert-badge">
+                <i data-lucide="check-circle" class="toast-icon"></i>
+                <span id="toastText">Action successful!</span>
+            </div>
+
+            <!-- Footer -->
+            <footer class="app-footer">
+                <p>&copy; 2026 OmniTools Suite. Built completely client-side for maximum performance & absolute privacy.</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Core App Engine script -->
+    <script src="app.js"></script>
+</body>
+</html>
