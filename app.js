@@ -59,6 +59,7 @@ function switchTab(tabId) {
     const navItems = document.querySelectorAll('.nav-item');
     
     panels.forEach(panel => {
+        panel.style.display = 'none'; // Clear any inline display to prevent overlap bug
         panel.classList.remove('active');
     });
     
@@ -84,8 +85,11 @@ function switchTab(tabId) {
     if (tabId === 'finance-calc') prettyTitle = "FIRE Compound Interest Calculator | OmniTools";
     document.title = prettyTitle;
 
-    // Smooth scroll top on tab switch
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Smooth scroll content area viewport to top on tab switch
+    const viewport = document.getElementById('contentViewport');
+    if (viewport) {
+        viewport.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     
     // Close mobile menu if active
     const appSidebar = document.getElementById('appSidebar');
