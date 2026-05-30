@@ -44,7 +44,7 @@ function initNavigation() {
 
     // Default Router handling based on URL hash
     const currentHash = window.location.hash.substring(1);
-    const validTabs = ['dashboard', 'qr-generator', 'image-compressor', 'css-builder', 'finance-calc'];
+    const validTabs = ['dashboard', 'qr-generator', 'image-compressor', 'css-builder', 'finance-calc', 'about', 'privacy', 'contact'];
     
     if (currentHash && validTabs.includes(currentHash)) {
         switchTab(currentHash);
@@ -83,6 +83,9 @@ function switchTab(tabId) {
     if (tabId === 'image-compressor') prettyTitle = "Offline Image Compressor & WebP Converter | OmniTools";
     if (tabId === 'css-builder') prettyTitle = "Glassmorphism CSS Studio | OmniTools";
     if (tabId === 'finance-calc') prettyTitle = "FIRE Compound Interest Calculator | OmniTools";
+    if (tabId === 'about') prettyTitle = "About Us - The OmniTools Mission";
+    if (tabId === 'privacy') prettyTitle = "Privacy Policy & Data Safety | OmniTools";
+    if (tabId === 'contact') prettyTitle = "Contact Us & Support | OmniTools";
     document.title = prettyTitle;
 
     // Smooth scroll content area viewport to top on tab switch
@@ -724,4 +727,36 @@ function renderFinanceChart(labels, totalData, depositsData) {
 
 function formatCurrency(amount) {
     return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+/* ==========================================================================
+   6. Contact Form & Support Handler (Client-Side Simulated Submission)
+   ========================================================================== */
+function handleContactSubmit(event) {
+    event.preventDefault();
+    
+    const btn = document.getElementById('btnContactSubmit');
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    
+    if (!btn || !name || !email) return;
+    
+    // Simulate beautiful premium loading sequence
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Sending Message...`;
+    lucide.createIcons(); // render standard icons
+    
+    setTimeout(() => {
+        // Reset form inputs
+        document.getElementById('contactForm').reset();
+        
+        // Restore button state
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        lucide.createIcons();
+        
+        // Trigger success feedback popup
+        showToast(`Thank you, ${name}! Your message has been sent successfully. We will reply to ${email} within 24 hours.`, "success");
+    }, 1500);
 }

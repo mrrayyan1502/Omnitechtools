@@ -1,0 +1,7 @@
+# Robots.txt file for https://omnitechtools.com
+# Allowed crawlers to index all public content
+
+User-agent: *
+Allow: /
+
+Sitemap: https://omnitechtools.com/sitemap.xml

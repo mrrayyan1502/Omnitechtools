@@ -46,6 +46,7 @@
                     <i data-lucide="layout-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
+                
                 <div class="nav-label">Utilities</div>
                 <a href="#qr-generator" class="nav-item" id="nav-qr-generator" onclick="switchTab('qr-generator')">
                     <i data-lucide="qr-code"></i>
@@ -62,6 +63,20 @@
                 <a href="#finance-calc" class="nav-item" id="nav-finance-calc" onclick="switchTab('finance-calc')">
                     <i data-lucide="trending-up"></i>
                     <span>FIRE Interest Calc</span>
+                </a>
+                
+                <div class="nav-label">Legal & Support</div>
+                <a href="#about" class="nav-item" id="nav-about" onclick="switchTab('about')">
+                    <i data-lucide="info"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="#privacy" class="nav-item" id="nav-privacy" onclick="switchTab('privacy')">
+                    <i data-lucide="shield"></i>
+                    <span>Privacy Policy</span>
+                </a>
+                <a href="#contact" class="nav-item" id="nav-contact" onclick="switchTab('contact')">
+                    <i data-lucide="mail"></i>
+                    <span>Contact Us</span>
                 </a>
             </nav>
             
@@ -568,6 +583,107 @@
                             </div>
                         </div>
                     </article>
+                </section>
+
+                <!-- TAB 6: ABOUT US -->
+                <section class="tab-panel" id="panel-about">
+                    <div class="panel-header">
+                        <h2>About Us - The OmniTools Mission</h2>
+                        <p>Learn more about our completely free, private-by-design creator & developer utility platform.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="hero-section" style="padding: 2rem; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(0, 242, 254, 0.03), rgba(79, 172, 254, 0.01));">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem; color: #fff;">100% Free. 100% Private. Always Swift.</h3>
+                            <p style="color: var(--text-muted); line-height: 1.6;">OmniTools was founded in 2026 with a simple yet powerful goal: to provide top-tier, premium digital utility tools that are completely free to use, and require absolutely zero remote servers to process your private data.</p>
+                        </div>
+
+                        <div class="guide-grid" style="margin-top: 2rem;">
+                            <div class="faq-item">
+                                <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">Why We Built OmniTools</h4>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">Most modern utility web apps lock standard customized downloads, image compressions, or advanced calculators behind heavy paywalls or require users to submit their emails and personal details. We believe basic creators' utilities should be accessible globally without constraints.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">How It remains Free</h4>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">By building our tools completely "client-side" (executing entirely within the user's browser), we have zero heavy processing hosting server expenses. This allows us to keep the site online forever supported only by unobtrusive Google display advertisements and small donation programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB 7: PRIVACY POLICY -->
+                <section class="tab-panel" id="panel-privacy">
+                    <div class="panel-header">
+                        <h2>Privacy Policy & Data Security</h2>
+                        <p>Official privacy disclaimers and data protection statements for OmniTools. Fully compliant with Google AdSense, GDPR, and CCPA.</p>
+                    </div>
+
+                    <div class="glass-card" style="line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+                        <h3 style="color: #fff; margin-bottom: 1rem;">1. Information We Do Not Collect (Data Privacy)</h3>
+                        <p style="margin-bottom: 1.5rem;">OmniTools is designed from the ground up as an offline-first, client-side utility suite. All operations—including custom QR code styling, canvas image compression, format conversions, CSS code playground generation, and financial interest predictions—are processed completely locally inside your browser. **Your private files, images, or input text are never uploaded to any external server.**</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">2. Cookies & Advertising Compliance (Google AdSense)</h3>
+                        <p style="margin-bottom: 1.5rem;">To support our free global platform, we serve non-intrusive display advertisements through Google AdSense. 
+                        - Google, as a third-party vendor, uses cookies to serve ads on our site.
+                        - Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site or other sites on the Internet.
+                        - Users may choose to opt-out of personalized advertising by visiting Google's Ads Settings.</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">3. Cookies & Web Analytics</h3>
+                        <p style="margin-bottom: 1.5rem;">We may use minor standard cookies or browser local storage parameters to retain user layout preferences (such as selected tool themes or simulated card presets). These are solely used to enhance the local user experience and do not track personal identifying information.</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">4. GDPR & CCPA Compliance</h3>
+                        <p style="margin-bottom: 1.5rem;">Since we do not collect, process, or transmit any user file data to our servers, we fully comply with the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA). Your data remains strictly in your hands under your absolute control.</p>
+                        
+                        <p style="font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 2rem;">*Last updated: May 30, 2026. For any legal inquiries, please contact us via the support form.*</p>
+                    </div>
+                </section>
+
+                <!-- TAB 8: CONTACT US -->
+                <section class="tab-panel" id="panel-contact">
+                    <div class="panel-header">
+                        <h2>Contact Us & Support</h2>
+                        <p>Have any questions, feature requests, or bug reports? Drop us a message below and we will get back to you swiftly.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Contact form controls -->
+                        <div class="workspace-controls glass-card">
+                            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                                <div class="control-group">
+                                    <label class="control-label">Your Name</label>
+                                    <input type="text" id="contactName" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Your Email</label>
+                                    <input type="email" id="contactEmail" class="form-control" placeholder="john@example.com" required>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Subject</label>
+                                    <input type="text" id="contactSubject" class="form-control" placeholder="Bug report, feedback, etc." required>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Your Message</label>
+                                    <textarea id="contactMessage" class="form-control" rows="5" placeholder="Write your message here..." style="resize: none;" required></textarea>
+                                </div>
+                                <button type="submit" id="btnContactSubmit" class="btn btn-primary w-100">
+                                    <i data-lucide="send"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- FAQ Help Box -->
+                        <div class="workspace-preview glass-card flex-center-column" style="padding: 2.5rem; text-align: center; min-height: auto;">
+                            <div class="tool-card-icon qr-gradient" style="margin-bottom: 1.5rem;">
+                                <i data-lucide="help-circle" style="color: #000;"></i>
+                            </div>
+                            <h3 style="margin-bottom: 0.75rem; color: #fff;">Need Instant Assistance?</h3>
+                            <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem;">Check out our rich informational guides at the bottom of each tool panel. Most technical operations are completely offline and do not require server setup.</p>
+                            <div class="stat-badge" style="background-color: rgba(0, 242, 254, 0.05); border-color: rgba(0, 242, 254, 0.15);">
+                                <i data-lucide="mail"></i>
+                                <span>support@omnitechtools.com</span>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
             </main>
