@@ -6,25 +6,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide Vector Icons
     lucide.createIcons();
     
-    // Core Navigation & Tab Handling
+    // Core Navigation & Routing Handling
     initNavigation();
     
-    // Core QR Code Engine Setup
-    initQRGenerator();
-
-    // Core Image Compressor Setup
+    // Core Image Compressor Setup (Pre-instantiated, zero heavy libraries)
     initImageCompressor();
 
-    // Core Glassmorphism Studio Setup
+    // Core Glassmorphism Studio Setup (Pre-instantiated, zero heavy libraries)
     initGlassStudio();
-
-    // Core Compound Interest Calculator Setup
-    initFinanceCalc();
 });
 
 /* ==========================================================================
    1. Core Layout & Navigation
    ========================================================================== */
+/* ==========================================================================
+   1. Core Layout, Navigation & HTML5 History Router
+   ========================================================================== */
+const routeMap = {
+    '/': 'dashboard',
+    '/qr-code-generator/': 'qr-generator',
+    '/image-compressor/': 'image-compressor',
+    '/webp-converter/': 'image-compressor',
+    '/css-glassmorphism-generator/': 'css-builder',
+    '/compound-interest-calculator/': 'finance-calc',
+    '/fire-calculator/': 'finance-calc',
+    '/about/': 'about',
+    '/privacy-policy/': 'privacy',
+    '/terms-of-service/': 'terms',
+    '/contact/': 'contact'
+};
+
+const tabToRouteMap = {
+    'dashboard': '/',
+    'qr-generator': '/qr-code-generator/',
+    'image-compressor': '/image-compressor/',
+    'css-builder': '/css-glassmorphism-generator/',
+    'finance-calc': '/compound-interest-calculator/',
+    'about': '/about/',
+    'privacy': '/privacy-policy/',
+    'terms': '/terms-of-service/',
+    'contact': '/contact/'
+};
+
 function initNavigation() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const appSidebar = document.getElementById('appSidebar');
@@ -42,19 +65,27 @@ function initNavigation() {
         });
     }
 
-    // Default Router handling based on URL hash
-    const currentHash = window.location.hash.substring(1);
-    const validTabs = ['dashboard', 'qr-generator', 'image-compressor', 'css-builder', 'finance-calc', 'about', 'privacy', 'contact'];
-    
-    if (currentHash && validTabs.includes(currentHash)) {
-        switchTab(currentHash);
-    } else {
-        switchTab('dashboard');
-    }
+    // Bind browser popstate events (Back/Forward arrows navigation)
+    window.addEventListener('popstate', (e) => {
+        const path = window.location.pathname;
+        const tabId = routeMap[path] || 'dashboard';
+        switchTab(tabId, false); // false = do not pushState again!
+    });
+
+    // Handle initial direct load route
+    const initialPath = window.location.pathname;
+    const initialTab = routeMap[initialPath] || 'dashboard';
+    switchTab(initialTab, false);
 }
 
-// Switching Tab Panels
-function switchTab(tabId) {
+// Global Routing Click Helper for Links & Footer
+function routeTo(event, tabId) {
+    if (event) event.preventDefault();
+    switchTab(tabId, true);
+}
+
+// Switching Tab Panels & Handling Router Actions
+function switchTab(tabId, pushToHistory = true) {
     const panels = document.querySelectorAll('.tab-panel');
     const navItems = document.querySelectorAll('.nav-item');
     
@@ -71,22 +102,141 @@ function switchTab(tabId) {
     const targetPanel = document.getElementById(`panel-${tabId}`);
     const targetNavItem = document.getElementById(`nav-${tabId}`);
     
-    if (targetPanel && targetNavItem) {
+    if (targetPanel) {
         targetPanel.style.display = 'block';
         targetPanel.classList.add('active');
+    }
+    if (targetNavItem) {
         targetNavItem.classList.add('active');
     }
 
-    // Update document title for SEO context
+    // Dynamic SEO Titles & Meta Descriptions
     let prettyTitle = "OmniTools - The Free Premium Creator & Developer Utility Hub";
-    if (tabId === 'qr-generator') prettyTitle = "Custom QR Code Generator | OmniTools";
-    if (tabId === 'image-compressor') prettyTitle = "Offline Image Compressor & WebP Converter | OmniTools";
-    if (tabId === 'css-builder') prettyTitle = "Glassmorphism CSS Studio | OmniTools";
-    if (tabId === 'finance-calc') prettyTitle = "FIRE Compound Interest Calculator | OmniTools";
-    if (tabId === 'about') prettyTitle = "About Us - The OmniTools Mission";
-    if (tabId === 'privacy') prettyTitle = "Privacy Policy & Data Safety | OmniTools";
-    if (tabId === 'contact') prettyTitle = "Contact Us & Support | OmniTools";
+    let metaDesc = "OmniTools is a 100% free, private-by-design creator & developer utility hub. Generate custom styled QR codes, compress images, and calculate growth.";
+    let schemaJson = null;
+
+    if (tabId === 'qr-generator') {
+        prettyTitle = "Free Custom QR Code Generator with Logo & Colors | OmniTools";
+        metaDesc = "Generate highly stylized QR codes with gradient fills, rounded dots, custom eyes, and upload your brand logo for 100% free.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Custom QR Code Generator",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "MultimediaApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+    } else if (tabId === 'image-compressor') {
+        prettyTitle = "Online Image Compressor & WebP Converter (Private & Offline) | OmniTools";
+        metaDesc = "Reduce JPEG and PNG file sizes or convert them directly to WebP offline. Zero server uploads ensures 100% privacy.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Browser Image Compressor",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "DesignApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+        
+        // Custom URL Simulator trigger
+        if (window.location.pathname === '/webp-converter/') {
+            const formatSelect = document.getElementById('compressFormat');
+            if (formatSelect) {
+                formatSelect.value = 'image/webp';
+            }
+        }
+    } else if (tabId === 'css-builder') {
+        prettyTitle = "Advanced CSS Glassmorphism Generator & UI Studio | OmniTools";
+        metaDesc = "Create modern frosted-glass cards and visual gradients with slider controls. Export production-ready CSS3 styles instantly.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Glassmorphism CSS Studio",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "DeveloperApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+    } else if (tabId === 'finance-calc') {
+        prettyTitle = "Compound Interest & FIRE Target Calculator with Charts | OmniTools";
+        metaDesc = "Forecast monthly savings, compound growth yields, and timeline targets. Visual graphs powered client-side.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "FIRE Compound Interest Calculator",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "FinanceApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+
+        // Custom URL Simulator trigger
+        if (window.location.pathname === '/fire-calculator/') {
+            const rateInput = document.getElementById('finRate');
+            if (rateInput) {
+                rateInput.value = '12'; // pre-fill 12% high-yield investment forecast
+            }
+        }
+    } else if (tabId === 'about') {
+        prettyTitle = "About Us - The OmniTools Mission";
+        metaDesc = "Learn about the serverless, private-first utilities mission behind OmniTools. Clean digital tools accessible globally without paywalls.";
+    } else if (tabId === 'privacy') {
+        prettyTitle = "Privacy Policy & Data Security | OmniTools";
+        metaDesc = "Read our official privacy statements. Browser local processing guarantees absolute protection for your private files.";
+    } else if (tabId === 'terms') {
+        prettyTitle = "Terms of Service & Licensing Disclaimers | OmniTools";
+        metaDesc = "Terms of service and licensing rules for utilizing the free tools inside the OmniTools Suite.";
+    } else if (tabId === 'contact') {
+        prettyTitle = "Contact Us & Support Helpdesk | OmniTools";
+        metaDesc = "Get in touch with the OmniTools creators for partnerships, feedback, bug reporting, or support.";
+    }
+
     document.title = prettyTitle;
+
+    // Update Meta Description
+    let metaDescTag = document.querySelector('meta[name="description"]');
+    if (metaDescTag) {
+        metaDescTag.setAttribute('content', metaDesc);
+    }
+
+    // Update OpenGraph tags dynamically
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', prettyTitle);
+    
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', window.location.origin + (tabToRouteMap[tabId] || '/'));
+
+    // Update Canonical tag link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', window.location.origin + (tabToRouteMap[tabId] || '/'));
+
+    // Inject Search Engine structured data schemas
+    injectSchema(schemaJson);
+
+    // Push State to browser history API
+    if (pushToHistory) {
+        const targetRoute = tabToRouteMap[tabId] || '/';
+        history.pushState({ tabId: tabId }, prettyTitle, targetRoute);
+    }
 
     // Smooth scroll content area viewport to top on tab switch
     const viewport = document.getElementById('contentViewport');
@@ -98,6 +248,22 @@ function switchTab(tabId) {
     const appSidebar = document.getElementById('appSidebar');
     if (appSidebar) {
         appSidebar.classList.remove('mobile-active');
+    }
+
+    // On-Demand Lazy Loading for Heavy Libraries
+    if (tabId === 'qr-generator') {
+        loadScript("https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js", () => {
+            if (!qrCodeStyling) {
+                initQRGenerator();
+            }
+        });
+    }
+    if (tabId === 'finance-calc') {
+        loadScript("https://cdn.jsdelivr.net/npm/chart.js", () => {
+            if (!financeChartInstance) {
+                initFinanceCalc();
+            }
+        });
     }
 }
 
@@ -759,4 +925,42 @@ function handleContactSubmit(event) {
         // Trigger success feedback popup
         showToast(`Thank you, ${name}! Your message has been sent successfully. We will reply to ${email} within 24 hours.`, "success");
     }, 1500);
+}
+
+/* ==========================================================================
+   7. Helper Utilities for Lazy Loading & SEO Schema Markups
+   ========================================================================== */
+const loadedScripts = {};
+
+// Performance dynamic script injector
+function loadScript(url, callback) {
+    if (loadedScripts[url]) {
+        if (callback) callback();
+        return;
+    }
+    
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    script.onload = () => {
+        loadedScripts[url] = true;
+        if (callback) callback();
+    };
+    document.body.appendChild(script);
+}
+
+// Google JSON-LD Structured Data injector
+function injectSchema(schemaJson) {
+    const oldSchema = document.getElementById('omnitools-jsonld');
+    if (oldSchema) {
+        oldSchema.remove();
+    }
+    
+    if (!schemaJson) return;
+    
+    const script = document.createElement('script');
+    script.id = 'omnitools-jsonld';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schemaJson);
+    document.head.appendChild(script);
 }

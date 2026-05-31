@@ -29,12 +29,8 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Third Party CDN Libraries (100% Free & Client-Side) -->
-    <!-- Lucide Icons for clean UI vectors -->
+    <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Chart.js for gorgeous financial visualization -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- QR Code Styling library for rounded dots, gradients, and custom logos -->
-    <script src="https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js"></script>
 </head>
 <body>
 
@@ -72,20 +68,6 @@
                 <a href="#finance-calc" class="nav-item" id="nav-finance-calc" onclick="switchTab('finance-calc')">
                     <i data-lucide="trending-up"></i>
                     <span>FIRE Interest Calc</span>
-                </a>
-                
-                <div class="nav-label">Legal & Support</div>
-                <a href="#about" class="nav-item" id="nav-about" onclick="switchTab('about')">
-                    <i data-lucide="info"></i>
-                    <span>About Us</span>
-                </a>
-                <a href="#privacy" class="nav-item" id="nav-privacy" onclick="switchTab('privacy')">
-                    <i data-lucide="shield"></i>
-                    <span>Privacy Policy</span>
-                </a>
-                <a href="#contact" class="nav-item" id="nav-contact" onclick="switchTab('contact')">
-                    <i data-lucide="mail"></i>
-                    <span>Contact Us</span>
                 </a>
             </nav>
             
@@ -695,6 +677,30 @@
                     </div>
                 </section>
 
+                <!-- TAB 9: TERMS & CONDITIONS -->
+                <section class="tab-panel" id="panel-terms">
+                    <div class="panel-header">
+                        <h2>Terms of Service & Disclaimers</h2>
+                        <p>Usage policies, liability releases, and licensing disclaimers for OmniTools.</p>
+                    </div>
+
+                    <div class="glass-card" style="line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+                        <h3 style="color: #fff; margin-bottom: 1rem;">1. Acceptance of Terms</h3>
+                        <p style="margin-bottom: 1.5rem;">By accessing and using **OmniTools** (https://www.omnitechtools.com), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not utilize our tools. This platform is provided 100% free of charge for global personal and commercial software development or design purposes.</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">2. "No Upload" Processing Policy & Software Usage</h3>
+                        <p style="margin-bottom: 1.5rem;">All data processing (including image compression, custom QR vector rendering, CSS studio previews, and interest math calculations) occurs strictly on your local browser. OmniTools does not operate remote processing servers for user files. However, you are solely responsible for ensuring the correctness, security, and compliance of the generated content (e.g., verifying that generated QR codes point to valid, safe targets).</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">3. Disclaimer of Warranties</h3>
+                        <p style="margin-bottom: 1.5rem;">OmniTools is provided "as is" and "as available" without any warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not guarantee that the calculators or converters will be 100% accurate or error-free at all times.</p>
+
+                        <h3 style="color: #fff; margin-bottom: 1rem;">4. Limitation of Liability</h3>
+                        <p style="margin-bottom: 1.5rem;">In no event shall OmniTools, its creators, or partners be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of use, data, or profits; or business interruption) arising in any way out of the use of this free software.</p>
+
+                        <p style="font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 2rem;">*Last updated: May 31, 2026. Free open-source developer licensing applies.*</p>
+                    </div>
+                </section>
+
             </main>
 
             <!-- Sticky Toast Notification popup -->
@@ -703,9 +709,42 @@
                 <span id="toastText">Action successful!</span>
             </div>
 
-            <!-- Footer -->
-            <footer class="app-footer">
-                <p>&copy; 2026 OmniTools Suite. Built completely client-side for maximum performance & absolute privacy.</p>
+            <!-- Premium Multi-Column Footer -->
+            <footer class="app-footer-premium glass-card">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="brand-logo" style="margin-bottom: 1rem;">
+                            <div class="logo-icon"><i data-lucide="zap"></i></div>
+                            <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; background: linear-gradient(to right, #ffffff, #8b92b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OmniTools</span>
+                        </div>
+                        <p class="footer-desc">Premium, 100% free, private-by-design creator & developer utility hub. All files remain strictly in your browser.</p>
+                        <div class="footer-privacy-badge">
+                            <i data-lucide="shield-check"></i>
+                            <span>100% Serverless & Secure</span>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Quick Utilities</h4>
+                        <ul>
+                            <li><a href="/qr-code-generator/" onclick="routeTo(event, 'qr-generator')">Custom QR Generator</a></li>
+                            <li><a href="/image-compressor/" onclick="routeTo(event, 'image-compressor')">Image Compressor</a></li>
+                            <li><a href="/css-glassmorphism-generator/" onclick="routeTo(event, 'css-builder')">CSS Studio</a></li>
+                            <li><a href="/compound-interest-calculator/" onclick="routeTo(event, 'finance-calc')">FIRE Interest Calc</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Legal & Support</h4>
+                        <ul>
+                            <li><a href="/about/" onclick="routeTo(event, 'about')">About Us</a></li>
+                            <li><a href="/privacy-policy/" onclick="routeTo(event, 'privacy')">Privacy Policy</a></li>
+                            <li><a href="/terms-of-service/" onclick="routeTo(event, 'terms')">Terms & Conditions</a></li>
+                            <li><a href="/contact/" onclick="routeTo(event, 'contact')">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 OmniTools Suite. Built completely client-side for maximum performance & absolute privacy.</p>
+                </div>
             </footer>
 
         </div>
