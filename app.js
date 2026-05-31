@@ -238,11 +238,14 @@ function switchTab(tabId, pushToHistory = true) {
         history.pushState({ tabId: tabId }, prettyTitle, targetRoute);
     }
 
-    // Smooth scroll content area viewport to top on tab switch
-    const viewport = document.getElementById('contentViewport');
-    if (viewport) {
-        viewport.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Smooth scroll content area viewport and window to top on tab switch
+    setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const viewport = document.getElementById('contentViewport');
+        if (viewport) {
+            viewport.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, 50);
     
     // Close mobile menu if active
     const appSidebar = document.getElementById('appSidebar');
