@@ -25,8 +25,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="/style.css">
+    <!-- Main Style Sheet (Smart Dynamic Loader for Local & Production) -->
+    <script>
+        (function() {
+            var prefix = (window.location.protocol === 'file:') ? '' : '/';
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = prefix + 'style.css';
+            document.head.appendChild(link);
+        })();
+    </script>
     
     <!-- Third Party CDN Libraries (100% Free & Client-Side) -->
     <!-- Lucide Icons for clean UI vectors (Critical) -->
@@ -68,6 +76,22 @@
                 <a href="#finance-calc" class="nav-item" id="nav-finance-calc" onclick="switchTab('finance-calc')">
                     <i data-lucide="trending-up"></i>
                     <span>FIRE Interest Calc</span>
+                </a>
+                <a href="#json-formatter" class="nav-item" id="nav-json-formatter" onclick="switchTab('json-formatter')">
+                    <i data-lucide="braces"></i>
+                    <span>JSON Formatter</span>
+                </a>
+                <a href="#svg-blob" class="nav-item" id="nav-svg-blob" onclick="switchTab('svg-blob')">
+                    <i data-lucide="bezier-curve"></i>
+                    <span>SVG Blob Gen</span>
+                </a>
+                <a href="#color-palette" class="nav-item" id="nav-color-palette" onclick="switchTab('color-palette')">
+                    <i data-lucide="palette"></i>
+                    <span>Color Palette</span>
+                </a>
+                <a href="#password-generator" class="nav-item" id="nav-password-generator" onclick="switchTab('password-generator')">
+                    <i data-lucide="key-round"></i>
+                    <span>Password Gen</span>
                 </a>
             </nav>
             
@@ -157,6 +181,42 @@
                             </div>
                             <h3>Compound Interest & FIRE Calc</h3>
                             <p>Forecast your savings, compound growth, and outline your financial independence targets with dynamic charts.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+
+                        <div class="tool-card animate-card" onclick="switchTab('json-formatter')">
+                            <div class="tool-card-icon qr-gradient" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                                <i data-lucide="braces" style="color: #fff;"></i>
+                            </div>
+                            <h3>JSON Formatter & Validator</h3>
+                            <p>Clean, syntax-highlight, compress, and validate JSON strings offline with interactive nodes tree parsing.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+
+                        <div class="tool-card animate-card" onclick="switchTab('svg-blob')">
+                            <div class="tool-card-icon css-gradient" style="background: linear-gradient(135deg, #8a2be2, #4a00e0);">
+                                <i data-lucide="bezier-curve" style="color: #fff;"></i>
+                            </div>
+                            <h3>SVG Blob & Wave Generator</h3>
+                            <p>Generate highly custom fluid organic shapes and CSS vector gradients. Export SVG codes and assets instantly.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+
+                        <div class="tool-card animate-card" onclick="switchTab('color-palette')">
+                            <div class="tool-card-icon finance-gradient" style="background: linear-gradient(135deg, #e65c00, #f9d423);">
+                                <i data-lucide="palette" style="color: #fff;"></i>
+                            </div>
+                            <h3>Color Palette & Contrast Checker</h3>
+                            <p>Create visual hex schemes harmonies and analyze text color contrast ratios for WCAG AA/AAA compliance indicators.</p>
+                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
+                        </div>
+
+                        <div class="tool-card animate-card" onclick="switchTab('password-generator')">
+                            <div class="tool-card-icon compress-gradient" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                                <i data-lucide="key-round" style="color: #fff;"></i>
+                            </div>
+                            <h3>Password Gen & Strength Meter</h3>
+                            <p>Create unbreakable passwords offline using Web Crypto API. Tweak lengths, analyze entropy, and track crack time.</p>
                             <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
                         </div>
                     </div>
@@ -698,7 +758,371 @@
                         <p style="margin-bottom: 1.5rem;">In no event shall OmniTools, its creators, or partners be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of use, data, or profits; or business interruption) arising in any way out of the use of this free software.</p>
 
                         <p style="font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 2rem;">*Last updated: May 31, 2026. Free open-source developer licensing applies.*</p>
+                        <p style="font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 2rem;">*Last updated: May 31, 2026. Free open-source developer licensing applies.*</p>
                     </div>
+                </section>
+
+                <!-- TAB 10: JSON FORMATTER & VALIDATOR -->
+                <section class="tab-panel" id="panel-json-formatter">
+                    <div class="panel-header">
+                        <h2>JSON Formatter, Beautifier & Validator</h2>
+                        <p>Clean, format, minify, and validate your JSON strings. Everything is processed 100% offline in your browser.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls + Input -->
+                        <div class="workspace-controls glass-card d-flex flex-grow-1" style="flex-direction: column; min-height: 480px;">
+                            <div class="control-group d-flex justify-between align-center" style="margin-bottom: 1rem;">
+                                <label class="control-label" style="margin: 0;">Input Raw JSON String</label>
+                                <button class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="loadSampleJSON()">
+                                    <i data-lucide="file-code" style="width: 14px; height: 14px;"></i> Load Sample
+                                </button>
+                            </div>
+                            <div style="position: relative; flex-grow: 1; display: flex; flex-direction: column;">
+                                <textarea id="jsonInput" class="form-control" style="font-family: monospace; font-size: 0.85rem; resize: none; flex-grow: 1; height: 320px; background-color: rgba(0, 0, 0, 0.3);" placeholder="Paste your raw JSON here..."></textarea>
+                            </div>
+                            <div class="preview-actions mt-3 w-100" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.75rem;">
+                                <button class="btn btn-primary" onclick="processJSON('format')">
+                                    <i data-lucide="sparkles"></i> Beautify
+                                </button>
+                                <button class="btn btn-outline" onclick="processJSON('minify')">
+                                    <i data-lucide="minimize-2"></i> Minify
+                                </button>
+                                <button class="btn btn-outline" onclick="clearJSON()">
+                                    <i data-lucide="trash-2"></i> Clear
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Result & Tree Viewer -->
+                        <div class="workspace-preview glass-card flex-center-column" style="padding: 1.5rem; justify-content: flex-start; align-items: stretch; min-height: 480px;">
+                            <div class="control-tabs" style="margin-bottom: 1rem;">
+                                <button class="control-tab-btn active" onclick="switchJSONSubTab('formatted', this)">Beautified</button>
+                                <button class="control-tab-btn" onclick="switchJSONSubTab('tree', this)">Node Tree</button>
+                            </div>
+
+                            <!-- Error Alert Block -->
+                            <div id="jsonErrorAlert" class="hidden" style="background-color: rgba(255, 23, 68, 0.08); border: 1px solid var(--danger); padding: 1rem; border-radius: var(--radius-sm); color: #ff5252; font-size: 0.85rem; margin-bottom: 1rem; font-family: monospace; display: flex; align-items: flex-start; gap: 0.75rem;">
+                                <i data-lucide="alert-triangle" style="flex-shrink: 0; margin-top: 2px;"></i>
+                                <span id="jsonErrorText">Invalid JSON String</span>
+                            </div>
+
+                            <!-- Formatted Output Text block -->
+                            <div id="subpanel-json-formatted" class="control-subpanel active" style="flex-grow: 1; display: flex; flex-direction: column; position: relative;">
+                                <div class="code-export-box w-100" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <pre style="margin: 0; flex-grow: 1; overflow-y: auto; background-color: rgba(0, 0, 0, 0.4); max-height: 330px;"><code id="jsonOutput" class="language-json" style="color: #a6c1ee; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap;">// Formatted JSON output will render here...</code></pre>
+                                    <button class="copy-code-btn" id="btnCopyJSON" style="top: 8px; right: 8px;" onclick="copyJSONToClipboard()">
+                                        <i data-lucide="copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Tree Viewer Nodes block -->
+                            <div id="subpanel-json-tree" class="control-subpanel" style="flex-grow: 1; overflow-y: auto; max-height: 330px; background-color: rgba(0, 0, 0, 0.4); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <div id="jsonTreeViewer" style="font-family: monospace; font-size: 0.85rem; color: #a6c1ee;">
+                                    <span style="color: var(--text-muted);">// Click 'Beautify' to inspect interactive nodes tree...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO roman Urdu informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Frequently Asked Questions & Guide</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: JSON Validator aur Formatter kya kaam karta hai?</h4>
+                                <p>JSON (JavaScript Object Notation) data exchange ke liye sabse zyada use hone wala format hai. Hamara tool invalid commas, unmatched brackets ya missing quotes ko instantly detect kar ke accurate line-error highlight karta hai aur nested nodes ko human-readable tree viewer mein convert karta hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Kya mera data secure hai?</h4>
+                                <p>Ji haan! Hamari poori website serverless hai. Aap jo bhi sensitive API payloads ya config files validate karte hain, wo 100% offline aapke browser par hi process hoti hain. Koi server upload na hone ki wajah se aapka data complete private rehta hai.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 11: SVG BLOB GENERATOR -->
+                <section class="tab-panel" id="panel-svg-blob">
+                    <div class="panel-header">
+                        <h2>Dynamic SVG Blob & Wave Generator</h2>
+                        <p>Generate highly stylized, unique organic SVG blobs and gradients for your website graphics and card overlays.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls panel -->
+                        <div class="workspace-controls glass-card">
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Complexity (Growth)</span>
+                                    <span id="blobComplexityVal">6</span>
+                                </label>
+                                <input type="range" id="blobComplexity" min="3" max="12" step="1" value="6" oninput="generateSVGBlob()">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Organic Edge Roundness</span>
+                                    <span id="blobRoundnessVal">80%</span>
+                                </label>
+                                <input type="range" id="blobRoundness" min="30" max="100" step="5" value="80" oninput="generateSVGBlob()">
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Gradient Fill Tone</label>
+                                <div class="grid-2" style="gap: 1rem;">
+                                    <div>
+                                        <label class="small-label">Start Color</label>
+                                        <div class="color-picker-wrapper">
+                                            <input type="color" id="blobGradStart" value="#00f2fe" onchange="generateSVGBlob()">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="small-label">End Color</label>
+                                        <div class="color-picker-wrapper">
+                                            <input type="color" id="blobGradEnd" value="#4facfe" onchange="generateSVGBlob()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group" style="margin-top: 2rem;">
+                                <button class="btn btn-outline w-100" id="btnBlobRandomize" onclick="randomizeBlobPreset()">
+                                    <i data-lucide="shuffle"></i> Generate Random Shape
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Preview & Code Export panel -->
+                        <div class="workspace-preview glass-card flex-center-column" id="blobPreviewContainer" style="padding: 1.5rem;">
+                            <!-- Visual Blob Rendering Container -->
+                            <div class="blob-render-box flex-center" style="width: 250px; height: 250px; position: relative;">
+                                <div id="svgBlobPreview" class="w-100 h-100 flex-center">
+                                    <!-- Dynamic SVG injected here -->
+                                </div>
+                            </div>
+
+                            <!-- Code Block Export -->
+                            <div class="code-export-box w-100 mt-3">
+                                <pre style="margin: 0; max-height: 100px; background-color: rgba(0, 0, 0, 0.4);"><code id="svgBlobCode" style="font-family: monospace; font-size: 0.75rem; color: #a6c1ee; white-space: pre-wrap;">// Generating vector path...</code></pre>
+                                <button class="copy-code-btn" style="top: 8px; right: 8px; padding: 0.3rem 0.6rem; font-size: 0.7rem;" onclick="copySVGCode()">
+                                    <i data-lucide="copy"></i> Copy
+                                </button>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="preview-actions mt-3 w-100 flex-center" style="gap: 1rem;">
+                                <button class="btn btn-primary w-100" onclick="downloadSVGBlob()">
+                                    <i data-lucide="download"></i> Download SVG File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO roman Urdu informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Guides on SVG Blobs & Modern UI Design</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: SVG Blobs kya hain aur ye design mein kahan use hote hain?</h4>
+                                <p>SVG blobs customizable, smooth, organic shapes hote hain jo web layouts ko high-end visual depth aur futuristic look dete hain. Ye website headers, card background structures ya illustration background assets ke roop mein behtareen lagte hain.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: SVG files raster formats ke muqable kyun behtar hain?</h4>
+                                <p>SVG (Scalable Vector Graphics) ek vector XML format hai, iska matlab hai ke iska resolution zero pixelation ke sath unlimited zoom/scale par bilkul crisp aur sharp rehta hai, aur file size PNG ke muqable 90% chota hota hai.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 12: COLOR PALETTE GENERATOR & WCAG CHECKER -->
+                <section class="tab-panel" id="panel-color-palette">
+                    <div class="panel-header">
+                        <h2>Advanced Color Palette & WCAG Contrast Checker</h2>
+                        <p>Generate highly aesthetic color schemes and instantly test text contrast ratios for WCAG AA/AAA compliance.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Palette Generator & Grids -->
+                        <div class="workspace-controls glass-card flex-center-column" style="gap: 1.5rem; justify-content: flex-start; align-items: stretch; min-height: 480px;">
+                            <div class="control-group d-flex justify-between align-center" style="margin: 0;">
+                                <label class="control-label" style="margin: 0;">Harmonized Color Schemes</label>
+                                <select id="paletteHarmony" class="form-control" style="width: auto; padding: 0.4rem 1rem; font-size: 0.85rem;" onchange="generateColorsPalette()">
+                                    <option value="analogous" selected>Analogous (Neighbours)</option>
+                                    <option value="monochromatic">Monochromatic (Shades)</option>
+                                    <option value="complementary">Complementary (Contrast)</option>
+                                    <option value="triadic">Triadic (Vibrant)</option>
+                                </select>
+                            </div>
+
+                            <!-- Color Blocks Output Grid -->
+                            <div id="paletteColorGrid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; min-height: 220px; flex-grow: 1;">
+                                <!-- 5 dynamic color panels rendered here -->
+                            </div>
+
+                            <button class="btn btn-outline w-100" onclick="generateColorsPalette()">
+                                <i data-lucide="shuffle"></i> Generate New Palette (or press Spacebar)
+                            </button>
+                        </div>
+
+                        <!-- Contrast Checker workspace -->
+                        <div class="workspace-preview glass-card flex-center-column" style="padding: 1.5rem; justify-content: flex-start; align-items: stretch; min-height: 480px;">
+                            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="shield-check" style="color: var(--primary);"></i> Accessibility Contrast Checker
+                            </h3>
+
+                            <div class="grid-2" style="gap: 1rem; margin-bottom: 1.5rem;">
+                                <div>
+                                    <label class="small-label">Background HEX</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="contrastBg" value="#0b0d19" onchange="runContrastAnalysis()">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="small-label">Text HEX</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="contrastText" value="#00f2fe" onchange="runContrastAnalysis()">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accessibility Preview card -->
+                            <div id="contrastPreviewCard" style="background-color: #0b0d19; color: #00f2fe; padding: 1.5rem; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color); margin-bottom: 1.5rem; transition: var(--transition);">
+                                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-family: 'Outfit'; transition: var(--transition);">Visual Preview Text</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.85; transition: var(--transition);">Can you read this text easily against the background?</p>
+                            </div>
+
+                            <!-- Contrast Math results -->
+                            <div id="contrastResultCard" class="finance-stat-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                                <div class="stat-box" style="padding: 0.5rem;">
+                                    <span style="font-size: 0.7rem;">Ratio</span>
+                                    <strong id="contrastRatioVal" style="font-size: 1.1rem; color: var(--primary);">4.5:1</strong>
+                                </div>
+                                <div class="stat-box" style="padding: 0.5rem;">
+                                    <span style="font-size: 0.7rem;">WCAG AA</span>
+                                    <strong id="contrastAARate" class="text-success" style="font-size: 0.95rem;">PASS</strong>
+                                </div>
+                                <div class="stat-box" style="padding: 0.5rem;">
+                                    <span style="font-size: 0.7rem;">WCAG AAA</span>
+                                    <strong id="contrastAAARate" class="text-success" style="font-size: 0.95rem;">PASS</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO roman Urdu informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Understanding WCAG Contrast Checker & Harmonized Colors</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: WCAG (Web Content Accessibility Guidelines) kya hain?</h4>
+                                <p>WCAG global standards hain jo sabhi visitors (khaskar visual impairments wale users) ke liye layouts ko readable aur accessible banate hain. E.g., normal text ke liye contrast ratio 4.5:1 (AA level) aur highly readable level ke liye 7:1 (AAA level) hona zaroori hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Color Harmonies select karne ka kya faida hai?</h4>
+                                <p>Hamara generator mathematical equations use kar ke color palettes choose karta hai. Monochromatic, Analogous aur Complementary harmonies apply karne se layout design visually uniform aur aesthetically consistent lagta hai.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- TAB 13: PASSWORD GENERATOR & STRENGTH METER -->
+                <section class="tab-panel" id="panel-password-generator">
+                    <div class="panel-header">
+                        <h2>Cryptographically Secure Password Generator</h2>
+                        <p>Generate secure random passwords. Check entropy strength, time-to-crack metrics, and preserve data privacy locally.</p>
+                    </div>
+
+                    <div class="tool-workspace grid-2">
+                        <!-- Controls panel -->
+                        <div class="workspace-controls glass-card">
+                            <!-- Password text block output screen -->
+                            <div class="control-group">
+                                <label class="control-label">Generated Password</label>
+                                <div class="color-picker-wrapper" style="position: relative; width: 100%;">
+                                    <input type="text" id="passOutput" class="form-control" style="font-family: monospace; font-size: 1.1rem; padding-right: 50px; text-shadow: 0 0 1px var(--primary-glow); letter-spacing: 0.05em;" readonly>
+                                    <button class="copy-code-btn" style="position: absolute; right: 4px; top: 4px; height: 36px; padding: 0 0.8rem; background-color: transparent; border: none;" onclick="copyPasswordToClipboard()">
+                                        <i data-lucide="copy" style="color: var(--primary);"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label d-flex justify-between">
+                                    <span>Password Length (characters)</span>
+                                    <span id="passLengthVal">16</span>
+                                </label>
+                                <input type="range" id="passLength" min="6" max="64" step="1" value="16" oninput="generateSecurePassword()">
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Complexity Settings</label>
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+                                    <div class="d-flex align-center" style="gap: 0.5rem;">
+                                        <input type="checkbox" id="passUpper" checked onchange="generateSecurePassword()">
+                                        <label for="passUpper" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">Uppercase (A-Z)</label>
+                                    </div>
+                                    <div class="d-flex align-center" style="gap: 0.5rem;">
+                                        <input type="checkbox" id="passLower" checked onchange="generateSecurePassword()">
+                                        <label for="passLower" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">Lowercase (a-z)</label>
+                                    </div>
+                                    <div class="d-flex align-center" style="gap: 0.5rem;">
+                                        <input type="checkbox" id="passNumbers" checked onchange="generateSecurePassword()">
+                                        <label for="passNumbers" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">Numbers (0-9)</label>
+                                    </div>
+                                    <div class="d-flex align-center" style="gap: 0.5rem;">
+                                        <input type="checkbox" id="passSymbols" checked onchange="generateSecurePassword()">
+                                        <label for="passSymbols" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">Symbols (!@#$)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview strength metrics -->
+                        <div class="workspace-preview glass-card flex-center-column" style="padding: 1.5rem; justify-content: flex-start; align-items: stretch; min-height: auto;">
+                            <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="shield" style="color: var(--primary);"></i> Security Analytics
+                            </h3>
+
+                            <!-- Strengths indicators bar -->
+                            <div class="control-group" style="margin-bottom: 1.5rem;">
+                                <div class="d-flex justify-between" style="font-size: 0.85rem; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--text-muted);">Evaluation</span>
+                                    <strong id="passStrengthText" style="color: var(--success);">EXTREMELY SECURE</strong>
+                                </div>
+                                <div style="width: 100%; height: 8px; background-color: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+                                    <div id="passStrengthBar" style="width: 100%; height: 100%; background: linear-gradient(95deg, var(--success), var(--primary)); border-radius: 4px; transition: var(--transition);"></div>
+                                </div>
+                            </div>
+
+                            <!-- Cryptographic Stats indicators -->
+                            <div class="finance-stat-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+                                <div class="stat-box">
+                                    <span>Entropy Level</span>
+                                    <strong id="passEntropyVal" style="color: var(--primary);">96 Bits</strong>
+                                </div>
+                                <div class="stat-box text-success">
+                                    <span>Time to Crack (Estimated)</span>
+                                    <strong id="passTimeCrackVal" style="color: var(--success); font-size: 0.95rem;">2.5 Trillion Years</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO roman Urdu informational Guide -->
+                    <article class="seo-guide-section glass-card">
+                        <h3>Guide on Cryptographically Secure Passwords</h3>
+                        <div class="guide-grid">
+                            <div class="faq-item">
+                                <h4>Q: Cryptographically Secure Random values kya hote hain?</h4>
+                                <p>Standard `Math.random()` function predictable pseudo-values generate karta hai jise brute-force bot easily crack kar sakte hain. Hamara tool standard browser **Web Crypto API** (`crypto.getRandomValues`) use karta hai jo unpredictable hardware-noise cryptography use karta hai.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Q: Password entropy bits kya represent karte hain?</h4>
+                                <p>Password entropy bits password ki complexity aur unpredictability ko measure karte hain. 80 bits se zyada ka password mathematical brute-force calculations ke liye modern supercomputers ke zariye decode karna bilkul namumkin (unbreakable) hota hai.</p>
+                            </div>
+                        </div>
+                    </article>
                 </section>
 
             </main>
@@ -733,6 +1157,15 @@
                         </ul>
                     </div>
                     <div class="footer-links-col">
+                        <h4>More Utilities</h4>
+                        <ul>
+                            <li><a href="/json-formatter/" onclick="routeTo(event, 'json-formatter')">JSON Formatter</a></li>
+                            <li><a href="/svg-blob-generator/" onclick="routeTo(event, 'svg-blob')">SVG Blob Gen</a></li>
+                            <li><a href="/color-palette-generator/" onclick="routeTo(event, 'color-palette')">Color Palette</a></li>
+                            <li><a href="/password-generator/" onclick="routeTo(event, 'password-generator')">Password Gen</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
                         <h4>Legal & Support</h4>
                         <ul>
                             <li><a href="/about/" onclick="routeTo(event, 'about')">About Us</a></li>
@@ -750,7 +1183,14 @@
         </div>
     </div>
 
-    <!-- Core App Engine script -->
-    <script src="/app.js"></script>
+    <!-- Core App Engine script (Smart Dynamic Loader for Local & Production) -->
+    <script>
+        (function() {
+            var prefix = (window.location.protocol === 'file:') ? '' : '/';
+            var script = document.createElement('script');
+            script.src = prefix + 'app.js';
+            document.body.appendChild(script);
+        })();
+    </script>
 </body>
 </html>
