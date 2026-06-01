@@ -1516,3 +1516,141 @@ input[type="range"]#blobRoundness::-webkit-slider-thumb {
     color: #4facfe;
     filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.9));
 }
+
+/* ==========================================================================
+   16. Dashboard Categorization & Mobile Chart Optimization
+   ========================================================================== */
+
+/* Dashboard Category Section Styling */
+.dashboard-category-section {
+    margin-bottom: 3.5rem;
+}
+
+.dashboard-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.6rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+.dashboard-category-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.category-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.category-icon.text-design {
+    color: #00f2fe;
+}
+
+.category-icon.text-dev {
+    color: #f5af19;
+}
+
+.category-icon.text-finance {
+    color: #00e676;
+}
+
+.category-count {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+/* Related Tools Component styles */
+.related-tools-box {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.related-tools-box h4 {
+    color: #ffffff;
+    font-family: 'Outfit';
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.related-tools-box h4 i, .related-tools-box h4 svg {
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+}
+
+.related-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.related-tool-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.related-tool-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.related-tool-link i, .related-tool-link svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+}
+
+/* Mobile Chart Overflow Container */
+.chart-canvas-holder {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-sm);
+}
+
+.chart-canvas-holder canvas {
+    min-width: 500px;
+    width: 100% !important;
+}
+
+@media (min-width: 768px) {
+    .chart-canvas-holder canvas {
+        min-width: 100%;
+    }
+}

@@ -153,13 +153,13 @@ function switchTab(tabId, pushToHistory = true) {
     }
 
     // Dynamic SEO Titles & Meta Descriptions
-    let prettyTitle = "OmniTools - The Free Premium Creator & Developer Utility Hub";
-    let metaDesc = "OmniTools is a 100% free, private-by-design creator & developer utility hub. Generate custom styled QR codes, compress images, and calculate growth.";
+    let prettyTitle = "OmniTools - Premium Free Creator & Developer Utility Hub";
+    let metaDesc = "OmniTools is a premium, 100% free, private-by-design utility hub. Generate custom QR codes, compress images, generate organic blobs, and calculate growth offline.";
     let schemaJson = null;
 
     if (tabId === 'qr-generator') {
-        prettyTitle = "Free Custom QR Code Generator with Logo & Colors | OmniTools";
-        metaDesc = "Generate highly stylized QR codes with gradient fills, rounded dots, custom eyes, and upload your brand logo for 100% free.";
+        prettyTitle = "Custom QR Code Generator with Logo & Gradients | OmniTools";
+        metaDesc = "Generate highly styled custom QR codes with gradient colors, rounded frames, and custom logos offline. Zero server uploads ensures 100% data privacy.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -174,7 +174,7 @@ function switchTab(tabId, pushToHistory = true) {
         };
     } else if (tabId === 'image-compressor') {
         prettyTitle = "Online Image Compressor & WebP Converter (Private & Offline) | OmniTools";
-        metaDesc = "Reduce JPEG and PNG file sizes or convert them directly to WebP offline. Zero server uploads ensures 100% privacy.";
+        metaDesc = "Reduce JPEG, PNG, and WebP image file sizes offline in your browser. Complete offline client-side compression guarantees absolute privacy with no uploads.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -197,7 +197,7 @@ function switchTab(tabId, pushToHistory = true) {
         }
     } else if (tabId === 'css-builder') {
         prettyTitle = "Advanced CSS Glassmorphism Generator & UI Studio | OmniTools";
-        metaDesc = "Create modern frosted-glass cards and visual gradients with slider controls. Export production-ready CSS3 styles instantly.";
+        metaDesc = "Design beautiful glassmorphism interfaces offline. Adjust sliders for transparency, blur, and borders, and copy production-ready CSS styles instantly.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -212,7 +212,7 @@ function switchTab(tabId, pushToHistory = true) {
         };
     } else if (tabId === 'finance-calc') {
         prettyTitle = "Compound Interest & FIRE Target Calculator with Charts | OmniTools";
-        metaDesc = "Forecast monthly savings, compound growth yields, and timeline targets. Visual graphs powered client-side.";
+        metaDesc = "Calculate compound interest, savings targets, and financial independence timelines with interactive charts. Fully private client-side calculator.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -234,20 +234,20 @@ function switchTab(tabId, pushToHistory = true) {
             }
         }
     } else if (tabId === 'about') {
-        prettyTitle = "About Us - The OmniTools Mission";
+        prettyTitle = "About Us - Premium Free Creator & Developer Utility Hub | OmniTools";
         metaDesc = "Learn about the serverless, private-first utilities mission behind OmniTools. Clean digital tools accessible globally without paywalls.";
     } else if (tabId === 'privacy') {
         prettyTitle = "Privacy Policy & Data Security | OmniTools";
-        metaDesc = "Read our official privacy statements. Browser local processing guarantees absolute protection for your private files.";
+        metaDesc = "Read our official privacy statement. Our browser-based local processing guarantees absolute protection for your private files and data.";
     } else if (tabId === 'terms') {
         prettyTitle = "Terms of Service & Licensing Disclaimers | OmniTools";
-        metaDesc = "Terms of service and licensing rules for utilizing the free tools inside the OmniTools Suite.";
+        metaDesc = "Read our terms of service and licensing guidelines for using the free web utilities inside the OmniTools suite safely.";
     } else if (tabId === 'contact') {
         prettyTitle = "Contact Us & Support Helpdesk | OmniTools";
-        metaDesc = "Get in touch with the OmniTools creators for partnerships, feedback, bug reporting, or support.";
+        metaDesc = "Get in touch with the OmniTools creators for partnership opportunities, feedback, bug reporting, or developer utility support.";
     } else if (tabId === 'json-formatter') {
-        prettyTitle = "Online JSON Formatter, Beautifier & Validator | OmniTools";
-        metaDesc = "Format, minify, and validate JSON strings offline. Spot syntax issues instantly with glowing error indicators and folding tree viewers.";
+        prettyTitle = "JSON Formatter, Beautifier & Validator (Offline) | OmniTools";
+        metaDesc = "Clean, format, and validate JSON data offline. Use our interactive tree viewer to parse complex JSON structures securely in your browser.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -261,8 +261,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'svg-blob') {
-        prettyTitle = "Dynamic SVG Blob & Gradient Wave Generator | OmniTools";
-        metaDesc = "Generate custom organic SVG vector shapes and wave overlays with colors and gradients. Export SVG codes and assets for web design.";
+        prettyTitle = "SVG Blob & Wave Generator - Custom Organic Shapes | OmniTools";
+        metaDesc = "Generate organic SVG blobs and custom gradient waves for web layouts. Customize complexity, copy clean inline code, or download SVGs 100% offline.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -276,8 +276,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'color-palette') {
-        prettyTitle = "Advanced Color Palette Generator & Contrast Checker | OmniTools";
-        metaDesc = "Generate professional color schemes harmonies and analyze text background contrast ratios for WCAG AA/AAA compliance ratings.";
+        prettyTitle = "Color Palette Generator & WCAG Contrast Checker | OmniTools";
+        metaDesc = "Create stunning color schemes and check WCAG color contrast ratios offline. Build accessibility-compliant palettes for custom digital designs securely.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -291,8 +291,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'password-generator') {
-        prettyTitle = "Secure Offline Password Generator & Strength Meter | OmniTools";
-        metaDesc = "Generate cryptographically secure passwords offline using Web Crypto API. Tweak length complexity, calculate entropy, and check brute force crack times.";
+        prettyTitle = "Secure Password Generator & Strength Meter (Web Crypto) | OmniTools";
+        metaDesc = "Generate cryptographically secure passwords offline using Web Crypto. Analyze strength meters, brute-force crack times, and entropy stats instantly.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -306,8 +306,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'base64') {
-        prettyTitle = "Online Base64 Encoder & Decoder (100% Offline) | OmniTools";
-        metaDesc = "Encode UTF-8 text strings or binary files to Base64 instantly offline, or decode Base64 data back safely. Zero data server uploads ensure 100% privacy.";
+        prettyTitle = "Base64 Encoder & Decoder for Text and Binary | OmniTools";
+        metaDesc = "Encode text or binary files to Base64 and decode them back offline. Instant browser-only processing guarantees absolute data privacy and security.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -321,8 +321,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'meta-generator') {
-        prettyTitle = "SEO Meta Tag Generator & Search Result Previewer | OmniTools";
-        metaDesc = "Generate highly-optimized HTML meta tags for your website. Preview search snippet visuals for Google, Facebook, and Twitter cards in real-time.";
+        prettyTitle = "Meta Tag Gen: SEO Meta Tag Generator & Search Snippet Previewer | OmniTools";
+        metaDesc = "Generate perfect SEO HTML meta tags with search snippet previews for Google, Facebook, and Twitter cards. Boost search engine crawl visibility offline.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -336,8 +336,8 @@ function switchTab(tabId, pushToHistory = true) {
             }
         };
     } else if (tabId === 'inflation-calc') {
-        prettyTitle = "Historical Inflation & Purchasing Power Depreciation Calculator | OmniTools";
-        metaDesc = "Track how compound annual inflation rates depreciate starting capital values over time. View real-time CPI money value charts client-side.";
+        prettyTitle = "Inflation & Money Depreciation Calculator with Charts | OmniTools";
+        metaDesc = "Calculate inflation rates, purchasing power depreciation, and compound money value changes over time with client-side interactive graphs privately.";
         schemaJson = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -423,8 +423,9 @@ function switchTab(tabId, pushToHistory = true) {
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute('content', prettyTitle);
     
+    const canonicalOrigin = "https://www.omnitechtools.com";
     let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', window.location.origin + (tabToRouteMap[tabId] || '/'));
+    if (ogUrl) ogUrl.setAttribute('content', canonicalOrigin + (tabToRouteMap[tabId] || '/'));
 
     // Update Canonical tag link
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -433,7 +434,7 @@ function switchTab(tabId, pushToHistory = true) {
         canonical.rel = 'canonical';
         document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', window.location.origin + (tabToRouteMap[tabId] || '/'));
+    canonical.setAttribute('href', canonicalOrigin + (tabToRouteMap[tabId] || '/'));
 
     // Inject Search Engine structured data schemas
     injectSchema(schemaJson);
