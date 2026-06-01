@@ -444,14 +444,20 @@ function switchTab(tabId, pushToHistory = true) {
         history.pushState({ tabId: tabId }, prettyTitle, targetRoute);
     }
 
-    // Smooth scroll content area viewport and window to top on tab switch
+    // Force instant scroll to top of viewport and window on tab switch
+    window.scrollTo(0, 0);
+    const viewport = document.getElementById('contentViewport');
+    if (viewport) {
+        viewport.scrollTop = 0;
+    }
+
+    // Double safeguard after DOM reflow
     setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        const viewport = document.getElementById('contentViewport');
+        window.scrollTo(0, 0);
         if (viewport) {
-            viewport.scrollTo({ top: 0, behavior: 'smooth' });
+            viewport.scrollTop = 0;
         }
-    }, 50);
+    }, 10);
     
     // Close mobile menu if active
     const appSidebar = document.getElementById('appSidebar');
