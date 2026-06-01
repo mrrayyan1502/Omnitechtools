@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initSVGBlob();
     initColorPalette();
     initPasswordGenerator();
+
+    // 3 New AdSense Tools Setup (Pre-instantiated)
+    initBase64Tool();
+    initMetaTagGenerator();
+    initInflationCalc();
 });
 
 /* ==========================================================================
@@ -43,7 +48,16 @@ const routeMap = {
     '/json-formatter/': 'json-formatter',
     '/svg-blob-generator/': 'svg-blob',
     '/color-palette-generator/': 'color-palette',
-    '/password-generator/': 'password-generator'
+    '/password-generator/': 'password-generator',
+    '/base64-encoder-decoder/': 'base64',
+    '/meta-tag-generator/': 'meta-generator',
+    '/inflation-calculator/': 'inflation-calc',
+    '/blog/': 'blog',
+    '/blog/qr-codes-digital-marketing/': 'blog-article-qr',
+    '/blog/image-compression-performance/': 'blog-article-compress',
+    '/blog/css-glassmorphism-trends/': 'blog-article-glass',
+    '/blog/financial-independence-compound-growth/': 'blog-article-fire',
+    '/blog/developer-utilities-privacy/': 'blog-article-privacy'
 };
 
 const tabToRouteMap = {
@@ -59,7 +73,16 @@ const tabToRouteMap = {
     'json-formatter': '/json-formatter/',
     'svg-blob': '/svg-blob-generator/',
     'color-palette': '/color-palette-generator/',
-    'password-generator': '/password-generator/'
+    'password-generator': '/password-generator/',
+    'base64': '/base64-encoder-decoder/',
+    'meta-generator': '/meta-tag-generator/',
+    'inflation-calc': '/inflation-calculator/',
+    'blog': '/blog/',
+    'blog-article-qr': '/blog/qr-codes-digital-marketing/',
+    'blog-article-compress': '/blog/image-compression-performance/',
+    'blog-article-glass': '/blog/css-glassmorphism-trends/',
+    'blog-article-fire': '/blog/financial-independence-compound-growth/',
+    'blog-article-privacy': '/blog/developer-utilities-privacy/'
 };
 
 function initNavigation() {
@@ -277,6 +300,110 @@ function switchTab(tabId, pushToHistory = true) {
                 "priceCurrency": "USD"
             }
         };
+    } else if (tabId === 'base64') {
+        prettyTitle = "Online Base64 Encoder & Decoder (100% Offline) | OmniTools";
+        metaDesc = "Encode UTF-8 text strings or binary files to Base64 instantly offline, or decode Base64 data back safely. Zero data server uploads ensure 100% privacy.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Base64 Encoder & Decoder",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "DeveloperApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+    } else if (tabId === 'meta-generator') {
+        prettyTitle = "SEO Meta Tag Generator & Search Result Previewer | OmniTools";
+        metaDesc = "Generate highly-optimized HTML meta tags for your website. Preview search snippet visuals for Google, Facebook, and Twitter cards in real-time.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "SEO Meta Tag Generator",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "DeveloperApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+    } else if (tabId === 'inflation-calc') {
+        prettyTitle = "Historical Inflation & Purchasing Power Depreciation Calculator | OmniTools";
+        metaDesc = "Track how compound annual inflation rates depreciate starting capital values over time. View real-time CPI money value charts client-side.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Inflation Depreciation Calculator",
+            "operatingSystem": "Web Browser",
+            "applicationCategory": "FinanceApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        };
+    } else if (tabId === 'blog') {
+        prettyTitle = "Premium SEO Guides & Digital Creator Blog | OmniTools";
+        metaDesc = "Explore the official OmniTools blog. Read expert tutorials on QR codes, image compression, CSS UI trends, personal finance calculations, and web security.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "OmniTools Creator Blog",
+            "description": "High-value articles about web development, UI design, speed optimization, and digital marketing."
+        };
+    } else if (tabId === 'blog-article-qr') {
+        prettyTitle = "QR Codes in Digital Marketing: Boosting Conversions | OmniTools";
+        metaDesc = "Learn how stylized custom QR codes with gradient fills and logo embeds bridge the offline-to-online marketing gap to boost user conversion rates.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "The Ultimate Guide to QR Codes in Digital Marketing: Boosting Offline-to-Online Conversion Rates",
+            "datePublished": "2026-06-01",
+            "author": { "@type": "Organization", "name": "OmniTools" }
+        };
+    } else if (tabId === 'blog-article-compress') {
+        prettyTitle = "Web Image Compression: Optimizing Speed & Core Web Vitals | OmniTools";
+        metaDesc = "The definitive technical guide on offline JPEG, PNG, and WebP compression. Optimize site loading speeds and enhance Core Web Vitals automatically.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "The Technical Guide to Web Image Compression: Optimizing Performance, SEO, and Core Web Vitals",
+            "datePublished": "2026-06-01",
+            "author": { "@type": "Organization", "name": "OmniTools" }
+        };
+    } else if (tabId === 'blog-article-glass') {
+        prettyTitle = "Glassmorphism UI Trends & Backdrop Filter Styling | OmniTools";
+        metaDesc = "Master the visual style of frosted glass UI design. Learn the CSS backdrop-filter formulas, accessibility parameters, and visual shadows design techniques.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Glassmorphism in Modern UI Design: Mastering CSS Backdrop Filters and Frosted Glass Aesthetics",
+            "datePublished": "2026-06-01",
+            "author": { "@type": "Organization", "name": "OmniTools" }
+        };
+    } else if (tabId === 'blog-article-fire') {
+        prettyTitle = "The Math of Financial Independence & FIRE Safe Withdrawals | OmniTools";
+        metaDesc = "Analyze the mathematical foundation of financial independence. Master the Rule of 25, 4% Safe Withdrawal Rate, and compound interest wealth growth lines.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "The Math of Financial Independence: How Compound Interest and FIRE Metrics Define Your Future",
+            "datePublished": "2026-06-01",
+            "author": { "@type": "Organization", "name": "OmniTools" }
+        };
+    } else if (tabId === 'blog-article-privacy') {
+        prettyTitle = "Browser Privacy & Serverless Client-Side Web Tools | OmniTools";
+        metaDesc = "Explore why serverless, client-side web utility architectures are the future of user privacy. Learn how offline FileReader and Web Crypto APIs protect data.";
+        schemaJson = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Why Serverless Client-Side Utilities are the Future of Web Developer Tools and Browser Privacy",
+            "datePublished": "2026-06-01",
+            "author": { "@type": "Organization", "name": "OmniTools" }
+        };
     }
 
     document.title = prettyTitle;
@@ -339,6 +466,13 @@ function switchTab(tabId, pushToHistory = true) {
         loadScript("https://cdn.jsdelivr.net/npm/chart.js", () => {
             if (!financeChartInstance) {
                 initFinanceCalc();
+            }
+        });
+    }
+    if (tabId === 'inflation-calc') {
+        loadScript("https://cdn.jsdelivr.net/npm/chart.js", () => {
+            if (!inflationChartInstance) {
+                initInflationCalc();
             }
         });
     }
@@ -1721,5 +1855,391 @@ function copyPasswordToClipboard() {
             showToast("Secure password copied to clipboard!");
         });
     }
+}
+
+/* ==========================================================================
+   12. Base64 Encoder & Decoder Engine (100% Client-Side)
+   ========================================================================== */
+let base64FileBuffer = null;
+
+function initBase64Tool() {
+    const dropzone = document.getElementById('base64Dropzone');
+    if (!dropzone) return;
+
+    // Drag and drop event listeners
+    dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--primary)';
+        dropzone.style.backgroundColor = 'rgba(0, 242, 254, 0.05)';
+    });
+
+    dropzone.addEventListener('dragleave', () => {
+        dropzone.style.borderColor = 'var(--border-color)';
+        dropzone.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--border-color)';
+        dropzone.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        
+        if (e.dataTransfer.files.length > 0) {
+            const files = e.dataTransfer.files;
+            document.getElementById('base64FileInput').files = files;
+            const event = { target: { files: files } };
+            handleBase64FileUpload(event);
+        }
+    });
+}
+
+function switchBase64Mode(mode, element) {
+    const parent = element.parentElement;
+    const tabButtons = parent.querySelectorAll('.control-tab-btn');
+    const subpanels = parent.parentElement.querySelectorAll('.control-subpanel');
+
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    subpanels.forEach(panel => panel.classList.remove('active'));
+
+    element.classList.add('active');
+    const activePanel = document.getElementById(`subpanel-base64-${mode}`);
+    if (activePanel) {
+        activePanel.classList.add('active');
+    }
+    
+    // Clear outputs on toggle to avoid layout shifts
+    document.getElementById('base64Output').value = "";
+}
+
+function triggerBase64FileInput() {
+    document.getElementById('base64FileInput').click();
+}
+
+function handleBase64FileUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        if (file.size > 15 * 1024 * 1024) {
+            showToast("File size exceeds 15MB limit!", "danger");
+            return;
+        }
+        
+        base64FileBuffer = file;
+        
+        // Show file meta information box
+        document.getElementById('base64FileName').innerText = file.name;
+        document.getElementById('base64FileSize').innerText = formatFileSize(file.size);
+        document.getElementById('base64FilePreviewBox').classList.remove('hidden');
+        
+        showToast("File loaded successfully!");
+    }
+}
+
+function clearBase64File() {
+    base64FileBuffer = null;
+    document.getElementById('base64FileInput').value = "";
+    document.getElementById('base64FilePreviewBox').classList.add('hidden');
+    document.getElementById('base64Output').value = "";
+    showToast("File cleared.");
+}
+
+function triggerBase64Encode() {
+    const activeTab = document.querySelector('#panel-base64 .control-tab-btn.active');
+    const isText = activeTab && activeTab.id === 'btn-base64-text';
+    const outputBlock = document.getElementById('base64Output');
+
+    if (isText) {
+        const text = document.getElementById('base64TextInput').value;
+        if (!text) {
+            showToast("Please enter text to encode!", "danger");
+            return;
+        }
+        try {
+            // Perfect UTF-8 compatible encoding using unescape encodeURIComponent
+            const encoded = btoa(unescape(encodeURIComponent(text)));
+            outputBlock.value = encoded;
+            showToast("Text encoded to Base64!");
+        } catch (err) {
+            showToast("Encoding failed: " + err.message, "danger");
+        }
+    } else {
+        if (!base64FileBuffer) {
+            showToast("Please upload a file to encode!", "danger");
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            outputBlock.value = e.target.result;
+            showToast("File encoded to Base64!");
+        };
+        reader.readAsDataURL(base64FileBuffer);
+    }
+}
+
+function triggerBase64Decode() {
+    const activeTab = document.querySelector('#panel-base64 .control-tab-btn.active');
+    const isText = activeTab && activeTab.id === 'btn-base64-text';
+    const outputBlock = document.getElementById('base64Output');
+
+    if (isText) {
+        const base64 = document.getElementById('base64TextInput').value.trim();
+        if (!base64) {
+            showToast("Please enter Base64 string to decode!", "danger");
+            return;
+        }
+        try {
+            // Perfect UTF-8 compatible decoding
+            const decoded = decodeURIComponent(escape(atob(base64)));
+            outputBlock.value = decoded;
+            showToast("Base64 string successfully decoded!");
+        } catch (err) {
+            outputBlock.value = "// Decoding failed:\n// " + err.message;
+            showToast("Invalid Base64 format!", "danger");
+        }
+    } else {
+        showToast("Please use Plain Text tab to decode Base64 strings!", "danger");
+    }
+}
+
+function copyBase64Output() {
+    const output = document.getElementById('base64Output').value;
+    if (output) {
+        navigator.clipboard.writeText(output).then(() => {
+            showToast("Base64 output copied to clipboard!");
+        });
+    }
+}
+
+/* ==========================================================================
+   13. SEO Meta Tag Generator Engine (100% Client-Side)
+   ========================================================================== */
+function initMetaTagGenerator() {
+    if (!document.getElementById('metaTitle')) return;
+    updateMetaTagsAndPreviews();
+}
+
+function switchMetaPreview(mode, element) {
+    const parent = element.parentElement;
+    const tabButtons = parent.querySelectorAll('.control-tab-btn');
+    const subpanels = parent.parentElement.querySelectorAll('.control-subpanel');
+
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    subpanels.forEach(panel => panel.classList.remove('active'));
+
+    element.classList.add('active');
+    const activePanel = document.getElementById(`subpanel-meta-${mode}`);
+    if (activePanel) {
+        activePanel.classList.add('active');
+    }
+}
+
+function updateMetaTagsAndPreviews() {
+    const title = document.getElementById('metaTitle').value.trim();
+    const desc = document.getElementById('metaDesc').value.trim();
+    const url = document.getElementById('metaUrl').value.trim() || "https://www.yourwebsite.com";
+    const keywords = document.getElementById('metaKeywords').value.trim();
+    const imgUrl = document.getElementById('metaImageUrl').value.trim() || "https://www.yourwebsite.com/logo.png";
+
+    // Character metrics updates
+    const titleLen = title.length;
+    const descLen = desc.length;
+    
+    const countTitle = document.getElementById('charCountTitle');
+    const countDesc = document.getElementById('charCountDesc');
+    
+    if (countTitle) {
+        countTitle.innerText = `${titleLen} chars`;
+        if (titleLen < 50 || titleLen > 60) {
+            countTitle.style.color = '#ff9b50'; // warning orange
+        } else {
+            countTitle.style.color = 'var(--success)';
+        }
+    }
+    
+    if (countDesc) {
+        countDesc.innerText = `${descLen} chars`;
+        if (descLen < 150 || descLen > 160) {
+            countDesc.style.color = '#ff9b50';
+        } else {
+            countDesc.style.color = 'var(--success)';
+        }
+    }
+
+    // Google Preview Card Updates
+    const googleTitle = document.getElementById('googleSimTitle');
+    const googleDesc = document.getElementById('googleSimDesc');
+    const googleUrl = document.getElementById('googleSimUrl');
+    
+    if (googleTitle) googleTitle.innerText = title || "Site Title Will Render Here";
+    if (googleDesc) googleDesc.innerText = desc || "Site Description will render here in google snippets layouts...";
+    if (googleUrl) googleUrl.innerText = url;
+
+    // Social Preview Card Updates
+    const socTitle = document.getElementById('socialSimTitle');
+    const socDesc = document.getElementById('socialSimDesc');
+    const socDomain = document.getElementById('socialSimDomain');
+    const socImg = document.getElementById('socialSimImage');
+    
+    if (socTitle) socTitle.innerText = title || "Site Title Preview";
+    if (socDesc) socDesc.innerText = desc || "Site Description preview...";
+    if (socDomain) {
+        try {
+            const domain = new URL(url).hostname;
+            socDomain.innerText = domain;
+        } catch {
+            socDomain.innerText = "www.yourwebsite.com";
+        }
+    }
+    if (socImg) {
+        socImg.style.backgroundImage = `url('${imgUrl}')`;
+    }
+
+    // Dynamic HTML tag string generation
+    const markup = 
+`<!-- HTML Meta Tags -->
+<title>${title || "Site Title"}</title>
+<meta name="description" content="${desc || ""}">
+<meta name="keywords" content="${keywords || ""}">
+
+<!-- Facebook Meta Tags (OpenGraph) -->
+<meta property="og:url" content="${url}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title || ""}">
+<meta property="og:description" content="${desc || ""}">
+<meta property="og:image" content="${imgUrl}">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="${url.replace(/https?:\/\//i, "")}">
+<meta property="twitter:url" content="${url}">
+<meta name="twitter:title" content="${title || ""}">
+<meta name="twitter:description" content="${desc || ""}">
+<meta name="twitter:image" content="${imgUrl}">`;
+
+    document.getElementById('metaGeneratedCode').value = markup;
+}
+
+function copyMetaTagsCode() {
+    const code = document.getElementById('metaGeneratedCode').value;
+    if (code) {
+        navigator.clipboard.writeText(code).then(() => {
+            showToast("SEO HTML Meta tags copied successfully!");
+        });
+    }
+}
+
+/* ==========================================================================
+   14. Inflation & Purchasing Power Depreciation Engine (Chart.js)
+   ========================================================================== */
+let inflationChartInstance = null;
+
+function initInflationCalc() {
+    if (!document.getElementById('infCapital')) return;
+    calculateInflationLoss();
+}
+
+function updateInflationRateLabel() {
+    const val = parseFloat(document.getElementById('infRate').value);
+    document.getElementById('infRateVal').innerText = `${val.toFixed(1)}%`;
+}
+
+function updateInflationYearsLabel() {
+    const val = parseInt(document.getElementById('infYears').value);
+    document.getElementById('infYearsVal').innerText = `${val} Years`;
+}
+
+function calculateInflationLoss() {
+    const capital = parseFloat(document.getElementById('infCapital').value) || 0;
+    const rate = parseFloat(document.getElementById('infRate').value) / 100 || 0;
+    const years = parseInt(document.getElementById('infYears').value) || 0;
+
+    if (years <= 0 || capital <= 0) return;
+
+    let originalData = [];
+    let futureData = [];
+    let labels = [];
+
+    let currentVal = capital;
+
+    for (let year = 1; year <= years; year++) {
+        // Mathematically compound cash depreciation 
+        currentVal = currentVal / (1 + rate);
+        
+        originalData.push(capital);
+        futureData.push(Math.round(currentVal));
+        labels.push(`Year ${year}`);
+    }
+
+    const totalLost = capital - currentVal;
+
+    // Update Stats indicators
+    document.getElementById('infOrigValue').innerText = formatCurrency(capital);
+    document.getElementById('infFutureValue').innerText = formatCurrency(currentVal);
+    document.getElementById('infValueLost').innerText = formatCurrency(totalLost);
+
+    // Refresh dynamic Chart.js canvas instance
+    renderInflationChart(labels, originalData, futureData);
+}
+
+function renderInflationChart(labels, originalData, futureData) {
+    const ctx = document.getElementById('inflationChart');
+    if (!ctx) return;
+
+    if (inflationChartInstance) {
+        inflationChartInstance.destroy();
+    }
+
+    inflationChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Original Cash Value ($)',
+                    data: originalData,
+                    borderColor: '#8b92b6',
+                    backgroundColor: 'transparent',
+                    borderDash: [5, 5],
+                    borderWidth: 2,
+                    tension: 0.1
+                },
+                {
+                    label: 'Real Purchasing Power ($)',
+                    data: futureData,
+                    borderColor: '#ff1744', // glowing mehangai red
+                    backgroundColor: 'rgba(255, 23, 68, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#8b92b6',
+                        font: { family: 'Outfit', size: 12 }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.03)' },
+                    ticks: { color: '#8b92b6', font: { family: 'Inter' } }
+                },
+                y: {
+                    grid: { color: 'rgba(255,255,255,0.03)' },
+                    ticks: {
+                        color: '#8b92b6',
+                        font: { family: 'Inter' },
+                        callback: function(value) {
+                            return '$' + value.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
 
