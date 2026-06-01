@@ -1,10 +1,8 @@
-/* ==========================================================================
-   OmniTools - Main Core Javascript Engine
-   ========================================================================== */
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Lucide Vector Icons
-    lucide.createIcons();
+function startApp() {
+    // Initialize Lucide Vector Icons safely
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
     
     // Core Navigation & Routing Handling
     initNavigation();
@@ -25,7 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initBase64Tool();
     initMetaTagGenerator();
     initInflationCalc();
-});
+}
+
+// Robust execution handle for asynchronous or direct script loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startApp);
+} else {
+    startApp();
+}
 
 /* ==========================================================================
    1. Core Layout & Navigation
