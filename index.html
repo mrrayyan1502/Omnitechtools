@@ -48,8 +48,19 @@
         <!-- Sidebar Navigation -->
         <aside class="app-sidebar" id="appSidebar">
             <div class="brand-logo">
-                <div class="logo-icon">
-                    <i data-lucide="zap"></i>
+                <div class="logo-icon-wow">
+                    <svg class="wow-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe" />
+                                <stop offset="100%" stop-color="#4facfe" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" fill="url(#logoGrad)" opacity="0.15" />
+                        <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" stroke="url(#logoGrad)" stroke-width="4" stroke-linejoin="round" />
+                        <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#logoGrad)" fill-opacity="0.85" />
+                        <path d="M50 28 L38 48 L52 48 L48 70 L62 48 L48 48 Z" fill="#ffffff" />
+                    </svg>
                 </div>
                 <span>OmniTools</span>
             </div>
@@ -270,7 +281,7 @@
                 <!-- TAB 2: QR GENERATOR -->
                 <section class="tab-panel" id="panel-qr-generator">
                     <div class="panel-header">
-                        <h2>Custom QR Code Generator</h2>
+                        <h2><i data-lucide="qr-code" class="panel-header-icon"></i> Custom QR Code Generator</h2>
                         <p>Design a spectacular branded QR code. Add custom gradients, round dot styles, and embed your own logo instantly.</p>
                     </div>
 
@@ -445,7 +456,7 @@
                 <!-- TAB 3: IMAGE COMPRESSOR -->
                 <section class="tab-panel" id="panel-image-compressor">
                     <div class="panel-header">
-                        <h2>Client-Side Image Compressor & WebP Converter</h2>
+                        <h2><i data-lucide="image" class="panel-header-icon"></i> Client-Side Image Compressor & WebP Converter</h2>
                         <p>Reduce image size instantly. Everything runs directly on your computer—100% private, secure, and lightning-fast.</p>
                     </div>
 
@@ -571,7 +582,7 @@
                 <!-- TAB 4: CSS STUDIO -->
                 <section class="tab-panel" id="panel-css-builder">
                     <div class="panel-header">
-                        <h2>Advanced CSS Glassmorphism Studio</h2>
+                        <h2><i data-lucide="code-2" class="panel-header-icon"></i> Advanced CSS Glassmorphism Studio</h2>
                         <p>Generate highly-rated CSS3 glassmorphism cards and modern HSL gradients instantly. Tweak visual sliders and export production-ready markup.</p>
                     </div>
 
@@ -706,7 +717,7 @@
                 <!-- TAB 5: FINANCE CALCULATOR -->
                 <section class="tab-panel" id="panel-finance-calc">
                     <div class="panel-header">
-                        <h2>Compound Interest & FIRE Target Calculator</h2>
+                        <h2><i data-lucide="trending-up" class="panel-header-icon"></i> Compound Interest & FIRE Target Calculator</h2>
                         <p>Calculate your retirement wealth trajectory. Tweak interest yields, track growth schedules, and visualize targets instantly.</p>
                     </div>
 
@@ -821,7 +832,7 @@
                 <!-- TAB 6: ABOUT US -->
                 <section class="tab-panel" id="panel-about">
                     <div class="panel-header">
-                        <h2>About Us - The OmniTools Mission</h2>
+                        <h2><i data-lucide="info" class="panel-header-icon"></i> About Us - The OmniTools Mission</h2>
                         <p>Learn more about our completely free, private-by-design creator & developer utility platform.</p>
                     </div>
 
@@ -847,7 +858,7 @@
                 <!-- TAB 7: PRIVACY POLICY -->
                 <section class="tab-panel" id="panel-privacy">
                     <div class="panel-header">
-                        <h2>Privacy Policy & Data Security</h2>
+                        <h2><i data-lucide="shield" class="panel-header-icon"></i> Privacy Policy & Data Security</h2>
                         <p>Official privacy disclaimers and data protection statements for OmniTools. Fully compliant with Google AdSense, GDPR, and CCPA.</p>
                     </div>
 
@@ -874,7 +885,7 @@
                 <!-- TAB 8: CONTACT US -->
                 <section class="tab-panel" id="panel-contact">
                     <div class="panel-header">
-                        <h2>Contact Us & Support</h2>
+                        <h2><i data-lucide="mail" class="panel-header-icon"></i> Contact Us & Support</h2>
                         <p>Have any questions, feature requests, or bug reports? Drop us a message below and we will get back to you swiftly.</p>
                     </div>
 
@@ -922,7 +933,7 @@
                 <!-- TAB 9: TERMS & CONDITIONS -->
                 <section class="tab-panel" id="panel-terms">
                     <div class="panel-header">
-                        <h2>Terms of Service & Disclaimers</h2>
+                        <h2><i data-lucide="file-text" class="panel-header-icon"></i> Terms of Service & Disclaimers</h2>
                         <p>Usage policies, liability releases, and licensing disclaimers for OmniTools.</p>
                     </div>
 
@@ -947,7 +958,7 @@
                 <!-- TAB 10: JSON FORMATTER & VALIDATOR -->
                 <section class="tab-panel" id="panel-json-formatter">
                     <div class="panel-header">
-                        <h2>JSON Formatter, Beautifier & Validator</h2>
+                        <h2><i data-lucide="braces" class="panel-header-icon"></i> JSON Formatter, Beautifier & Validator</h2>
                         <p>Clean, format, minify, and validate your JSON strings. Everything is processed 100% offline in your browser.</p>
                     </div>
 
@@ -1027,7 +1038,7 @@
                 <!-- TAB 11: SVG BLOB GENERATOR -->
                 <section class="tab-panel" id="panel-svg-blob">
                     <div class="panel-header">
-                        <h2>Dynamic SVG Blob & Wave Generator</h2>
+                        <h2><i data-lucide="bezier-curve" class="panel-header-icon"></i> Dynamic SVG Blob & Wave Generator</h2>
                         <p>Generate highly stylized, unique organic SVG blobs and gradients for your website graphics and card overlays.</p>
                     </div>
 
@@ -1120,7 +1131,7 @@
                 <!-- TAB 12: COLOR PALETTE GENERATOR & WCAG CHECKER -->
                 <section class="tab-panel" id="panel-color-palette">
                     <div class="panel-header">
-                        <h2>Advanced Color Palette & WCAG Contrast Checker</h2>
+                        <h2><i data-lucide="palette" class="panel-header-icon"></i> Advanced Color Palette & WCAG Contrast Checker</h2>
                         <p>Generate highly aesthetic color schemes and instantly test text contrast ratios for WCAG AA/AAA compliance.</p>
                     </div>
 
@@ -1211,7 +1222,7 @@
                 <!-- TAB 13: PASSWORD GENERATOR & STRENGTH METER -->
                 <section class="tab-panel" id="panel-password-generator">
                     <div class="panel-header">
-                        <h2>Cryptographically Secure Password Generator</h2>
+                        <h2><i data-lucide="key-round" class="panel-header-icon"></i> Cryptographically Secure Password Generator</h2>
                         <p>Generate secure random passwords. Check entropy strength, time-to-crack metrics, and preserve data privacy locally.</p>
                     </div>
 
@@ -1310,7 +1321,7 @@
                 <!-- TAB 14: BASE64 ENCODER & DECODER -->
                 <section class="tab-panel" id="panel-base64">
                     <div class="panel-header">
-                        <h2>Base64 Encoder & Decoder</h2>
+                        <h2><i data-lucide="binary" class="panel-header-icon"></i> Base64 Encoder & Decoder</h2>
                         <p>Encode plain text or files to Base64 strings, or decode Base64 data back safely. Everything runs offline in your browser.</p>
                     </div>
 
@@ -1417,7 +1428,7 @@
                 <!-- TAB 15: META TAG GENERATOR & PREVIEWER -->
                 <section class="tab-panel" id="panel-meta-generator">
                     <div class="panel-header">
-                        <h2>SEO Meta Tag Generator & Previewer</h2>
+                        <h2><i data-lucide="tags" class="panel-header-icon"></i> SEO Meta Tag Generator & Previewer</h2>
                         <p>Generate highly-rated SEO meta tags. Preview exactly how your page will look on Google, Facebook, and Twitter.</p>
                     </div>
 
@@ -1535,7 +1546,7 @@
                 <!-- TAB 16: INFLATION CALCULATOR -->
                 <section class="tab-panel" id="panel-inflation-calc">
                     <div class="panel-header">
-                        <h2>Inflation & Money Depreciation Calculator</h2>
+                        <h2><i data-lucide="percent" class="panel-header-icon"></i> Inflation & Money Depreciation Calculator</h2>
                         <p>Calculate exactly how much purchasing power your money will lose over time. Track inflation's impact on wealth with dynamic charts.</p>
                     </div>
 
@@ -1628,7 +1639,7 @@
                 <!-- TAB 17: BLOG MAIN VIEW -->
                 <section class="tab-panel" id="panel-blog">
                     <div class="panel-header">
-                        <h2>Official Creator & Developer Blog</h2>
+                        <h2><i data-lucide="book-open" class="panel-header-icon"></i> Official Creator & Developer Blog</h2>
                         <p>Premium, highly researched tutorials on digital marketing, speed optimization, UI trends, and wealth building.</p>
                     </div>
 
@@ -2175,8 +2186,21 @@
             <footer class="app-footer-premium glass-card">
                 <div class="footer-grid">
                     <div class="footer-brand-col">
-                        <div class="brand-logo" style="margin-bottom: 1rem;">
-                            <div class="logo-icon"><i data-lucide="zap"></i></div>
+                        <div class="brand-logo" style="margin-bottom: 1rem; display: flex; align-items: center;">
+                            <div class="logo-icon-wow" style="margin-right: 0.5rem;">
+                                <svg class="wow-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px;">
+                                    <defs>
+                                        <linearGradient id="logoGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00f2fe" />
+                                            <stop offset="100%" stop-color="#4facfe" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" fill="url(#logoGradFoot)" opacity="0.15" />
+                                    <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" stroke="url(#logoGradFoot)" stroke-width="4" stroke-linejoin="round" />
+                                    <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#logoGradFoot)" fill-opacity="0.85" />
+                                    <path d="M50 28 L38 48 L52 48 L48 70 L62 48 L48 48 Z" fill="#ffffff" />
+                                </svg>
+                            </div>
                             <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; background: linear-gradient(to right, #ffffff, #8b92b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OmniTools</span>
                         </div>
                         <p class="footer-desc">Premium, 100% free, private-by-design creator & developer utility hub. All files remain strictly in your browser.</p>
