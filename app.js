@@ -126,7 +126,7 @@ function initStandaloneTool() {
     const toolId = panels[0].id.replace(/^panel-/, '');
     const loaders = {
         'qr-generator': () => loadScript(
-            'https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js',
+            '/vendor/qr-code-styling-1.9.2.js',
             () => {
                 if (!qrCodeStyling && typeof QRCodeStyling !== 'undefined') initQRGenerator();
             }
@@ -696,7 +696,7 @@ function switchTab(tabId, pushToHistory = true) {
 
     // On-Demand Lazy Loading for Heavy Libraries
     if (tabId === 'qr-generator') {
-        loadScript("https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js", () => {
+        loadScript("/vendor/qr-code-styling-1.9.2.js", () => {
             if (!qrCodeStyling) {
                 initQRGenerator();
             }
