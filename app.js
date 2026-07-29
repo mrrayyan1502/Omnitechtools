@@ -1,40 +1,3 @@
-function startApp() {
-    // Initialize Lucide Vector Icons safely
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    // Core Navigation & Routing Handling
-    initNavigation();
-    
-    // Core Image Compressor Setup (Pre-instantiated, zero heavy libraries)
-    initImageCompressor();
-
-    // Core Glassmorphism Studio Setup (Pre-instantiated, zero heavy libraries)
-    initGlassStudio();
-
-    // 4 Bawaal Tools Setup (Pre-instantiated, ultra-performance)
-    initJSONFormatter();
-    initSVGBlob();
-    initColorPalette();
-    initPasswordGenerator();
-
-    // 3 New AdSense Tools Setup (Pre-instantiated)
-    initBase64Tool();
-    initMetaTagGenerator();
-    initInflationCalc();
-}
-
-// Robust execution handle for asynchronous or direct script loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startApp);
-} else {
-    startApp();
-}
-
-/* ==========================================================================
-   1. Core Layout & Navigation
-   ========================================================================== */
 /* ==========================================================================
    1. Core Layout, Navigation & HTML5 History Router
    ========================================================================== */
@@ -57,6 +20,11 @@ const routeMap = {
     '/base64-encoder-decoder/': 'base64',
     '/meta-tag-generator/': 'meta-generator',
     '/inflation-calculator/': 'inflation-calc',
+    '/image-resizer/': 'image-resizer',
+    '/pdf-merge/': 'pdf-merge',
+    '/unit-converter/': 'unit-converter',
+    '/youtube-thumbnail-downloader/': 'yt-thumbnail',
+    '/text-to-speech/': 'text-to-speech',
     '/blog/': 'blog',
     '/blog/qr-codes-digital-marketing/': 'blog-article-qr',
     '/blog/image-compression-performance/': 'blog-article-compress',
@@ -80,15 +48,74 @@ const tabToRouteMap = {
     'color-palette': '/color-palette-generator/',
     'password-generator': '/password-generator/',
     'base64': '/base64-encoder-decoder/',
+    'jwt-decoder': '/jwt-decoder/',
+    'markdown-editor': '/markdown-editor/',
+    'regex-tester': '/regex-tester/',
+    'sql-formatter': '/sql-formatter/',
+    'css-box-shadow': '/css-box-shadow/',
+    'word-counter': '/word-counter/',
+    'lorem-ipsum': '/lorem-ipsum/',
+    'uuid-generator': '/uuid-generator/',
+    'image-resizer': '/image-resizer/',
+    'pdf-merge': '/pdf-merge/',
+    'unit-converter': '/unit-converter/',
+    'youtube-thumbnail': '/youtube-thumbnail-downloader/',
+    'text-to-speech': '/text-to-speech/',
+    'url-encoder': '/url-encoder/',
     'meta-generator': '/meta-tag-generator/',
     'inflation-calc': '/inflation-calculator/',
+    'image-resizer': '/image-resizer/',
+    'pdf-merge': '/pdf-merge/',
+    'unit-converter': '/unit-converter/',
+    'yt-thumbnail': '/youtube-thumbnail-downloader/',
+    'text-to-speech': '/text-to-speech/',
     'blog': '/blog/',
     'blog-article-qr': '/blog/qr-codes-digital-marketing/',
     'blog-article-compress': '/blog/image-compression-performance/',
     'blog-article-glass': '/blog/css-glassmorphism-trends/',
+    'blog-article-json': '/blog/json-formatting-guide/',
+    'blog-article-svg': '/blog/svg-organic-blobs-design/',
+    'blog-article-color': '/blog/ui-color-theory-palettes/',
+    'blog-article-password': '/blog/secure-password-cryptography/',
+    'blog-article-base64': '/blog/base64-encoding-explained/',
+    'blog-article-meta': '/blog/seo-meta-tags-guide/',
+    'blog-article-inflation': '/blog/inflation-wealth-depreciation/',
+
     'blog-article-fire': '/blog/financial-independence-compound-growth/',
     'blog-article-privacy': '/blog/developer-utilities-privacy/'
 };
+
+function startApp() {
+    // Initialize Lucide Vector Icons safely, DEFERRED for Mobile FCP Performance
+    if (typeof lucide !== 'undefined') {
+        setTimeout(() => {
+            requestAnimationFrame(() => {
+                lucide.createIcons();
+            });
+        }, 100);
+    }
+    
+    // Core Navigation & Routing Handling
+    initNavigation();
+    initAnalyticsConsent();
+    
+    // Core Image Compressor Setup (Pre-instantiated, zero heavy libraries)
+    initImageCompressor();
+
+    // Core Glassmorphism Studio Setup (Pre-instantiated, zero heavy libraries)
+    initGlassStudio();
+
+    // 4 Bawaal Tools Setup (Pre-instantiated, ultra-performance)
+    initJSONFormatter();
+    initSVGBlob();
+    initColorPalette();
+    initPasswordGenerator();
+
+    // 3 New AdSense Tools Setup (Pre-instantiated)
+    initBase64Tool();
+    initMetaTagGenerator();
+}
+
 
 function initNavigation() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -102,9 +129,21 @@ function initNavigation() {
         });
         
         // Close mobile drawer when clicking content viewport
-        document.getElementById('contentViewport').addEventListener('click', () => {
-            appSidebar.classList.remove('mobile-active');
-        });
+        const contentViewport = document.getElementById('contentViewport');
+        if (contentViewport) {
+            contentViewport.addEventListener('click', () => {
+                appSidebar.classList.remove('mobile-active');
+            });
+        }
+    }
+
+    // Generated pages contain one real, crawlable panel. Keep it visible and
+    // use normal links instead of the legacy SPA router.
+    const standalonePanels = document.querySelectorAll('.tab-panel');
+    if (standalonePanels.length === 1) {
+        standalonePanels[0].style.display = 'block';
+        standalonePanels[0].classList.add('active');
+        return;
     }
 
     // Bind browser popstate events (Back/Forward arrows navigation)
@@ -153,40 +192,78 @@ function switchTab(tabId, pushToHistory = true) {
     }
 
     // Dynamic SEO Titles & Meta Descriptions
-    let prettyTitle = "OmniTools - Premium Free Creator & Developer Utility Hub";
+    let prettyTitle = "OmniTools - Free Premium Creator & Developer Utility Hub 2026";
     let metaDesc = "OmniTools is a 100% free, private, and offline-first creator & developer utility hub. Generate custom QR codes, compress images, and more.";
-    let schemaJson = null;
+    let schemaJson = [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "OmniTools",
+            "url": "https://www.omnitechtools.com/"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "OmniTools Suite",
+            "url": "https://www.omnitechtools.com/",
+            "logo": "https://www.omnitechtools.com/logo.svg",
+            "description": "Premium Offline-First Developer Utilities and Creator Tools"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "OmniTools Web Utilities",
+            "operatingSystem": "Any",
+            "applicationCategory": "DeveloperApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+            }
+        }
+    ]; // Array to hold multiple schemas
+    let ogImageUrl = "https://www.omnitechtools.com/og-default.jpg";
 
     if (tabId === 'qr-generator') {
-        prettyTitle = "Custom QR Code Generator with Logo & Gradients | OmniTools";
-        metaDesc = "Generate highly stylized QR codes with gradient fills, round custom corners, and upload your brand logo for free.";
-        schemaJson = {
+        prettyTitle = "Free Custom QR Code Generator Online 2026 | Make QR Instantly";
+        metaDesc = "Generate highly stylized QR codes with gradient fills, round custom corners, and upload your brand logo for free completely offline.";
+        ogImageUrl = "https://www.omnitechtools.com/og-qr.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Custom QR Code Generator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "MultimediaApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }, {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "Is this QR Code generator completely free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, our custom QR code generator is 100% free with no scanning limits and no expiration dates." } },
+                { "@type": "Question", "name": "Can I add my logo to the QR code?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You can securely upload your brand logo and embed it in the center of the QR code offline." } },
+                { "@type": "Question", "name": "Are these QR codes safe to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our tool works entirely offline in your browser, meaning your data and URLs are never sent to external servers." } }
+            ]
+        });
     } else if (tabId === 'image-compressor') {
-        prettyTitle = "Online Image Compressor & WebP Converter (Private & Offline) | OmniTools";
-        metaDesc = "Reduce file size of your JPEG, PNG, or convert them directly to WebP completely offline using Canvas.";
-        schemaJson = {
+        prettyTitle = "Free Image Compressor Online 2026 | Compress JPG PNG WebP Fast";
+        metaDesc = "Reduce file size of your JPEG, PNG, or convert them directly to WebP completely offline without losing quality.";
+        ogImageUrl = "https://www.omnitechtools.com/og-image.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Browser Image Compressor",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DesignApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }, {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "How does the image compressor work offline?", "acceptedAnswer": { "@type": "Answer", "text": "It uses your browser's native HTML5 Canvas API to redraw and compress the image locally, ensuring zero data leaves your device." } },
+                { "@type": "Question", "name": "Does image compression reduce quality?", "acceptedAnswer": { "@type": "Answer", "text": "You have full control over the quality slider. Small reductions in size usually have zero visible impact on image quality." } },
+                { "@type": "Question", "name": "Can I convert PNG to WebP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can upload PNG or JPEG formats and instantly export them as next-generation WebP files." } }
+            ]
+        });
         
         // Custom URL Simulator trigger
         if (window.location.pathname === '/webp-converter/') {
@@ -196,35 +273,37 @@ function switchTab(tabId, pushToHistory = true) {
             }
         }
     } else if (tabId === 'css-builder') {
-        prettyTitle = "Advanced CSS Glassmorphism Generator & UI Studio | OmniTools";
+        prettyTitle = "Free CSS Glassmorphism Generator 2026 | Blur & Gradients UI";
         metaDesc = "Create visual CSS gradients and glassmorphism layouts with direct slider controls and instant code exports.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-css.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Glassmorphism CSS Studio",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DeveloperApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        }, {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is Glassmorphism in CSS?", "acceptedAnswer": { "@type": "Answer", "text": "Glassmorphism is a UI design trend that uses CSS backdrop-filter to create frosted glass effects with translucent backgrounds." } },
+                { "@type": "Question", "name": "Is the backdrop-filter supported in all browsers?", "acceptedAnswer": { "@type": "Answer", "text": "It is fully supported in modern Chrome, Safari, and Edge. However, it's a good practice to provide an opaque fallback color." } },
+                { "@type": "Question", "name": "Is the exported CSS free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, all CSS code generated by this tool is open-source and free to use in any commercial or personal project." } }
+            ]
+        });
     } else if (tabId === 'finance-calc') {
-        prettyTitle = "Compound Interest & FIRE Target Calculator with Charts | OmniTools";
+        prettyTitle = "Free Compound Interest Calculator 2026 | FIRE Target & Charts";
         metaDesc = "Forecast your savings, compound growth, and outline your financial independence targets with dynamic charts.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-finance.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "FIRE Compound Interest Calculator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "FinanceApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
 
         // Custom URL Simulator trigger
         if (window.location.pathname === '/fire-calculator/') {
@@ -246,99 +325,142 @@ function switchTab(tabId, pushToHistory = true) {
         prettyTitle = "Contact Us & Support Helpdesk | OmniTools";
         metaDesc = "Get in touch with the OmniTools creators for partnership opportunities, feedback, bug reporting, or developer utility support.";
     } else if (tabId === 'json-formatter') {
-        prettyTitle = "JSON Formatter, Beautifier & Validator (Offline) | OmniTools";
+        prettyTitle = "Free JSON Formatter & Validator Online 2026 | Secure & Offline";
         metaDesc = "Clean, syntax-highlight, compress, and validate JSON strings offline with interactive nodes tree parsing.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-json.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "JSON Formatter & Validator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DeveloperApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
     } else if (tabId === 'svg-blob') {
-        prettyTitle = "SVG Blob & Wave Generator - Custom Organic Shapes | OmniTools";
+        prettyTitle = "Free SVG Blob Generator Online 2026 | Custom Wave Assets";
         metaDesc = "Generate highly custom fluid organic shapes and CSS vector gradients. Export SVG codes and assets instantly.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-svg.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "SVG Blob Generator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DesignApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
     } else if (tabId === 'color-palette') {
-        prettyTitle = "Color Palette Generator & WCAG Contrast Checker | OmniTools";
+        prettyTitle = "Free Color Palette Generator 2026 | WCAG Contrast Checker";
         metaDesc = "Create visual hex schemes harmonies and analyze text color contrast ratios for WCAG AA/AAA compliance indicators.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-color.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Color Palette Generator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DesignApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
     } else if (tabId === 'password-generator') {
-        prettyTitle = "Secure Password Generator & Strength Meter (Web Crypto) | OmniTools";
+        prettyTitle = "Free Secure Password Generator 2026 | Unbreakable Passwords";
         metaDesc = "Create unbreakable passwords offline using Web Crypto API. Tweak lengths, analyze entropy, and track crack time.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-password.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Secure Password Generator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "SecurityApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
+        } else if (tabId === 'jwt-decoder') {
+        prettyTitle = "Free JWT Decoder Offline 2026 | JSON Web Token Inspector";
+        metaDesc = "Decode and inspect JSON Web Tokens (JWT) 100% offline in your browser. Keep your authentication secrets private.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JWT Decoder", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'markdown-editor') {
+        loadScript("https://cdn.jsdelivr.net/npm/marked/marked.min.js", () => {
+            console.log("Markdown parser loaded dynamically.");
+            if (document.getElementById('markdownInput').value) {
+                renderMarkdown();
             }
-        };
+        });
+        prettyTitle = "Free Online Markdown Editor with Live Preview 2026";
+        metaDesc = "Write, edit, and preview Markdown to HTML instantly. 100% free offline-first markdown viewer.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Markdown Editor", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'regex-tester') {
+        prettyTitle = "Free Regex Tester & Debugger Offline 2026";
+        metaDesc = "Test, build, and debug Regular Expressions instantly in your browser. Perfect visual regex tester for developers.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Tester", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'sql-formatter') {
+        loadScript("https://cdn.jsdelivr.net/npm/sql-formatter@15.3.0/dist/sql-formatter.min.js", () => {
+            console.log("SQL formatter loaded dynamically.");
+            if (document.getElementById('sqlInput').value) {
+                formatSQL();
+            }
+        });
+        prettyTitle = "Free SQL Formatter & Beautifier Offline 2026";
+        metaDesc = "Format and beautify complex SQL queries instantly. Supports MySQL, PostgreSQL, and standard SQL formatting.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SQL Formatter", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'css-box-shadow') {
+        prettyTitle = "CSS Box Shadow Generator Online 2026";
+        metaDesc = "Visually design and generate CSS3 box-shadow code with interactive sliders. Copy the CSS instantly.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Box Shadow Generator", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'word-counter') {
+        prettyTitle = "Free SEO Word & Character Counter 2026";
+        metaDesc = "Count words, characters, sentences, and calculate reading time instantly offline.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Word Counter", "applicationCategory": "UtilitiesApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'lorem-ipsum') {
+        prettyTitle = "Lorem Ipsum Generator Online 2026";
+        metaDesc = "Generate random Lorem Ipsum placeholder text for UI mockups and web design quickly and free.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Lorem Ipsum Generator", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'uuid-generator') {
+        prettyTitle = "Secure UUID / GUID Generator Offline 2026";
+        metaDesc = "Generate cryptographically secure v4 UUIDs and GUIDs instantly in your browser.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "UUID Generator", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+        } else if (tabId === 'image-resizer') {
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Image Resizer", "applicationCategory": "MultimediaApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'pdf-merge') {
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js", () => {
+            console.log("pdf-lib loaded dynamically.");
+        });
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF Merge", "applicationCategory": "BusinessApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'unit-converter') {
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unit Converter", "applicationCategory": "UtilityApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'youtube-thumbnail') {
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "YouTube Thumbnail Downloader", "applicationCategory": "MultimediaApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'text-to-speech') {
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Text to Speech Converter", "applicationCategory": "MultimediaApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
+    } else if (tabId === 'url-encoder') {
+        prettyTitle = "Free URL Encoder & Decoder Offline 2026";
+        metaDesc = "Safely encode and decode URL components and strings instantly offline.";
+        schemaJson.push({ "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "URL Encoder Decoder", "applicationCategory": "DeveloperApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } });
     } else if (tabId === 'base64') {
-        prettyTitle = "Base64 Encoder & Decoder for Text and Binary | OmniTools";
-        metaDesc = "Encode plain text or binary files to Base64 strings, or decode Base64 back securely and offline.";
-        schemaJson = {
+        prettyTitle = "Free Base64 Encoder Online 2026 | Decode Text & Binary Files";
+        metaDesc = "Encode plain text or binary files to Base64 strings, or decode Base64 back securely and completely offline.";
+        ogImageUrl = "https://www.omnitechtools.com/og-base64.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Base64 Encoder & Decoder",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DeveloperApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
     } else if (tabId === 'meta-generator') {
-        prettyTitle = "SEO Meta Tag Generator & Search Snippet Previewer | OmniTools";
+        prettyTitle = "Free SEO Meta Tag Generator 2026 | Google Snippet Previewer";
         metaDesc = "Generate highly-rated SEO meta tags and preview your search snippet in real-time for Google & Facebook.";
-        schemaJson = {
+        ogImageUrl = "https://www.omnitechtools.com/og-meta.jpg";
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "SEO Meta Tag Generator",
             "operatingSystem": "Web Browser",
             "applicationCategory": "DeveloperApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        };
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        });
     } else if (tabId === 'inflation-calc') {
         prettyTitle = "Inflation & Money Depreciation Calculator with Charts | OmniTools";
         metaDesc = "Track purchasing power losses and compound inflation depreciation trajectories over time with charts.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Inflation Depreciation Calculator",
@@ -349,66 +471,66 @@ function switchTab(tabId, pushToHistory = true) {
                 "price": "0",
                 "priceCurrency": "USD"
             }
-        };
+        });
     } else if (tabId === 'blog') {
         prettyTitle = "Premium SEO Guides & Digital Creator Blog | OmniTools";
         metaDesc = "Explore the official OmniTools blog. Read expert tutorials on QR codes, image compression, CSS UI trends, personal finance calculations, and web security.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": "OmniTools Creator Blog",
             "description": "High-value articles about web development, UI design, speed optimization, and digital marketing."
-        };
+        });
     } else if (tabId === 'blog-article-qr') {
         prettyTitle = "QR Codes in Digital Marketing: Boosting Conversions | OmniTools";
         metaDesc = "Learn how stylized custom QR codes with gradient fills and logo embeds bridge the offline-to-online marketing gap to boost user conversion rates.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "The Ultimate Guide to QR Codes in Digital Marketing: Boosting Offline-to-Online Conversion Rates",
             "datePublished": "2026-06-01",
             "author": { "@type": "Organization", "name": "OmniTools" }
-        };
+        });
     } else if (tabId === 'blog-article-compress') {
         prettyTitle = "Web Image Compression: Optimizing Speed & Core Web Vitals | OmniTools";
         metaDesc = "The definitive technical guide on offline JPEG, PNG, and WebP compression. Optimize site loading speeds and enhance Core Web Vitals automatically.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "The Technical Guide to Web Image Compression: Optimizing Performance, SEO, and Core Web Vitals",
             "datePublished": "2026-06-01",
             "author": { "@type": "Organization", "name": "OmniTools" }
-        };
+        });
     } else if (tabId === 'blog-article-glass') {
         prettyTitle = "Glassmorphism UI Trends & Backdrop Filter Styling | OmniTools";
         metaDesc = "Master the visual style of frosted glass UI design. Learn the CSS backdrop-filter formulas, accessibility parameters, and visual shadows design techniques.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "Glassmorphism in Modern UI Design: Mastering CSS Backdrop Filters and Frosted Glass Aesthetics",
             "datePublished": "2026-06-01",
             "author": { "@type": "Organization", "name": "OmniTools" }
-        };
+        });
     } else if (tabId === 'blog-article-fire') {
         prettyTitle = "The Math of Financial Independence & FIRE Safe Withdrawals | OmniTools";
         metaDesc = "Analyze the mathematical foundation of financial independence. Master the Rule of 25, 4% Safe Withdrawal Rate, and compound interest wealth growth lines.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "The Math of Financial Independence: How Compound Interest and FIRE Metrics Define Your Future",
             "datePublished": "2026-06-01",
             "author": { "@type": "Organization", "name": "OmniTools" }
-        };
+        });
     } else if (tabId === 'blog-article-privacy') {
         prettyTitle = "Browser Privacy & Serverless Client-Side Web Tools | OmniTools";
         metaDesc = "Explore why serverless, client-side web utility architectures are the future of user privacy. Learn how offline FileReader and Web Crypto APIs protect data.";
-        schemaJson = {
+        schemaJson.push({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": "Why Serverless Client-Side Utilities are the Future of Web Developer Tools and Browser Privacy",
             "datePublished": "2026-06-01",
             "author": { "@type": "Organization", "name": "OmniTools" }
-        };
+        });
     }
 
     document.title = prettyTitle;
@@ -422,6 +544,12 @@ function switchTab(tabId, pushToHistory = true) {
     // Update OpenGraph tags dynamically
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute('content', prettyTitle);
+    
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', metaDesc);
+    
+    let ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage) ogImage.setAttribute('content', ogImageUrl);
     
     const canonicalOrigin = "https://www.omnitechtools.com";
     let ogUrl = document.querySelector('meta[property="og:url"]');
@@ -439,33 +567,60 @@ function switchTab(tabId, pushToHistory = true) {
     // Inject Search Engine structured data schemas
     injectSchema(schemaJson);
 
-    // Push State to browser history API
-    if (pushToHistory) {
-        const targetRoute = tabToRouteMap[tabId] || '/';
-        history.pushState({ tabId: tabId }, prettyTitle, targetRoute);
+    // Ensure Single Active H1 Tag
+    document.querySelectorAll('.panel-h1-title').forEach(el => {
+        el.outerHTML = `<h2 class="panel-h1-title panel-title">${el.innerHTML}</h2>`;
+    });
+    
+    const activePanelHeader = document.querySelector(`#panel-${tabId} .panel-title`);
+    if (activePanelHeader && activePanelHeader.tagName.toLowerCase() !== 'h1') {
+        activePanelHeader.outerHTML = `<h1 class="panel-h1-title panel-title">${activePanelHeader.innerHTML}</h1>`;
     }
 
-    // Force scroll to top of EVERYTHING (window, html, body, and all structural wrappers)
-    const forceScrollToTop = () => {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        
-        const scrollSelectors = ['.content-viewport', '.main-wrapper', '.app-container', '#contentViewport'];
-        scrollSelectors.forEach(selector => {
-            const el = document.querySelector(selector);
-            if (el) {
-                el.scrollTop = 0;
+    // Push State to browser history API safely (handling security limits in local file:// modes)
+    if (pushToHistory) {
+        try {
+            const targetRoute = tabToRouteMap[tabId] || '/';
+            history.pushState({ tabId: tabId }, prettyTitle, targetRoute);
+            if (typeof updateSEOMeta === 'function') {
+                updateSEOMeta(targetRoute);
             }
-        });
+        } catch (historyErr) {
+            console.warn("HTML5 History pushState is blocked or unsupported in this context:", historyErr);
+        }
+    }
+
+    // Force scroll to top of EVERYTHING (bulletproof for SPAs)
+    const forceScrollToTop = () => {
+        try {
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        } catch (e) {}
+
+        try { window.scrollTo(0, 0); } catch (e) {}
+        try { document.documentElement.scrollTop = 0; } catch (e) {}
+        try { document.body.scrollTop = 0; } catch (e) {}
+        
+        try {
+            const scrollSelectors = ['.content-viewport', '.main-wrapper', '#contentViewport'];
+            scrollSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    if (el) el.scrollTop = 0;
+                });
+            });
+        } catch (e) {}
     };
 
-    // Execute scroll resets instantly
-    forceScrollToTop();
-
-    // Safeguard reflow intervals for DOM painting delays
-    setTimeout(forceScrollToTop, 20);
-    setTimeout(forceScrollToTop, 100);
+    // Execute scroll resets progressively to bypass rendering/reflow delays
+    requestAnimationFrame(() => {
+        forceScrollToTop();
+        setTimeout(forceScrollToTop, 10);
+        setTimeout(forceScrollToTop, 50);
+        setTimeout(forceScrollToTop, 150);
+        setTimeout(forceScrollToTop, 300);
+    });
     
     // Close mobile menu if active
     const appSidebar = document.getElementById('appSidebar');
@@ -754,7 +909,7 @@ function downloadQRCode(extension) {
     try {
         const url = new URL(qrText);
         safeName = `qr-${url.hostname}`;
-    } catch {
+    } catch (e) {
         safeName = `qr-${qrText.substring(0, 12).replace(/[^a-z0-9]/gi, '_').toLowerCase()}`;
     }
 
@@ -762,6 +917,12 @@ function downloadQRCode(extension) {
         name: safeName,
         extension: extension
     });
+    
+    // Viral Loop: Show WhatsApp sharing hook
+    const waShare = document.getElementById('wa-share-qr');
+    if (waShare) {
+        waShare.style.display = 'block';
+    }
     
     showToast(`QR Code successfully downloaded as ${extension.toUpperCase()}!`);
 }
@@ -806,8 +967,11 @@ function initImageCompressor() {
     }
 }
 
-function triggerCompressFileInput() {
-    document.getElementById('compressFileInput').click();
+function triggerCompressFileInput(event) {
+    if (event && event.target && event.target.id === 'compressFileInput') return;
+    const fileInput = document.getElementById('compressFileInput');
+    if (fileInput) fileInput.value = '';
+    fileInput.click();
 }
 
 function updateCompressQualityLabel() {
@@ -906,6 +1070,12 @@ function downloadCompressedImage() {
     link.click();
     document.body.removeChild(link);
     
+    // Viral Loop: Show WhatsApp sharing hook
+    const waShare = document.getElementById('wa-share-img');
+    if (waShare) {
+        waShare.style.display = 'block';
+    }
+    
     showToast("Optimized image downloaded!");
 }
 
@@ -922,8 +1092,27 @@ function formatFileSize(bytes) {
    4. Glassmorphism CSS Studio Playground
    ========================================================================== */
 function initGlassStudio() {
+    if (!document.getElementById('glassOpacity')) return;
     // Generate initial card visual
     updateGlassStudio();
+}
+
+function initAnalyticsConsent() {
+    const notice = document.getElementById('cookieNotice');
+    if (!notice) return;
+    if (!localStorage.getItem('omni-analytics-consent')) {
+        notice.hidden = false;
+    }
+}
+
+function setAnalyticsConsent(accepted) {
+    const value = accepted ? 'granted' : 'denied';
+    localStorage.setItem('omni-analytics-consent', value);
+    if (typeof gtag === 'function') {
+        gtag('consent', 'update', { analytics_storage: value });
+    }
+    const notice = document.getElementById('cookieNotice');
+    if (notice) notice.hidden = true;
 }
 
 function updateGlassStudio() {
@@ -1122,7 +1311,7 @@ function renderFinanceChart(labels, totalData, depositsData) {
 }
 
 function formatCurrency(amount) {
-    return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return globalUserCurrency + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 /* ==========================================================================
@@ -1134,27 +1323,35 @@ function handleContactSubmit(event) {
     const btn = document.getElementById('btnContactSubmit');
     const name = document.getElementById('contactName').value;
     const email = document.getElementById('contactEmail').value;
+    const subject = document.getElementById('contactSubject').value;
+    const message = document.getElementById('contactMessage').value;
     
-    if (!btn || !name || !email) return;
+    if (!btn || !name || !email || !message) return;
     
     // Simulate beautiful premium loading sequence
     const originalText = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Sending Message...`;
+    btn.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Preparing Email...`;
     lucide.createIcons(); // render standard icons
     
     setTimeout(() => {
-        // Reset form inputs
+        // Since we are client-side only, redirect to default email client with pre-filled data
+        const mailtoLink = `mailto:omnitechtools.support@gmail.com?subject=${encodeURIComponent(subject || 'Support Request')}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+        window.location.href = mailtoLink;
+        
+        btn.innerHTML = `<i data-lucide="check-circle"></i> Opening Email Client...`;
+        btn.classList.replace('btn-primary', 'btn-success');
+        lucide.createIcons();
         document.getElementById('contactForm').reset();
         
-        // Restore button state
-        btn.disabled = false;
-        btn.innerHTML = originalText;
-        lucide.createIcons();
+        showToast("Opening your default email app...");
         
-        // Trigger success feedback popup
-        showToast(`Thank you, ${name}! Your message has been sent successfully. We will reply to ${email} within 24 hours.`, "success");
-    }, 1500);
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.replace('btn-success', 'btn-primary');
+            btn.disabled = false;
+        }, 3000);
+    }, 800);
 }
 
 /* ==========================================================================
@@ -1929,8 +2126,11 @@ function switchBase64Mode(mode, element) {
     document.getElementById('base64Output').value = "";
 }
 
-function triggerBase64FileInput() {
-    document.getElementById('base64FileInput').click();
+function triggerBase64FileInput(event) {
+    if (event && event.target && event.target.id === 'base64FileInput') return;
+    const fileInput = document.getElementById('base64FileInput');
+    if (fileInput) fileInput.value = '';
+    fileInput.click();
 }
 
 function handleBase64FileUpload(event) {
@@ -2103,7 +2303,7 @@ function updateMetaTagsAndPreviews() {
         try {
             const domain = new URL(url).hostname;
             socDomain.innerText = domain;
-        } catch {
+        } catch (e) {
             socDomain.innerText = "www.yourwebsite.com";
         }
     }
@@ -2262,3 +2462,695 @@ function renderInflationChart(labels, originalData, futureData) {
     });
 }
 
+/* ==========================================================================
+   Viral Growth Hooks
+   ========================================================================== */
+function shareTool(toolId) {
+    const messages = {
+        'qr-generator': "I just created an awesome custom QR Code instantly! Try this 100% free, private tool here: ",
+        'image-compressor': "I just optimized my images without losing quality! Try this blazing fast offline tool: "
+    };
+    
+    const baseText = messages[toolId] || "Check out this amazing free developer utility hub: ";
+    const url = "https://www.omnitechtools.com/" + (toolId !== 'qr-generator' && toolId !== 'image-compressor' ? '' : toolId + '/');
+    
+    if (navigator.share) {
+        navigator.share({
+            title: 'OmniTools',
+            text: baseText,
+            url: url
+        }).catch(err => {
+            console.log("Share cancelled or failed.", err);
+        });
+    } else {
+        // Fallback for desktop/unsupported browsers: Copy to clipboard
+        navigator.clipboard.writeText(baseText + url).then(() => {
+            showToast("Share link copied to clipboard! You can now paste it anywhere.");
+        }).catch(err => {
+            showToast("Failed to copy link. Please copy manually: " + url);
+        });
+    }
+}
+
+
+// Robust execution handle for asynchronous or direct script loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startApp);
+} else {
+    startApp();
+}
+
+/* ==========================================================================
+   Premium Sharing Logic
+   ========================================================================== */
+function shareToolResult(platform, btnElement = null) {
+    // Get active tab info
+    const activeTabId = document.querySelector('.tab-panel.active') ? document.querySelector('.tab-panel.active').id.replace('panel-', '') : 'home';
+    const currentUrl = window.location.href;
+    
+    // Dynamic message based on tool
+    let shareMessage = "Check out OmniTools, a premium suite of free developer utilities!";
+    
+    if (activeTabId === 'qr-generator') {
+        shareMessage = "Just created a stunning custom premium QR Code for free on OmniTools! Try it here:";
+    } else if (activeTabId === 'image-compressor') {
+        shareMessage = "Optimized my website images offline using OmniTools. Lightning fast and secure! Check it out:";
+    } else if (activeTabId === 'css-builder') {
+        shareMessage = "Built a beautiful Glassmorphism UI component for free on OmniTools! Try the generator:";
+    } else if (activeTabId === 'finance-calc') {
+        shareMessage = "Just ran my FIRE retirement numbers on OmniTools! Calculate your financial freedom timeline here:";
+    } else if (activeTabId === 'password-generator') {
+        shareMessage = "Generated a cryptographically secure password entirely offline using OmniTools! Stay secure:";
+    } else if (activeTabId === 'color-palette') {
+        shareMessage = "Exploring beautiful WCAG-compliant color palettes on OmniTools! See the combinations:";
+    } else if (activeTabId === 'svg-blob') {
+        shareMessage = "Generated some awesome organic SVG blobs and waves for my UI design using OmniTools:";
+    }
+
+    const encodedMsg = encodeURIComponent(shareMessage);
+    const encodedUrl = encodeURIComponent(currentUrl);
+    
+    if (platform === 'whatsapp') {
+        window.open(`https://api.whatsapp.com/send?text=${encodedMsg}%20${encodedUrl}`, '_blank');
+    } else if (platform === 'telegram') {
+        window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedMsg}`, '_blank');
+    } else if (platform === 'twitter') {
+        window.open(`https://twitter.com/intent/tweet?text=${encodedMsg}&url=${encodedUrl}`, '_blank');
+    } else if (platform === 'facebook') {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, '_blank');
+    } else if (platform === 'copy') {
+        navigator.clipboard.writeText(`${shareMessage} ${currentUrl}`).then(() => {
+            if (btnElement) {
+                const originalText = btnElement.querySelector('span').innerText;
+                const originalIcon = btnElement.innerHTML;
+                
+                // Show success state
+                btnElement.innerHTML = '<i data-lucide="check" style="color: #000;"></i> <span style="color: #000;">Copied!</span>';
+                lucide.createIcons();
+                
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    btnElement.innerHTML = originalIcon;
+                    lucide.createIcons();
+                }, 2000);
+            }
+            showToast("Share link copied to clipboard!");
+        });
+    }
+}
+
+
+/* ==========================================================================
+   Accessibility (A11y) Tools Logic
+   ========================================================================== */
+
+let currentTextSize = 100;
+let isHighContrast = false;
+let isDyslexicFont = false;
+
+function initA11y() {
+    // Load saved preferences
+    const savedSize = localStorage.getItem('a11y-text-size');
+    const savedContrast = localStorage.getItem('a11y-high-contrast');
+    const savedDyslexic = localStorage.getItem('a11y-dyslexic');
+
+    if (savedSize) {
+        currentTextSize = parseInt(savedSize);
+        applyTextSize();
+    }
+    if (savedContrast === 'true') {
+        toggleHighContrast(true);
+    }
+    if (savedDyslexic === 'true') {
+        toggleDyslexicFont(true);
+    }
+}
+
+function toggleA11yPanel() {
+    const panel = document.getElementById('a11yPanel');
+    if (panel) {
+        panel.classList.toggle('active');
+    }
+}
+
+function changeTextSize(step) {
+    if (step === 0) {
+        currentTextSize = 100;
+    } else {
+        currentTextSize += (step * 10);
+    }
+    
+    // Limits
+    if (currentTextSize < 90) currentTextSize = 90;
+    if (currentTextSize > 120) currentTextSize = 120;
+    
+    applyTextSize();
+    localStorage.setItem('a11y-text-size', currentTextSize.toString());
+}
+
+function applyTextSize() {
+    // Remove old classes
+    document.documentElement.classList.remove('text-size-90', 'text-size-100', 'text-size-110', 'text-size-120');
+    // Add new class
+    document.documentElement.classList.add(`text-size-${currentTextSize}`);
+}
+
+function toggleHighContrast(forceState = null) {
+    const btn = document.getElementById('a11yContrastBtn');
+    if (forceState !== null) {
+        isHighContrast = forceState;
+    } else {
+        isHighContrast = !isHighContrast;
+    }
+
+    if (isHighContrast) {
+        document.body.classList.add('high-contrast');
+        if (btn) btn.classList.add('active');
+    } else {
+        document.body.classList.remove('high-contrast');
+        if (btn) btn.classList.remove('active');
+    }
+    
+    localStorage.setItem('a11y-high-contrast', isHighContrast.toString());
+}
+
+function toggleDyslexicFont(forceState = null) {
+    const btn = document.getElementById('a11yDyslexicBtn');
+    if (forceState !== null) {
+        isDyslexicFont = forceState;
+    } else {
+        isDyslexicFont = !isDyslexicFont;
+    }
+
+    if (isDyslexicFont) {
+        document.body.classList.add('dyslexic-mode');
+        if (btn) btn.classList.add('active');
+    } else {
+        document.body.classList.remove('dyslexic-mode');
+        if (btn) btn.classList.remove('active');
+    }
+    
+    localStorage.setItem('a11y-dyslexic', isDyslexicFont.toString());
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    initA11y();
+});
+/* ==========================================================================
+   Global Currency State Management
+   ========================================================================== */
+let globalUserCurrency = '$';
+
+function initCurrency() {
+    const savedCurrency = localStorage.getItem('omni-currency');
+    if (savedCurrency) {
+        updateGlobalCurrency(savedCurrency, false);
+    }
+}
+
+function updateGlobalCurrency(symbol, save = true) {
+    globalUserCurrency = symbol;
+    if (save) {
+        localStorage.setItem('omni-currency', symbol);
+    }
+    
+    // Update all dropdowns
+    const dropdowns = document.querySelectorAll('.currency-selector');
+    dropdowns.forEach(dd => dd.value = symbol);
+
+    // Update all label spans
+    const labels = document.querySelectorAll('.currency-label');
+    labels.forEach(lbl => lbl.innerText = symbol);
+
+    // Re-trigger math charts if functions exist
+    if (typeof calculateFinancialGrowth === 'function' && document.getElementById('finPrincipal')) {
+        calculateFinancialGrowth();
+    }
+    if (typeof calculateInflationLoss === 'function' && document.getElementById('infInitial')) {
+        calculateInflationLoss();
+    }
+}
+
+// Attach to DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    initCurrency();
+});
+
+
+
+/* ==========================================================================
+   9. NEW TOOLS LOGIC (JWT, Markdown, Regex, SQL, Shadows, Word Count, UUID, Lorem, URL)
+   ========================================================================== */
+
+function decodeJWT() {
+    const token = document.getElementById('jwtInput').value.trim();
+    if (!token) {
+        document.getElementById('jwtHeader').innerText = '';
+        document.getElementById('jwtPayload').innerText = '';
+        return;
+    }
+    try {
+        const parts = token.split('.');
+        if (parts.length !== 3) throw new Error("Invalid JWT Format");
+        const header = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')));
+        const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+        document.getElementById('jwtHeader').innerText = JSON.stringify(header, null, 4);
+        document.getElementById('jwtPayload').innerText = JSON.stringify(payload, null, 4);
+    } catch (e) {
+        document.getElementById('jwtHeader').innerText = 'Error: Invalid Token';
+        document.getElementById('jwtPayload').innerText = e.message;
+    }
+}
+
+function renderMarkdown() {
+    const input = document.getElementById('markdownInput').value;
+    if (typeof marked !== 'undefined') {
+        document.getElementById('markdownPreview').innerHTML = marked.parse(input);
+    } else {
+        document.getElementById('markdownPreview').innerHTML = "<p style='color:red'>marked.js library not loaded.</p>";
+    }
+}
+
+function testRegex() {
+    const regexStr = document.getElementById('regexInput').value;
+    const flagsStr = document.getElementById('regexFlags').value;
+    const testStr = document.getElementById('regexTestString').value;
+    const resultBox = document.getElementById('regexResult');
+    
+    if (!regexStr || !testStr) {
+        resultBox.innerHTML = '';
+        return;
+    }
+    
+    try {
+        const regex = new RegExp(regexStr, flagsStr);
+        const matches = [...testStr.matchAll(regex)];
+        
+        if (matches.length === 0) {
+            resultBox.innerHTML = '<span style="color:var(--text-muted)">No matches found.</span>';
+            return;
+        }
+        
+        let output = `Found ${matches.length} match(es):\n\n`;
+        matches.forEach((match, i) => {
+            output += `Match ${i + 1}: "${match[0]}" at index ${match.index}\n`;
+        });
+        resultBox.innerText = output;
+    } catch (e) {
+        resultBox.innerHTML = `<span style="color:#ef4444">Regex Error: ${e.message}</span>`;
+    }
+}
+
+function formatSQL() {
+    const input = document.getElementById('sqlInput').value;
+    try {
+        if (typeof sqlFormatter !== 'undefined') {
+            document.getElementById('sqlOutput').value = sqlFormatter.format(input);
+            showToast("SQL Formatted!");
+        } else {
+            document.getElementById('sqlOutput').value = "Error: SQL Formatter library not loaded.";
+        }
+    } catch (e) {
+        document.getElementById('sqlOutput').value = "Parse Error: " + e.message;
+    }
+}
+
+function updateShadow() {
+    const x = document.getElementById('shadowX').value;
+    const y = document.getElementById('shadowY').value;
+    const blur = document.getElementById('shadowBlur').value;
+    const spread = document.getElementById('shadowSpread').value;
+    const colorHex = document.getElementById('shadowColor').value;
+    const opacity = document.getElementById('shadowOpacity').value;
+    const inset = document.getElementById('shadowInset').checked;
+    
+    document.getElementById('shadowXVal').innerText = x;
+    document.getElementById('shadowYVal').innerText = y;
+    document.getElementById('shadowBlurVal').innerText = blur;
+    document.getElementById('shadowSpreadVal').innerText = spread;
+    document.getElementById('shadowOpacityVal').innerText = opacity;
+    
+    // Convert hex to rgba
+    const r = parseInt(colorHex.slice(1, 3), 16);
+    const g = parseInt(colorHex.slice(3, 5), 16);
+    const b = parseInt(colorHex.slice(5, 7), 16);
+    const rgba = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    
+    const insetStr = inset ? "inset " : "";
+    const shadowCode = `${insetStr}${x}px ${y}px ${blur}px ${spread}px ${rgba}`;
+    
+    document.getElementById('shadowBox').style.boxShadow = shadowCode;
+    document.getElementById('shadowCode').value = `box-shadow: ${shadowCode};`;
+}
+
+function analyzeText() {
+    const text = document.getElementById('wcInput').value;
+    
+    if (!text.trim()) {
+        document.getElementById('wcWords').innerText = '0';
+        document.getElementById('wcChars').innerText = '0';
+        document.getElementById('wcSentences').innerText = '0';
+        document.getElementById('wcReadingTime').innerText = '0m';
+        return;
+    }
+    
+    const words = text.trim().split(/\s+/).length;
+    const chars = text.length;
+    const sentences = text.split(/[.!?]+/).filter(Boolean).length;
+    const readingTime = Math.max(1, Math.ceil(words / 200));
+    
+    document.getElementById('wcWords').innerText = words;
+    document.getElementById('wcChars').innerText = chars;
+    document.getElementById('wcSentences').innerText = sentences;
+    document.getElementById('wcReadingTime').innerText = readingTime + 'm';
+}
+
+function generateLorem() {
+    const count = parseInt(document.getElementById('loremCount').value) || 3;
+    const loremBase = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    
+    let result = [];
+    for(let i=0; i<count; i++) {
+        result.push(loremBase);
+    }
+    document.getElementById('loremOutput').value = result.join('\n\n');
+    showToast("Lorem Ipsum generated");
+}
+
+function generateUUIDs() {
+    const count = parseInt(document.getElementById('uuidCount').value) || 1;
+    let result = [];
+    for(let i=0; i<count; i++) {
+        // v4 UUID using crypto
+        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+            result.push(crypto.randomUUID());
+        } else {
+            result.push('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            }));
+        }
+    }
+    document.getElementById('uuidOutput').value = result.join('\n');
+    showToast(count + " UUID(s) generated");
+}
+
+function processURL(action) {
+    const input = document.getElementById('urlInput').value;
+    try {
+        if (action === 'encode') {
+            document.getElementById('urlOutput').value = encodeURIComponent(input);
+            showToast("URL Encoded");
+        } else {
+            document.getElementById('urlOutput').value = decodeURIComponent(input);
+            showToast("URL Decoded");
+        }
+    } catch(e) {
+        document.getElementById('urlOutput').value = "Error: " + e.message;
+    }
+}
+
+// ==========================================
+// 5 HIGH-TRAFFIC TOOLS LOGIC
+// ==========================================
+
+// 1. Image Resizer
+let resizerImgObj = new Image();
+function loadResizerImage(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+        resizerImgObj.onload = () => {
+            document.getElementById('resizerWidth').value = resizerImgObj.width;
+            document.getElementById('resizerHeight').value = resizerImgObj.height;
+            
+            // Hide the placeholder text safely
+            const p = document.getElementById('resizerPreviewArea').querySelector('p');
+            if (p) p.style.display = 'none';
+            
+            // Show original image on canvas as preview
+            const canvas = document.getElementById('resizerCanvas');
+            canvas.width = resizerImgObj.width;
+            canvas.height = resizerImgObj.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(resizerImgObj, 0, 0);
+            canvas.style.display = 'block';
+        }
+        resizerImgObj.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function toggleLockAspect() {
+    maintainAspect('width');
+}
+
+function maintainAspect(changed) {
+    const lock = document.getElementById('resizerLock').checked;
+    if (!lock || !resizerImgObj.src) return;
+    const ratio = resizerImgObj.width / resizerImgObj.height;
+    const wEl = document.getElementById('resizerWidth');
+    const hEl = document.getElementById('resizerHeight');
+    if (changed === 'width' && wEl.value) {
+        hEl.value = Math.round(wEl.value / ratio);
+    } else if (changed === 'height' && hEl.value) {
+        wEl.value = Math.round(hEl.value * ratio);
+    }
+}
+
+function resizeImage() {
+    if (!resizerImgObj.src) return alert("Please upload an image first.");
+    const w = parseInt(document.getElementById('resizerWidth').value);
+    const h = parseInt(document.getElementById('resizerHeight').value);
+    if (!w || !h) return alert("Enter valid width and height.");
+    
+    const canvas = document.getElementById('resizerCanvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(resizerImgObj, 0, 0, w, h);
+    
+    document.getElementById('resizerDownloadBtn').style.display = 'block';
+}
+
+function downloadResizedImage() {
+    const canvas = document.getElementById('resizerCanvas');
+    const link = document.createElement('a');
+    link.download = 'resized-image.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+}
+
+// 2. PDF Merge
+let pdfFilesToMerge = [];
+function renderPdfList(e) {
+    const newFiles = Array.from(e.target.files);
+    pdfFilesToMerge = pdfFilesToMerge.concat(newFiles);
+    e.target.value = ''; // Reset input to allow adding the same file again if needed
+    updatePdfListView();
+}
+
+function removePdfFile(index) {
+    pdfFilesToMerge.splice(index, 1);
+    updatePdfListView();
+}
+
+function updatePdfListView() {
+    const list = document.getElementById('pdfFileList');
+    list.innerHTML = '';
+    if (pdfFilesToMerge.length < 2) {
+        list.innerHTML = '<li class="text-muted" style="list-style: none; padding-left: 0;">Please select at least 2 PDF files. (' + pdfFilesToMerge.length + ' selected)</li>';
+        document.getElementById('btnMergePdfs').disabled = true;
+    } else {
+        document.getElementById('btnMergePdfs').disabled = false;
+    }
+    
+    pdfFilesToMerge.forEach((f, i) => {
+        let li = document.createElement('li');
+        li.textContent = f.name;
+        
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = '&times;';
+        removeBtn.style.marginLeft = '15px';
+        removeBtn.style.background = 'rgba(255, 68, 68, 0.1)';
+        removeBtn.style.border = 'none';
+        removeBtn.style.color = '#ff4444';
+        removeBtn.style.cursor = 'pointer';
+        removeBtn.style.borderRadius = '50%';
+        removeBtn.style.width = '24px';
+        removeBtn.style.height = '24px';
+        removeBtn.style.display = 'inline-flex';
+        removeBtn.style.alignItems = 'center';
+        removeBtn.style.justifyContent = 'center';
+        removeBtn.onclick = () => removePdfFile(i);
+        
+        li.appendChild(removeBtn);
+        list.appendChild(li);
+    });
+    document.getElementById('pdfMergeResult').style.display = 'none';
+}
+
+async function mergePdfs() {
+    if (!window.PDFLib) {
+        alert("Loading PDF engine, please wait a second and try again...");
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js");
+        return;
+    }
+    const { PDFDocument } = window.PDFLib;
+    document.getElementById('btnMergePdfs').innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Merging...';
+    if (typeof lucide !== 'undefined') setTimeout(() => requestAnimationFrame(() => lucide.createIcons()), 10);
+    
+    try {
+        const mergedPdf = await PDFDocument.create();
+        for (let file of pdfFilesToMerge) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await PDFDocument.load(arrayBuffer);
+            const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+            copiedPages.forEach((page) => mergedPdf.addPage(page));
+        }
+        const mergedPdfBytes = await mergedPdf.save();
+        const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        
+        document.getElementById('pdfMergeDownloadBtn').onclick = () => {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'merged-document.pdf';
+            a.click();
+        };
+        document.getElementById('pdfMergeResult').style.display = 'block';
+    } catch (e) {
+        alert("Error: " + e.message + "\\nMake sure the PDFs are not password protected or corrupted.");
+        console.error("PDF Merge Error:", e);
+    }
+    document.getElementById('btnMergePdfs').innerHTML = '<i data-lucide="file-plus"></i> Merge PDFs';
+    if (typeof lucide !== 'undefined') setTimeout(() => requestAnimationFrame(() => lucide.createIcons()), 10);
+}
+
+// 3. Unit Converter
+const units = {
+    length: { 'Meter': 1, 'Kilometer': 1000, 'Centimeter': 0.01, 'Mile': 1609.34, 'Yard': 0.9144, 'Foot': 0.3048, 'Inch': 0.0254 },
+    weight: { 'Gram': 1, 'Kilogram': 1000, 'Milligram': 0.001, 'Pound': 453.592, 'Ounce': 28.3495 },
+    temp: { 'Celsius': 'c', 'Fahrenheit': 'f', 'Kelvin': 'k' },
+    storage: { 'Byte': 1, 'Kilobyte': 1024, 'Megabyte': 1048576, 'Gigabyte': 1073741824, 'Terabyte': 1099511627776 }
+};
+
+function updateUnitOptions() {
+    const cat = document.getElementById('unitCategory').value;
+    const fromSelect = document.getElementById('unitFrom');
+    const toSelect = document.getElementById('unitTo');
+    if (!fromSelect || !toSelect) return;
+    fromSelect.innerHTML = ''; toSelect.innerHTML = '';
+    
+    for (let u in units[cat]) {
+        fromSelect.add(new Option(u, u));
+        toSelect.add(new Option(u, u));
+    }
+    if (toSelect.options.length > 1) toSelect.selectedIndex = 1;
+    convertUnits();
+}
+
+function convertUnits() {
+    const cat = document.getElementById('unitCategory').value;
+    const val = parseFloat(document.getElementById('unitInputVal').value);
+    if (isNaN(val)) return document.getElementById('unitOutputVal').value = '';
+    
+    const from = document.getElementById('unitFrom').value;
+    const to = document.getElementById('unitTo').value;
+    let res = 0;
+    
+    if (cat === 'temp') {
+        let celsius = val;
+        if (from === 'Fahrenheit') celsius = (val - 32) * 5/9;
+        if (from === 'Kelvin') celsius = val - 273.15;
+        
+        if (to === 'Celsius') res = celsius;
+        if (to === 'Fahrenheit') res = (celsius * 9/5) + 32;
+        if (to === 'Kelvin') res = celsius + 273.15;
+    } else {
+        const baseVal = val * units[cat][from];
+        res = baseVal / units[cat][to];
+    }
+    
+    document.getElementById('unitOutputVal').value = Number.isInteger(res) ? res : parseFloat(res.toFixed(6));
+}
+
+// 4. YouTube Thumbnail Downloader
+function extractYtThumbnail() {
+    const url = document.getElementById('ytUrlInput').value;
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+    if (match && match[1]) {
+        const vid = match[1];
+        const imgUrl = `https://img.youtube.com/vi/${vid}/maxresdefault.jpg`;
+        const imgEl = document.getElementById('ytThumbnailImg');
+        imgEl.src = imgUrl;
+        imgEl.style.display = 'block';
+        document.getElementById('ytPreviewArea').querySelector('p').style.display = 'none';
+        document.getElementById('ytDownloadBtn').style.display = 'block';
+        document.getElementById('ytDownloadBtn').dataset.url = imgUrl;
+    } else {
+        document.getElementById('ytThumbnailImg').style.display = 'none';
+        document.getElementById('ytPreviewArea').querySelector('p').style.display = 'block';
+        document.getElementById('ytDownloadBtn').style.display = 'none';
+    }
+}
+
+function downloadYtThumbnail() {
+    const url = document.getElementById('ytDownloadBtn').dataset.url;
+    if (!url) return;
+    
+    document.getElementById('ytDownloadBtn').innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Downloading...';
+    if (typeof lucide !== 'undefined') setTimeout(() => requestAnimationFrame(() => lucide.createIcons()), 10);
+
+    // Remove protocol for wsrv.nl
+    const cleanUrl = url.replace(/^https?:\/\//, '');
+
+    const proxies = [
+        'https://wsrv.nl/?url=' + encodeURIComponent(cleanUrl),
+        'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url),
+        'https://api.allorigins.win/raw?url=' + encodeURIComponent(url)
+    ];
+
+    async function tryFetch(index) {
+        if (index >= proxies.length) {
+            document.getElementById('ytDownloadBtn').innerHTML = '<i data-lucide="download"></i> Download HD Thumbnail';
+            if (typeof lucide !== 'undefined') setTimeout(() => requestAnimationFrame(() => lucide.createIcons()), 10);
+            alert("Could not download automatically. Please Right-Click the image above and select 'Save Image As'.");
+            return;
+        }
+        try {
+            const res = await fetch(proxies[index]);
+            if (!res.ok) throw new Error("Proxy response not ok");
+            const blob = await res.blob();
+            
+            // Validate blob is an image
+            if (!blob.type.startsWith('image/')) throw new Error("Not an image");
+
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'youtube-thumbnail-hd.jpg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+            
+            document.getElementById('ytDownloadBtn').innerHTML = '<i data-lucide="download"></i> Download HD Thumbnail';
+            if (typeof lucide !== 'undefined') setTimeout(() => requestAnimationFrame(() => lucide.createIcons()), 10);
+        } catch (e) {
+            console.warn("Proxy failed:", proxies[index], e);
+            tryFetch(index + 1);
+        }
+    }
+    
+    tryFetch(0);
+}
+
+// 5. Text to Speech
+
+
+// Init unit converter and voices
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('unitCategory')) updateUnitOptions();
+});

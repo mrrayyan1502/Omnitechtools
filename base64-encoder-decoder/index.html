@@ -24,25 +24,25 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="referrer" content="no-referrer">
-    <title>Free Online Tools for Creators &amp; Developers | OmniTools</title>
-    <meta name="description" content="Free private browser-based tools for images, code, QR codes, documents and everyday calculations. No signup required.">
-    <link rel="canonical" href="https://www.omnitechtools.com/">
+    <title>Free Base64 Encoder &amp; Decoder Online</title>
+    <meta name="description" content="Encode text or files to Base64 and decode Base64 locally in your browser. No input is uploaded to our server.">
+    <link rel="canonical" href="https://www.omnitechtools.com/base64-encoder-decoder/">
 
         <!-- OpenGraph / Facebook -->
     <meta property="og:image" content="https://www.omnitechtools.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://www.omnitechtools.com/">
+    <meta property="og:url" content="https://www.omnitechtools.com/base64-encoder-decoder/">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Online Tools for Creators &amp; Developers | OmniTools">
-    <meta name="twitter:description" content="Free private browser-based tools for images, code, QR codes, documents and everyday calculations. No signup required.">
+    <meta name="twitter:title" content="Free Base64 Encoder &amp; Decoder Online">
+    <meta name="twitter:description" content="Encode text or files to Base64 and decode Base64 locally in your browser. No input is uploaded to our server.">
     <meta name="twitter:image" content="https://www.omnitechtools.com/og-image.png">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Free Online Tools for Creators &amp; Developers | OmniTools">
-    <meta property="og:description" content="Free private browser-based tools for images, code, QR codes, documents and everyday calculations. No signup required.">
+    <meta property="og:title" content="Free Base64 Encoder &amp; Decoder Online">
+    <meta property="og:description" content="Encode text or files to Base64 and decode Base64 locally in your browser. No input is uploaded to our server.">
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="/style.css?v=2.1">
@@ -58,7 +58,7 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Free Online Tools for Creators and Developers", "url": "https://www.omnitechtools.com/", "description": "Free private browser-based tools for images, code, QR codes, documents and everyday calculations. No signup required.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Base64 Encoder & Decoder Online", "url": "https://www.omnitechtools.com/base64-encoder-decoder/", "description": "Encode text or files to Base64 and decode Base64 locally in your browser. No input is uploaded to our server.", "isAccessibleForFree": true}</script></head>
 <body>
 
     <!-- App Shell Layout -->
@@ -85,7 +85,7 @@
             </div>
 
             <nav class="nav-menu">
-                <a href="/" class="nav-item active" id="nav-dashboard" aria-current="page">
+                <a href="/" class="nav-item" id="nav-dashboard">
                     <i data-lucide="layout-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -123,7 +123,7 @@
                     <i data-lucide="key-round"></i>
                     <span>Password Gen</span>
                 </a>
-                <a href="/base64-encoder-decoder/" class="nav-item" id="nav-base64">
+                <a href="/base64-encoder-decoder/" class="nav-item active" id="nav-base64" aria-current="page">
                     <i data-lucide="binary"></i>
                     <span>Base64 Encoder</span>
                 </a>
@@ -228,224 +228,6 @@
                 <span class="sr-only">OmniTools - Premium Creator &amp; Developer Utility Hub</span>
 
                 <!-- TAB 1: DASHBOARD -->
-                <section class="tab-panel active" id="panel-dashboard">
-                    <div class="hero-section">
-                        <h1>Free Online Tools for Creators and Developers</h1>
-                        <p class="subtitle">Free, fast and privacy-focused. Supported tool inputs are processed locally in your browser.</p>
-                        <div class="hero-stats">
-                            <div class="stat-badge">
-                                <i data-lucide="activity"></i>
-                                <span>No Server Latency</span>
-                            </div>
-                            <div class="stat-badge">
-                                <i data-lucide="lock"></i>
-                                <span>Local Browser Processing</span>
-                            </div>
-                            <div class="stat-badge">
-                                <i data-lucide="coins"></i>
-                                <span>Free Forever</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dashboard Category: Design & Graphics -->
-                    <div class="tools-grid">
-                        <!-- Tool Card 1: Custom QR Generator -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/qr-code-generator/">
-                            <span class="card-badge badge-design">Design</span>
-                            <div class="tool-card-icon qr-gradient">
-                                <i data-lucide="qr-code"></i>
-                            </div>
-                            <h2>Custom QR Code Generator</h2>
-                            <p>Generate highly stylized QR codes with gradient fills, round custom corners, and upload your brand logo for free.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 2: Image Compressor -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/image-compressor/">
-                            <span class="card-badge badge-design">Design</span>
-                            <div class="tool-card-icon compress-gradient">
-                                <i data-lucide="image"></i>
-                            </div>
-                            <h2>Browser Image Compressor</h2>
-                            <p>Reduce file size of your JPEG, PNG, or convert them directly to WebP completely offline using Canvas.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 3: CSS Studio -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/css-glassmorphism-generator/">
-                            <span class="card-badge badge-design">Design</span>
-                            <div class="tool-card-icon css-gradient">
-                                <i data-lucide="code-2"></i>
-                            </div>
-                            <h2>Advanced Glassmorphism Studio</h2>
-                            <p>Create visual CSS gradients and glassmorphism layouts with direct slider controls and instant code exports.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 4: SVG Blob Gen -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/svg-blob-generator/">
-                            <span class="card-badge badge-design">Design</span>
-                            <div class="tool-card-icon css-gradient" style="background: linear-gradient(135deg, #8a2be2, #4a00e0); display: flex; align-items: center; justify-content: center;">
-                                <i data-lucide="waves" style="color: #fff;"></i>
-                            </div>
-                            <h2>SVG Blob &amp; Wave Generator</h2>
-                            <p>Generate highly custom fluid organic shapes and CSS vector gradients. Export SVG codes and assets instantly.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 5: Color Palette -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/color-palette-generator/">
-                            <span class="card-badge badge-design">Design</span>
-                            <div class="tool-card-icon finance-gradient" style="background: linear-gradient(135deg, #e65c00, #f9d423);">
-                                <i data-lucide="palette" style="color: #fff;"></i>
-                            </div>
-                            <h2>Color Palette &amp; Contrast Checker</h2>
-                            <p>Create visual hex schemes harmonies and analyze text color contrast ratios for WCAG AA/AAA compliance indicators.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 6: JSON Formatter -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/json-formatter/">
-                            <span class="card-badge badge-dev">Developer</span>
-                            <div class="tool-card-icon qr-gradient" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
-                                <i data-lucide="braces" style="color: #fff;"></i>
-                            </div>
-                            <h2>JSON Formatter &amp; Validator</h2>
-                            <p>Clean, syntax-highlight, compress, and validate JSON strings offline with interactive nodes tree parsing.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 7: Base64 Encoder -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/base64-encoder-decoder/">
-                            <span class="card-badge badge-dev">Developer</span>
-                            <div class="tool-card-icon qr-gradient" style="background: linear-gradient(135deg, #f12711, #f5af19);">
-                                <i data-lucide="binary" style="color: #fff;"></i>
-                            </div>
-                            <h2>Base64 Encoder &amp; Decoder</h2>
-                            <p>Encode plain text or binary files to Base64 strings, or decode Base64 back securely and offline.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 8: Meta Tag Gen -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/meta-tag-generator/">
-                            <span class="card-badge badge-dev">Developer</span>
-                            <div class="tool-card-icon css-gradient" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
-                                <i data-lucide="tags" style="color: #fff;"></i>
-                            </div>
-                            <h2>Meta Tag Generator &amp; Previewer</h2>
-                            <p>Generate highly-rated SEO meta tags and preview your search snippet in real-time for Google &amp; Facebook.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 9: Password Gen -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/password-generator/">
-                            <span class="card-badge badge-dev">Developer</span>
-                            <div class="tool-card-icon compress-gradient" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
-                                <i data-lucide="key-round" style="color: #fff;"></i>
-                            </div>
-                            <h2>Password Gen &amp; Strength Meter</h2>
-                            <p>Create strong random passwords locally using the Web Crypto API. Adjust length and character options, then review the strength estimate.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 10: Compound Interest -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/compound-interest-calculator/">
-                            <span class="card-badge badge-finance">Finance</span>
-                            <div class="tool-card-icon finance-gradient">
-                                <i data-lucide="trending-up"></i>
-                            </div>
-                            <h2>Compound Interest &amp; FIRE Calc</h2>
-                            <p>Forecast your savings, compound growth, and outline your financial independence targets with dynamic charts.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- Tool Card 11: Inflation Calc -->
-                        <a class="tool-card animate-card" tabindex="0" role="link" href="/inflation-calculator/">
-                            <span class="card-badge badge-finance">Finance</span>
-                            <div class="tool-card-icon finance-gradient" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
-                                <i data-lucide="percent" style="color: #fff;"></i>
-                            </div>
-                            <h2>Inflation &amp; Money Depreciation Calc</h2>
-                            <p>Track purchasing power losses and compound inflation depreciation trajectories over time with charts.</p>
-                            <span class="tool-action-link">Open Tool <i data-lucide="arrow-right"></i></span>
-                        </a>
-
-                        <!-- 9 NEW TOOLS DASHBOARD CARDS -->
-                        <a class="tool-card" href="/jwt-decoder/" role="link">
-                            <div class="tool-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
-                                <i data-lucide="unlock"></i>
-                            </div>
-                            <h3>JWT Decoder</h3>
-                            <p>Decode, verify, and inspect JSON Web Tokens securely offline.</p>
-                        </a>
-
-                        <a class="tool-card" href="/markdown-editor/" role="link">
-                            <div class="tool-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
-                                <i data-lucide="file-edit"></i>
-                            </div>
-                            <h3>Markdown Editor</h3>
-                            <p>Write, preview, and format Markdown documents with live rendering.</p>
-                        </a>
-
-                        <a class="tool-card" href="/regex-tester/" role="link">
-                            <div class="tool-icon" style="background: rgba(244, 63, 94, 0.1); color: #f43f5e;">
-                                <i data-lucide="regex"></i>
-                            </div>
-                            <h3>Regex Tester</h3>
-                            <p>Build, test, and debug Regular Expressions visually and offline.</p>
-                        </a>
-
-                        <a class="tool-card" href="/sql-formatter/" role="link">
-                            <div class="tool-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
-                                <i data-lucide="database"></i>
-                            </div>
-                            <h3>SQL Formatter</h3>
-                            <p>Beautify and format complex SQL database queries instantly.</p>
-                        </a>
-
-                        <a class="tool-card" href="/css-box-shadow/" role="link">
-                            <div class="tool-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
-                                <i data-lucide="box"></i>
-                            </div>
-                            <h3>Box Shadow Gen</h3>
-                            <p>Visually create advanced CSS3 box shadows with layered rendering.</p>
-                        </a>
-
-                        <a class="tool-card" href="/word-counter/" role="link">
-                            <div class="tool-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
-                                <i data-lucide="type"></i>
-                            </div>
-                            <h3>SEO Word Counter</h3>
-                            <p>Count words, characters, and analyze keyword density for SEO.</p>
-                        </a>
-
-                        <a class="tool-card" href="/lorem-ipsum/" role="link">
-                            <div class="tool-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
-                                <i data-lucide="align-left"></i>
-                            </div>
-                            <h3>Lorem Ipsum Gen</h3>
-                            <p>Generate placeholder dummy text for UI mockups and web design.</p>
-                        </a>
-
-                        <a class="tool-card" href="/uuid-generator/" role="link">
-                            <div class="tool-icon" style="background: rgba(168, 85, 247, 0.1); color: #a855f7;">
-                                <i data-lucide="fingerprint"></i>
-                            </div>
-                            <h3>UUID Generator</h3>
-                            <p>Generate secure, cryptographically random v4 UUIDs/GUIDs.</p>
-                        </a>
-
-                        <a class="tool-card" href="/url-encoder/" role="link">
-                            <div class="tool-icon" style="background: rgba(20, 184, 166, 0.1); color: #14b8a6;">
-                                <i data-lucide="link"></i>
-                            </div>
-                            <h3>URL Encoder/Decoder</h3>
-                            <p>Safely encode and decode URL strings and URI components.</p>
-                        </a>
-                    </div>
-                </section>
-
                 <!-- TAB 2: QR GENERATOR -->
                 <!-- TAB 3: IMAGE COMPRESSOR -->
                 <!-- TAB 4: CSS STUDIO -->
@@ -459,6 +241,145 @@
                 <!-- TAB 12: COLOR PALETTE GENERATOR & WCAG CHECKER -->
                 <!-- TAB 13: PASSWORD GENERATOR & STRENGTH METER -->
                 <!-- TAB 14: BASE64 ENCODER & DECODER -->
+                <section class="tab-panel active" id="panel-base64">
+                    <div class="panel-header">
+                        <h1 class="panel-title">Free Base64 Encoder &amp; Decoder Online</h1>
+                        <p>Encode plain text or files to Base64 strings, or decode Base64 data back safely. Everything runs offline in your browser.</p>
+                    </div>
+
+
+                    <div class="adsense-placeholder"></div>
+                    <div class="tool-workspace grid-2">
+                        <!-- Left column controls -->
+                        <div class="workspace-controls glass-card d-flex flex-grow-1" style="flex-direction: column; min-height: 480px;">
+                            <div class="control-tabs" style="margin-bottom: 1rem;">
+                                <button class="control-tab-btn active" id="btn-base64-text" onclick="switchBase64Mode('text', this)">Plain Text</button>
+                                <button class="control-tab-btn" id="btn-base64-file" onclick="switchBase64Mode('file', this)">File Encoder</button>
+                            </div>
+
+                            <!-- Text Mode controls -->
+                            <div id="subpanel-base64-text" class="control-subpanel active" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                <div class="control-group" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <label for="base64TextInput" class="control-label">Input UTF-8 Raw String</label>
+                                    <textarea id="base64TextInput" class="form-control" style="font-family: monospace; font-size: 0.85rem; resize: none; flex-grow: 1; min-height: 200px; background-color: rgba(0, 0, 0, 0.3);" placeholder="Type or paste your text here..." oninput="processBase64Text()"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- File Mode controls -->
+                            <div id="subpanel-base64-file" class="control-subpanel" style="flex-grow: 1;">
+                                <div class="control-group">
+                                    <label for="base64FileInput" class="control-label">Upload Target File</label>
+                                    <div class="file-upload-zone" id="base64Dropzone" onclick="triggerBase64FileInput(event)">
+                                        <i data-lucide="file-up" class="large-upload-icon"></i>
+                                        <span>Click or drag any file here</span>
+                                        <p class="file-size-limit">SVG, PNG, PDF, ZIP (Max 15MB)</p>
+                                        <input type="file" id="base64FileInput" class="hidden-file-input" onchange="handleBase64FileUpload(event)">
+                                    </div>
+                                </div>
+                                <div id="base64FilePreviewBox" class="logo-preview-box hidden" style="margin-top: 1rem;">
+                                    <i data-lucide="file-check" style="color: var(--success);"></i>
+                                    <div style="flex-grow: 1;">
+                                        <p id="base64FileName" style="font-size: 0.85rem; font-weight: bold; color: #fff;"></p>
+                                        <p id="base64FileSize" style="font-size: 0.75rem; color: var(--text-muted);"></p>
+                                    </div>
+                                    <button class="remove-logo-btn" onclick="clearBase64File()">Clear</button>
+                                </div>
+                            </div>
+
+                            <div class="preview-actions mt-3 w-100" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+                                <button class="btn btn-primary" onclick="triggerBase64Encode()">
+                                    <i data-lucide="lock"></i> Encode
+                                </button>
+                                <button class="btn btn-outline" onclick="triggerBase64Decode()">
+                                    <i data-lucide="unlock"></i> Decode
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right column preview/output -->
+                        <div class="workspace-preview glass-card flex-center-column" style="padding: 1.5rem; justify-content: flex-start; align-items: stretch; min-height: 480px;">
+                            <div class="control-group" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                <label for="base64Output" class="control-label">Processed Output String</label>
+                                <div class="code-export-box w-100" style="flex-grow: 1; display: flex; flex-direction: column;">
+                                    <textarea id="base64Output" class="form-control" style="font-family: monospace; font-size: 0.85rem; resize: none; flex-grow: 1; min-height: 300px; background-color: rgba(0, 0, 0, 0.4); color: #a6c1ee;" readonly placeholder="Base64 output string will render here..."></textarea>
+                                    <button class="copy-code-btn" style="top: 8px; right: 8px;" onclick="copyBase64Output()" aria-label="Copy Base64 Output">
+                                        <i data-lucide="copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Guide / FAQs -->
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted);">
+                        <h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Binary-to-Text Encoding &amp; MIME Transmissions</h3>
+
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What is Base64 Encoding and Why is it Used?</h4>
+                            <p style="margin-bottom: 1rem;">Base64 is a binary-to-text encoding scheme that translates complex raw binary data (like compiled images, PDFs, or executables) into a safe, standard ASCII text string format. Its primary purpose is to ensure that data remains intact without modification or corruption during transport across systems that were originally designed only to handle text, such as legacy email protocols (MIME) and REST API JSON payloads.</p>
+
+                            <h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. Embedding Assets via Data URIs</h4>
+                            <p style="margin-bottom: 1rem;">Modern web developers frequently use Base64 to embed small graphical assets (like SVGs or tiny icons) directly into CSS or HTML files using Data URIs (`data:image/png;base64,...`). This technique eliminates additional HTTP network requests, significantly reducing server latency and speeding up initial page load times for single-page applications.</p>
+                        </div>
+
+                        <div class="faq-section">
+                            <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+                            <div class="faq-grid" style="display: grid; gap: 1rem;">
+                                <div class="faq-item">
+                                    <h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Does Base64 encoding compress the file?</h4>
+                                    <p style="font-size: 0.95rem;">No, it does the exact opposite. Because Base64 uses a limited subset of 64 ASCII characters to represent 8-bit binary data, the resulting encoded text string is actually about 33% larger than the original binary file. It should only be used for small files or necessary data transmission.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is Base64 a form of secure encryption?</h4>
+                                    <p style="font-size: 0.95rem;">Absolutely not. Base64 is merely an encoding translation protocol. It provides zero cryptographic security, no hashing, and no keys. Anyone can instantly decode a Base64 string back to its original state. Do not use it to hide sensitive passwords.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <div class="share-results-block" style="margin-top: 3rem;">
+                        <div class="share-block-header">Share Results &amp; Help Others! 🤝</div>
+                        <div class="share-buttons-row">
+                            <button class="share-btn whatsapp" onclick="shareToolResult('whatsapp')" aria-label="Share on WhatsApp">
+                                <i data-lucide="message-circle"></i> WhatsApp
+                            </button>
+                            <button class="share-btn telegram" onclick="shareToolResult('telegram')" aria-label="Share on Telegram">
+                                <i data-lucide="send"></i> Telegram
+                            </button>
+                            <button class="share-btn twitter" onclick="shareToolResult('twitter')" aria-label="Share on X/Twitter">
+                                <i data-lucide="twitter"></i> X (Twitter)
+                            </button>
+                            <button class="share-btn facebook" onclick="shareToolResult('facebook')" aria-label="Share on Facebook">
+                                <i data-lucide="facebook"></i> Facebook
+                            </button>
+                            <button class="share-btn copylink" onclick="shareToolResult('copy', this)" aria-label="Copy Link">
+                                <i data-lucide="link-2"></i> <span>Copy Link</span>
+                            </button>
+                        </div>
+                    </div>
+<div class="related-tools-section" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                        <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit';">Explore Related Free Tools</h3>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="/" class="related-tool-pill" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s;"><i data-lucide="home" style="width: 14px; height: 14px; margin-right: 0.5rem; display: inline-block; vertical-align: middle;"></i>All Tools</a>
+                            <a href="/image-compressor/" class="related-tool-pill" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s;"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 0.5rem; display: inline-block; vertical-align: middle;"></i>Image Compressor</a>
+                            <a href="/css-glassmorphism-generator/" class="related-tool-pill" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s;"><i data-lucide="code-2" style="width: 14px; height: 14px; margin-right: 0.5rem; display: inline-block; vertical-align: middle;"></i>CSS Glassmorphism</a>
+                            <a href="/meta-tag-generator/" class="related-tool-pill" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s;"><i data-lucide="tags" style="width: 14px; height: 14px; margin-right: 0.5rem; display: inline-block; vertical-align: middle;"></i>SEO Meta Tags</a>
+                        </div>
+                    </div>
+
+                    <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <a href="/jwt-decoder/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">JWT Decoder</a>
+                            <a href="/json-formatter/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">JSON Formatter</a>
+                            <a href="/word-counter/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Word Counter</a>
+                            <a href="/markdown-editor/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Markdown Editor</a>
+                            <a href="/css-box-shadow/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">CSS Shadows</a>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- TAB 15: META TAG GENERATOR & PREVIEWER -->
                 <!-- TAB 16: INFLATION CALCULATOR -->
                 <!-- TAB 17: BLOG MAIN VIEW -->
