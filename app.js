@@ -97,6 +97,7 @@ function startApp() {
     
     // Core Navigation & Routing Handling
     initNavigation();
+    initStandaloneTool();
     initAnalyticsConsent();
     
     // Core Image Compressor Setup (Pre-instantiated, zero heavy libraries)
@@ -114,6 +115,53 @@ function startApp() {
     // 3 New AdSense Tools Setup (Pre-instantiated)
     initBase64Tool();
     initMetaTagGenerator();
+}
+
+// Standalone pages intentionally bypass the legacy SPA router. Initialise the
+// one tool present on the page and load only the library that tool needs.
+function initStandaloneTool() {
+    const panels = document.querySelectorAll('.tab-panel');
+    if (panels.length !== 1) return;
+
+    const toolId = panels[0].id.replace(/^panel-/, '');
+    const loaders = {
+        'qr-generator': () => loadScript(
+            'https://unpkg.com/qr-code-styling@1.5.0-rc.2/lib/qr-code-styling.js',
+            () => {
+                if (!qrCodeStyling && typeof QRCodeStyling !== 'undefined') initQRGenerator();
+            }
+        ),
+        'finance-calc': () => loadScript(
+            'https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js',
+            initFinanceCalc
+        ),
+        'inflation-calc': () => loadScript(
+            'https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js',
+            initInflationCalc
+        ),
+        'markdown-editor': () => loadScript(
+            'https://cdn.jsdelivr.net/npm/marked@15.0.6/lib/marked.umd.js',
+            () => {
+                const input = document.getElementById('markdownInput');
+                if (input && input.value) renderMarkdown();
+            }
+        ),
+        'sql-formatter': () => loadScript(
+            'https://cdn.jsdelivr.net/npm/sql-formatter@15.3.0/dist/sql-formatter.min.js',
+            () => {
+                const input = document.getElementById('sqlInput');
+                if (input && input.value) formatSQL();
+            }
+        ),
+        'pdf-merge': () => loadScript(
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js'
+        ),
+        'css-box-shadow': updateShadow,
+        'lorem-ipsum': generateLorem,
+        'uuid-generator': generateUUIDs
+    };
+
+    if (loaders[toolId]) loaders[toolId]();
 }
 
 
@@ -163,6 +211,24 @@ function initNavigation() {
 function routeTo(event, tabId) {
     if (event) event.preventDefault();
     switchTab(tabId, true);
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('appSidebar');
+    if (sidebar) sidebar.classList.toggle('mobile-active');
+}
+
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    const value = 'value' in element ? element.value : element.innerText;
+    if (!value) {
+        showToast('There is nothing to copy yet.', 'danger');
+        return;
+    }
+    navigator.clipboard.writeText(value)
+        .then(() => showToast('Copied to clipboard!'))
+        .catch(() => showToast('Copy failed. Please select and copy the text manually.', 'danger'));
 }
 
 // Switching Tab Panels & Handling Router Actions
@@ -1247,7 +1313,7 @@ function calculateFinancialGrowth() {
 
 function renderFinanceChart(labels, totalData, depositsData) {
     const ctx = document.getElementById('financeChart');
-    if (!ctx) return;
+    if (!ctx || typeof Chart === 'undefined') return;
 
     // Destroy old chart instances to avoid overlap visual bugs
     if (financeChartInstance) {
@@ -1361,17 +1427,29 @@ const loadedScripts = {};
 
 // Performance dynamic script injector
 function loadScript(url, callback) {
-    if (loadedScripts[url]) {
-        if (callback) callback();
+    if (loadedScripts[url] === true) {
+        if (callback) callback(null);
         return;
     }
-    
+
+    if (Array.isArray(loadedScripts[url])) {
+        if (callback) loadedScripts[url].push(callback);
+        return;
+    }
+
+    loadedScripts[url] = callback ? [callback] : [];
     const script = document.createElement('script');
     script.src = url;
     script.async = true;
     script.onload = () => {
+        const callbacks = loadedScripts[url];
         loadedScripts[url] = true;
-        if (callback) callback();
+        callbacks.forEach(fn => fn(null));
+    };
+    script.onerror = () => {
+        delete loadedScripts[url];
+        console.error(`Unable to load required tool library: ${url}`);
+        showToast('A required tool component could not load. Check your connection and try again.', 'error');
     };
     document.body.appendChild(script);
 }
@@ -2160,6 +2238,11 @@ function clearBase64File() {
     showToast("File cleared.");
 }
 
+function processBase64Text() {
+    const output = document.getElementById('base64Output');
+    if (output) output.value = '';
+}
+
 function triggerBase64Encode() {
     const activeTab = document.querySelector('#panel-base64 .control-tab-btn.active');
     const isText = activeTab && activeTab.id === 'btn-base64-text';
@@ -2400,7 +2483,7 @@ function calculateInflationLoss() {
 
 function renderInflationChart(labels, originalData, futureData) {
     const ctx = document.getElementById('inflationChart');
-    if (!ctx) return;
+    if (!ctx || typeof Chart === 'undefined') return;
 
     if (inflationChartInstance) {
         inflationChartInstance.destroy();
