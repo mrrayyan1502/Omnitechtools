@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Online JavaScript Regex Tester", "url": "https://www.omnitechtools.com/regex-tester/", "description": "Test JavaScript regular expressions against sample text with live matches, flags and replacement output.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Online JavaScript Regex Tester", "url": "https://www.omnitechtools.com/regex-tester/", "description": "Test JavaScript regular expressions against sample text with live matches, flags and replacement output.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which regex flavour does this tester use?", "acceptedAnswer": {"@type": "Answer", "text": "It uses the JavaScript (ECMAScript) regex engine, identical to what runs in Chrome, Firefox, Edge and Node.js. If your final code is in JavaScript or TypeScript, what you test here behaves the same in production. For Python, Java or .NET, most basics transfer directly but advanced features may differ slightly."}}, {"@type": "Question", "name": "What do the flags g, i and m mean?", "acceptedAnswer": {"@type": "Answer", "text": "The g flag finds all matches instead of stopping after the first. The i flag makes matching case-insensitive so ABC and abc are equivalent. The m flag changes the ^ and $ anchors to match the start and end of each line rather than the whole text, which is essential for multi-line logs and documents."}}, {"@type": "Question", "name": "Why does my pattern match here but fail in my code?", "acceptedAnswer": {"@type": "Answer", "text": "The most common cause is escaping. In many programming languages the regex lives inside a string, so a backslash must itself be escaped: \\d in a tester becomes \\\\d in a Java or Python string literal. Check for double-escaping first, then confirm your language supports the features your pattern uses, such as lookbehind assertions."}}, {"@type": "Question", "name": "Is my sample text uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Matching runs entirely in your browser using JavaScript. Nothing you paste, whether it is log files, customer data or confidential documents, ever leaves your device. You can verify this by opening your browser network tab while using the tool."}}, {"@type": "Question", "name": "How do I match a literal special character like a dot or bracket?", "acceptedAnswer": {"@type": "Answer", "text": "Prefix it with a backslash. A literal dot is \\., a literal opening bracket is \\[, and a literal backslash is \\\\. Inside a character class most characters lose their special meaning, so [.] matches a dot without escaping."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
@@ -273,6 +271,55 @@
                             <div id="regexResult" class="code-preview" style="min-height: 100px; white-space: pre-wrap; word-break: break-all;"></div>
                         </div>
                     </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Online Regex Tester - Master Regular Expressions with Live Feedback</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What Are Regular Expressions and Why Learn Them?</h4>
+<p style="margin-bottom: 1rem;">A regular expression (regex) is a compact pattern language for matching text. With a single line like <strong>\b\w+@\w+\.\w+\b</strong> you can find every email address in a ten-thousand-line document. Developers use regex for input validation, log analysis, search-and-replace refactoring and data extraction; even non-developers meet it in tools like Google Analytics filters and spreadsheet formulas.</p>
+<p style="margin-bottom: 1rem;">The trouble with regex is that it is famously write-only: a pattern that made perfect sense yesterday looks like line noise today. That is exactly why a live tester matters. Instead of editing code, running it and printing debug output, you paste your pattern and sample text here and watch matches highlight in real time as you type.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Test a Pattern with This Tool</h4>
+<p style="margin-bottom: 1rem;">Type or paste your regular expression into the pattern field, add any flags you need (g for global, i for case-insensitive, m for multiline), then paste your sample text below. Matches are highlighted instantly, and the match list shows each capture with its position so you can confirm the pattern behaves exactly as intended before shipping it into production code.</p>
+<p style="margin-bottom: 1rem;">The tester uses the JavaScript regex engine, which is the same engine used by Node.js and every modern browser. That makes it ideal for front-end validation logic, although you should remember that other languages have small dialect differences; Python, Java and PCRE support features like lookbehinds and named groups with slightly different syntax.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. Essential Patterns Every Developer Should Know</h4>
+<p style="margin-bottom: 1rem;">A handful of building blocks cover most real-world needs. <strong>\d</strong> matches any digit, <strong>\w</strong> matches word characters, <strong>\s</strong> matches whitespace, and the dot matches almost anything. Quantifiers control repetition: <strong>+</strong> means one or more, <strong>*</strong> means zero or more, and <strong>{2,4}</strong> means between two and four. Anchors like <strong>^</strong> and <strong>$</strong> pin a pattern to the start or end of a line.</p>
+<p style="margin-bottom: 1rem;">Groups are where regex becomes genuinely powerful. Parentheses capture portions of a match so you can extract or rearrange them, for example turning <strong>(\d{2})/(\d{2})/(\d{4})</strong> into a reordered date with a replacement string like $3-$2-$1. Testing capture groups live, as this tool allows, is far faster than trial and error inside a codebase.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Common Regex Mistakes and How to Avoid Them</h4>
+<p style="margin-bottom: 1rem;">The classic trap is greediness. A pattern like <strong>.*</strong> devours as much text as possible, so extracting one HTML tag with <strong>&lt;.*&gt;</strong> often swallows half the document. The fix is the lazy quantifier <strong>.*?</strong>, which stops at the first valid end. The second classic trap is forgetting to escape special characters: a literal dot must be written as \., a literal bracket as \[.</p>
+<p style="margin-bottom: 1rem;">Catastrophic backtracking is the subtler danger. Nested quantifiers such as <strong>(a+)+</strong> can make the engine explore exponentially many paths and freeze on crafted input. Keep patterns specific, prefer character classes over wildcards, and always test against realistic worst-case strings, exactly the kind of experiment this tester is built for.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Which regex flavour does this tester use?</h4>
+<p style="font-size: 0.95rem;">It uses the JavaScript (ECMAScript) regex engine, identical to what runs in Chrome, Firefox, Edge and Node.js. If your final code is in JavaScript or TypeScript, what you test here behaves the same in production. For Python, Java or .NET, most basics transfer directly but advanced features may differ slightly.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What do the flags g, i and m mean?</h4>
+<p style="font-size: 0.95rem;">The g flag finds all matches instead of stopping after the first. The i flag makes matching case-insensitive so ABC and abc are equivalent. The m flag changes the ^ and $ anchors to match the start and end of each line rather than the whole text, which is essential for multi-line logs and documents.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why does my pattern match here but fail in my code?</h4>
+<p style="font-size: 0.95rem;">The most common cause is escaping. In many programming languages the regex lives inside a string, so a backslash must itself be escaped: \d in a tester becomes \\d in a Java or Python string literal. Check for double-escaping first, then confirm your language supports the features your pattern uses, such as lookbehind assertions.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is my sample text uploaded anywhere?</h4>
+<p style="font-size: 0.95rem;">No. Matching runs entirely in your browser using JavaScript. Nothing you paste, whether it is log files, customer data or confidential documents, ever leaves your device. You can verify this by opening your browser network tab while using the tool.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: How do I match a literal special character like a dot or bracket?</h4>
+<p style="font-size: 0.95rem;">Prefix it with a backslash. A literal dot is \., a literal opening bracket is \[, and a literal backslash is \\. Inside a character class most characters lose their special meaning, so [.] matches a dot without escaping.</p>
+</div>
+</div>
+</div>
+</article>
 
                     <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
                         <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>

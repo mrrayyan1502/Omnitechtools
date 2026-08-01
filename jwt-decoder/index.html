@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free JWT Decoder", "url": "https://www.omnitechtools.com/jwt-decoder/", "description": "Decode JWT headers and payloads locally in your browser for debugging. This tool does not verify token signatures.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free JWT Decoder", "url": "https://www.omnitechtools.com/jwt-decoder/", "description": "Decode JWT headers and payloads locally in your browser for debugging. This tool does not verify token signatures.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it safe to paste my JWT into this decoder?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This tool runs 100% client-side in your browser. The token you paste is decoded locally with JavaScript and is never transmitted to any server, logged, or stored. You can even disconnect from the internet after the page loads and the decoder will keep working."}}, {"@type": "Question", "name": "Can this tool verify a JWT signature?", "acceptedAnswer": {"@type": "Answer", "text": "No, and deliberately so. Signature verification requires your signing secret or private key, which should never be entered into a web page. This tool decodes the header and payload for inspection and debugging only. For verification, use your backend framework or a library such as jsonwebtoken for Node.js or PyJWT for Python."}}, {"@type": "Question", "name": "Why does my decoded payload look like random text?", "acceptedAnswer": {"@type": "Answer", "text": "That usually means the token was copied incompletely. A JWT must contain all three segments separated by two dots. If even one character is missing from the middle, the Base64URL decoding fails or produces garbled output. Copy the entire string again, making sure there is no trailing whitespace."}}, {"@type": "Question", "name": "What is the difference between encoding and encryption?", "acceptedAnswer": {"@type": "Answer", "text": "Encoding (like Base64URL used in JWTs) is a reversible format change that anyone can undo, offering zero secrecy. Encryption requires a key and makes data unreadable without it. Standard JWT payloads are encoded, not encrypted, so never place passwords or sensitive personal data inside them."}}, {"@type": "Question", "name": "How do I check if a JWT has expired?", "acceptedAnswer": {"@type": "Answer", "text": "Decode the token and look at the exp claim in the payload. It is a Unix timestamp in seconds. Compare it with the current time; if the current time is greater, the token has expired and any well-built API will reject it with a 401 response."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item active" id="nav-jwt-decoder" aria-current="page">
@@ -267,6 +265,55 @@
                             </div>
                         </div>
                     </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Free JWT Decoder - Complete Developer Guide to JSON Web Tokens</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What is a JWT and Why Do Developers Use It?</h4>
+<p style="margin-bottom: 1rem;">A JSON Web Token (JWT) is a compact, URL-safe string that securely carries information between two parties, most commonly between a server and a browser after a user logs in. Instead of storing session data on a server, the server signs a token containing the user identity and permissions, and the client sends that token with every request. This makes JWTs the backbone of modern stateless authentication used by APIs, single-page applications and mobile apps.</p>
+<p style="margin-bottom: 1rem;">Every JWT has three parts separated by dots: the <strong>header</strong> (which algorithm was used, such as HS256 or RS256), the <strong>payload</strong> (the actual claims like user ID, roles and expiry time), and the <strong>signature</strong> (a cryptographic seal proving the token was not tampered with). Our free decoder splits these three parts instantly and presents the header and payload as clean, readable JSON.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Decode a JWT with This Tool</h4>
+<p style="margin-bottom: 1rem;">Using the decoder takes under ten seconds. Copy the full token from your browser developer tools, Postman, or your application logs, then paste it into the input box above. The moment you paste, the tool parses the token structure and renders the decoded header and payload side by side, with no button clicks and no page reloads.</p>
+<p style="margin-bottom: 1rem;">Because decoding happens entirely inside your browser using JavaScript, your token never leaves your machine. This matters enormously in professional environments: tokens often contain email addresses, user IDs and permission scopes, so pasting them into random online decoders that log requests is a genuine security risk. A local, client-side decoder removes that risk completely.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. Common JWT Claims You Will See</h4>
+<p style="margin-bottom: 1rem;">When you decode real-world tokens you will repeatedly meet a handful of standard claims. <strong>iss</strong> identifies who issued the token, <strong>sub</strong> is the subject (usually the user ID), <strong>exp</strong> is the expiry timestamp, <strong>iat</strong> is when the token was issued, and <strong>aud</strong> defines the intended audience. Timestamps are stored as Unix epoch seconds, so a quick mental conversion tells you whether a token is still valid.</p>
+<p style="margin-bottom: 1rem;">Custom claims are equally common. Auth0, Firebase, AWS Cognito and most enterprise identity providers add their own namespaced claims for roles, tenant IDs and feature flags. Reading these claims directly is the fastest way to debug authorisation bugs, for example when a user insists they are an admin but the API disagrees.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Security Best Practices When Handling Tokens</h4>
+<p style="margin-bottom: 1rem;">Decoding is not the same as verifying. Anyone can decode a JWT because the payload is only Base64URL-encoded, not encrypted. Verification means checking the signature against a secret or public key, which this tool intentionally does not do, because that would require your private keys. Never treat a decoded payload as proof of authenticity on its own.</p>
+<p style="margin-bottom: 1rem;">Practical rules worth following: never paste production tokens into third-party websites that transmit data, always check the <strong>exp</strong> claim before assuming a token should work, prefer short-lived access tokens with refresh token rotation, and never store sensitive secrets in the payload itself. Treat every JWT like a temporary password.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is it safe to paste my JWT into this decoder?</h4>
+<p style="font-size: 0.95rem;">Yes. This tool runs 100% client-side in your browser. The token you paste is decoded locally with JavaScript and is never transmitted to any server, logged, or stored. You can even disconnect from the internet after the page loads and the decoder will keep working.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Can this tool verify a JWT signature?</h4>
+<p style="font-size: 0.95rem;">No, and deliberately so. Signature verification requires your signing secret or private key, which should never be entered into a web page. This tool decodes the header and payload for inspection and debugging only. For verification, use your backend framework or a library such as jsonwebtoken for Node.js or PyJWT for Python.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why does my decoded payload look like random text?</h4>
+<p style="font-size: 0.95rem;">That usually means the token was copied incompletely. A JWT must contain all three segments separated by two dots. If even one character is missing from the middle, the Base64URL decoding fails or produces garbled output. Copy the entire string again, making sure there is no trailing whitespace.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What is the difference between encoding and encryption?</h4>
+<p style="font-size: 0.95rem;">Encoding (like Base64URL used in JWTs) is a reversible format change that anyone can undo, offering zero secrecy. Encryption requires a key and makes data unreadable without it. Standard JWT payloads are encoded, not encrypted, so never place passwords or sensitive personal data inside them.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: How do I check if a JWT has expired?</h4>
+<p style="font-size: 0.95rem;">Decode the token and look at the exp claim in the payload. It is a Unix timestamp in seconds. Compare it with the current time; if the current time is greater, the token has expired and any well-built API will reject it with a 401 response.</p>
+</div>
+</div>
+</div>
+</article>
 
                     <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
                         <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>

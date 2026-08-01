@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSS Box Shadow Generator with Live Preview", "url": "https://www.omnitechtools.com/css-box-shadow/", "description": "Build layered CSS box shadows visually, preview the result and copy the generated CSS.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSS Box Shadow Generator with Live Preview", "url": "https://www.omnitechtools.com/css-box-shadow/", "description": "Build layered CSS box shadows visually, preview the result and copy the generated CSS.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do the six box-shadow values mean?", "acceptedAnswer": {"@type": "Answer", "text": "In order: horizontal offset moves the shadow left or right; vertical offset moves it up or down; blur radius softens the edges, with zero giving a hard edge; spread radius grows or shrinks the shadow before blurring; colour sets the shade, ideally with alpha transparency; and the optional inset keyword draws the shadow inside the element for a pressed, recessed look."}}, {"@type": "Question", "name": "Should I use black shadows or coloured shadows?", "acceptedAnswer": {"@type": "Answer", "text": "Almost never pure black. Real shadows borrow colour from their environment, so a shadow tinted with your background hue, such as a deep navy on a light blue page, looks richer and more cohesive. Using rgba or hsla colour with ten to twenty percent opacity keeps shadows subtle and lets the underlying design show through naturally."}}, {"@type": "Question", "name": "Can I apply multiple shadows to one element?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and you should. Separate each shadow with a comma inside the same box-shadow declaration. A tight, darker contact shadow combined with a large, soft ambient shadow produces the realistic elevation seen on premium sites. Shadows listed first render on top of later ones."}}, {"@type": "Question", "name": "Why does my shadow look different on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Screen pixel density and rendering engines differ slightly across devices, but the more common culprit is contrast: shadows visible on a bright desktop monitor can vanish on a dim phone screen in sunlight. Test on real devices, increase opacity slightly for mobile if needed, and avoid relying on shadow alone to communicate critical hierarchy."}}, {"@type": "Question", "name": "Do box shadows slow down my website?", "acceptedAnswer": {"@type": "Answer", "text": "Static shadows have negligible cost on modern browsers. Performance issues arise when animating shadows with large blur radii on many elements simultaneously, which forces expensive repaints. For animations, transition a pre-rendered pseudo-element shadow instead of the box-shadow property itself, and keep blur radii modest on low-end devices."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
@@ -299,6 +297,55 @@
                             </div>
                         </div>
                     </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">CSS Box Shadow Generator - A Visual Guide to Depth and Elevation</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What Box Shadows Do for Your Design</h4>
+<p style="margin-bottom: 1rem;">The box-shadow property is how flat web pages gain physical depth. A well-crafted shadow tells the user which elements float above others, what is clickable, and where the interface hierarchy lives. Google Material Design built an entire visual language on this idea, mapping elevation levels to shadow recipes so users intuitively understand that a raised card sits above the surface beneath it.</p>
+<p style="margin-bottom: 1rem;">The syntax packs six values into one line: horizontal offset, vertical offset, blur radius, spread radius, colour, and an optional inset keyword. Each value controls a distinct aspect of the shadow character, and the generator above gives each one a dedicated slider so you can watch the effect of every adjustment live instead of guessing numbers in a stylesheet.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Build a Shadow with This Generator</h4>
+<p style="margin-bottom: 1rem;">Start with the preview element and adjust the vertical offset first; most natural shadows fall downward because real light comes from above. Then raise the blur radius until the edge softens to taste. Add a small negative spread to keep the shadow tighter than the element, and finish by tuning the colour. Professionals rarely use pure black; a dark shade of your background hue looks dramatically more natural.</p>
+<p style="margin-bottom: 1rem;">When the preview matches your vision, copy the generated CSS declaration and paste it directly into your stylesheet. The output is standards-compliant CSS that works in every modern browser without vendor prefixes, and because the tool runs locally, you can experiment through dozens of iterations in seconds.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. The Layering Secret Behind Premium Shadows</h4>
+<p style="margin-bottom: 1rem;">One shadow looks flat; layered shadows look real. Real-world shadows have two components: a soft, large ambient shadow and a tighter, darker contact shadow near the object. CSS supports comma-separated multiple shadows on a single element, so a professional card might combine 0 2px 4px rgba(0,0,0,0.1) for contact with 0 16px 40px rgba(0,0,0,0.08) for ambience.</p>
+<p style="margin-bottom: 1rem;">This generator lets you build and preview layered shadows together, which is where truly premium interfaces come from. Study the sites you admire: Stripe, Linear and Apple all use two to four stacked shadows per elevated element, each subtle on its own, combining into depth that feels photographic rather than digital.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Common Shadow Mistakes and Performance Tips</h4>
+<p style="margin-bottom: 1rem;">The most common mistake is overdoing it: heavy, dark shadows on every element make interfaces feel muddy and dated. Shadows should whisper, not shout. Reserve strong elevation for modals and floating action buttons, keep cards gentle, and increase shadow intensity on hover to reward interaction rather than demanding attention permanently.</p>
+<p style="margin-bottom: 1rem;">On performance, large blur radii are the expensive part because the browser must calculate soft edges pixel by pixel. Animating box-shadow directly can trigger costly repaints on weaker devices; a smoother technique is animating opacity on a pseudo-element holding the final shadow. Inset shadows, meanwhile, are perfect for pressed states and input fields, giving the illusion of elements recessed into the surface.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What do the six box-shadow values mean?</h4>
+<p style="font-size: 0.95rem;">In order: horizontal offset moves the shadow left or right; vertical offset moves it up or down; blur radius softens the edges, with zero giving a hard edge; spread radius grows or shrinks the shadow before blurring; colour sets the shade, ideally with alpha transparency; and the optional inset keyword draws the shadow inside the element for a pressed, recessed look.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Should I use black shadows or coloured shadows?</h4>
+<p style="font-size: 0.95rem;">Almost never pure black. Real shadows borrow colour from their environment, so a shadow tinted with your background hue, such as a deep navy on a light blue page, looks richer and more cohesive. Using rgba or hsla colour with ten to twenty percent opacity keeps shadows subtle and lets the underlying design show through naturally.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Can I apply multiple shadows to one element?</h4>
+<p style="font-size: 0.95rem;">Yes, and you should. Separate each shadow with a comma inside the same box-shadow declaration. A tight, darker contact shadow combined with a large, soft ambient shadow produces the realistic elevation seen on premium sites. Shadows listed first render on top of later ones.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why does my shadow look different on mobile?</h4>
+<p style="font-size: 0.95rem;">Screen pixel density and rendering engines differ slightly across devices, but the more common culprit is contrast: shadows visible on a bright desktop monitor can vanish on a dim phone screen in sunlight. Test on real devices, increase opacity slightly for mobile if needed, and avoid relying on shadow alone to communicate critical hierarchy.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Do box shadows slow down my website?</h4>
+<p style="font-size: 0.95rem;">Static shadows have negligible cost on modern browsers. Performance issues arise when animating shadows with large blur radii on many elements simultaneously, which forces expensive repaints. For animations, transition a pre-rendered pseudo-element shadow instead of the box-shadow property itself, and keep blur radii modest on low-end devices.</p>
+</div>
+</div>
+</div>
+</article>
 
                     <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
                         <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>

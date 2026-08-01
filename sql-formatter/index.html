@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free SQL Formatter & Beautifier Online", "url": "https://www.omnitechtools.com/sql-formatter/", "description": "Format SQL queries for easier reading and debugging directly in your browser.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free SQL Formatter & Beautifier Online", "url": "https://www.omnitechtools.com/sql-formatter/", "description": "Format SQL queries for easier reading and debugging directly in your browser.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which SQL dialects does the formatter support?", "acceptedAnswer": {"@type": "Answer", "text": "The formatter handles standard SQL used by PostgreSQL, MySQL, SQL Server, SQLite, BigQuery, Snowflake and Redshift. The core grammar of SELECT, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, CTEs and subqueries is shared across all of them, so queries format cleanly regardless of your database."}}, {"@type": "Question", "name": "Will formatting change what my query does?", "acceptedAnswer": {"@type": "Answer", "text": "No. Formatting alters only whitespace and line breaks, never the logic, keywords, identifiers or values. The formatted query is semantically identical to the original and returns exactly the same results. Always review dialect-specific functions after any automated formatting as a matter of habit."}}, {"@type": "Question", "name": "Is it safe to paste production queries into this tool?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Formatting runs entirely in your browser with JavaScript. Your SQL, including table names, column names and filter values, is never transmitted, logged or stored. For queries touching proprietary schemas or sensitive business logic, a client-side formatter is the responsible choice."}}, {"@type": "Question", "name": "Why should keywords be uppercase?", "acceptedAnswer": {"@type": "Answer", "text": "Uppercase keywords are the most widely followed SQL convention because they visually separate the language structure from your table and column names, which are typically lowercase. The eye can scan a query and locate SELECT, WHERE and JOIN instantly. It is convention rather than requirement, but it is the convention most teams, linters and documentation follow."}}, {"@type": "Question", "name": "Can the formatter fix syntax errors in my SQL?", "acceptedAnswer": {"@type": "Answer", "text": "No, a formatter reorganises valid SQL; it does not repair broken SQL. If your query has a missing comma, unbalanced parenthesis or misspelled keyword, your database error message is the right starting point. Once the query runs, paste it here to make it readable."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
@@ -269,6 +267,55 @@
                             <button class="btn btn-outline" onclick="copyToClipboard('sqlOutput')">Copy Output</button>
                         </div>
                     </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Free SQL Formatter - Readable Queries in One Click</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. Why Formatting SQL Actually Matters</h4>
+<p style="margin-bottom: 1rem;">SQL has a unique occupational hazard: it works while looking terrible. A query squeezed onto one line by an ORM, a legacy view written in 2009 with no indentation, a colleague paste in chat with seventeen joins and zero line breaks. The database does not care, but the next human absolutely does, and that human is often you at 2 AM during an incident.</p>
+<p style="margin-bottom: 1rem;">Consistent formatting is not vanity; it is comprehension speed. Research on code reading consistently shows developers spend most of their time understanding code, not writing it, and visual structure is the primary navigation aid. A formatted query reveals its logic at a glance: the SELECT list, the join order, the filter conditions, the grouping. An unformatted one hides bugs in plain sight.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Format a Query with This Tool</h4>
+<p style="margin-bottom: 1rem;">Paste your SQL into the input area, however mangled it is, and the formatter restructures it instantly: keywords aligned, clauses on their own lines, nested subqueries indented to show their depth. Copy the result back into your editor, documentation or pull request comment with one click.</p>
+<p style="margin-bottom: 1rem;">The entire operation runs in your browser. That matters for a class of queries people paste into formatters without thinking: production queries containing real table names, customer filters and business logic. On a server-side formatter that SQL leaves your machine; here it never does, making the tool safe for proprietary schemas and sensitive data structures.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. Formatting Conventions That Professionals Follow</h4>
+<p style="margin-bottom: 1rem;">Most style guides agree on the fundamentals. Keywords like SELECT, FROM, WHERE and JOIN appear in uppercase and start their own lines. Column lists indent beneath the SELECT, one per line when there are more than a few. Joins align vertically so the relationship chain reads top to bottom, and conditions under WHERE and HAVING each get their own line with leading AND or OR.</p>
+<p style="margin-bottom: 1rem;">Subqueries and CTEs (WITH clauses) indent one level deeper, visually declaring their scope. Aliases stay short and meaningful rather than single letters. Comments explain intent, not mechanics. Whether you follow the exact style this tool applies or your team own convention, the non-negotiable rule is consistency: any standard applied everywhere beats personal taste applied sporadically.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Beyond Formatting - Writing SQL Humans Can Maintain</h4>
+<p style="margin-bottom: 1rem;">Formatting is the first step, not the last. Replace SELECT * with explicit column names so schema changes fail loudly instead of silently. Prefer CTEs over nested subqueries for multi-step logic, because named steps read like a story. Push filters as early as possible so intermediate results stay small, and qualify column names with their table alias in every join.</p>
+<p style="margin-bottom: 1rem;">When a query grows past a screenful, decompose it. A chain of well-named CTEs, each doing one thing, outperforms a monolithic masterpiece every time the requirements change, and requirements always change. Format the result here, review the structure, and hand your future self a query that explains itself.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Which SQL dialects does the formatter support?</h4>
+<p style="font-size: 0.95rem;">The formatter handles standard SQL used by PostgreSQL, MySQL, SQL Server, SQLite, BigQuery, Snowflake and Redshift. The core grammar of SELECT, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, CTEs and subqueries is shared across all of them, so queries format cleanly regardless of your database.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Will formatting change what my query does?</h4>
+<p style="font-size: 0.95rem;">No. Formatting alters only whitespace and line breaks, never the logic, keywords, identifiers or values. The formatted query is semantically identical to the original and returns exactly the same results. Always review dialect-specific functions after any automated formatting as a matter of habit.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is it safe to paste production queries into this tool?</h4>
+<p style="font-size: 0.95rem;">Yes. Formatting runs entirely in your browser with JavaScript. Your SQL, including table names, column names and filter values, is never transmitted, logged or stored. For queries touching proprietary schemas or sensitive business logic, a client-side formatter is the responsible choice.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why should keywords be uppercase?</h4>
+<p style="font-size: 0.95rem;">Uppercase keywords are the most widely followed SQL convention because they visually separate the language structure from your table and column names, which are typically lowercase. The eye can scan a query and locate SELECT, WHERE and JOIN instantly. It is convention rather than requirement, but it is the convention most teams, linters and documentation follow.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Can the formatter fix syntax errors in my SQL?</h4>
+<p style="font-size: 0.95rem;">No, a formatter reorganises valid SQL; it does not repair broken SQL. If your query has a missing comma, unbalanced parenthesis or misspelled keyword, your database error message is the right starting point. Once the query runs, paste it here to make it readable.</p>
+</div>
+</div>
+</div>
+</article>
 
                     <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
                         <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>

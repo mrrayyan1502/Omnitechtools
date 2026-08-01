@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free URL Encoder & Decoder Online", "url": "https://www.omnitechtools.com/url-encoder/", "description": "Encode or decode URL components and special characters safely in your browser.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free URL Encoder & Decoder Online", "url": "https://www.omnitechtools.com/url-encoder/", "description": "Encode or decode URL components and special characters safely in your browser.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between %20 and + for spaces?", "acceptedAnswer": {"@type": "Answer", "text": "Both represent a space, but in different contexts. Within the path of a URL only %20 is valid. Inside a query string, the older application/x-www-form-urlencoded convention also allows the plus sign. Modern practice is to use %20 everywhere, because a literal plus sign in a path means an actual plus character."}}, {"@type": "Question", "name": "Why does my URL contain %25 after encoding?", "acceptedAnswer": {"@type": "Answer", "text": "That is double-encoding. The percent sign itself encodes as %25, so if you encode an already-encoded string, %20 turns into %2520. Decode the string once with this tool to check, then re-encode only the raw value. Double-encoding is one of the most common causes of broken tracking links."}}, {"@type": "Question", "name": "Can this tool encode non-English characters like Arabic or Chinese?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The encoder is fully UTF-8 aware, converting each character into its correct multi-byte percent sequence. An Arabic product name or Chinese search term encodes into standards-compliant output that works across browsers, email clients and social platforms."}}, {"@type": "Question", "name": "Is it safe to paste private URLs here?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Encoding and decoding run locally in your browser with JavaScript. The URLs you paste never leave your device, are never logged and never touch a server, so staging links, internal tools and unreleased campaign URLs stay private."}}, {"@type": "Question", "name": "Which characters never need encoding?", "acceptedAnswer": {"@type": "Answer", "text": "The unreserved set defined by the URL standard: uppercase and lowercase letters, digits, and the four characters hyphen, period, underscore and tilde. Everything else is either reserved with a structural meaning (like / ? # &) or unsafe, and should be encoded when it appears as data rather than structure."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
@@ -275,6 +273,55 @@
                             <button class="btn btn-outline" onclick="copyToClipboard('urlOutput')">Copy Result</button>
                         </div>
                     </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Free URL Encoder and Decoder - A Developer Guide to Percent-Encoding</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What is URL Encoding and Why Does It Exist?</h4>
+<p style="margin-bottom: 1rem;">URLs were designed in the early 1990s around a limited alphabet of safe characters. Spaces, symbols, punctuation and non-English characters can all break a link or, worse, change its meaning, because characters like ?, &amp; and = have structural jobs inside a URL. Percent-encoding solves this by representing unsafe characters as a percent sign followed by their hexadecimal byte value: a space becomes %20, an ampersand becomes %26.</p>
+<p style="margin-bottom: 1rem;">Without encoding, a search query containing an ampersand would silently truncate, a filename with a space would 404, and an Arabic or Japanese product name would corrupt in transit. Every time you share a link with parameters, redirect through a tracking URL, or pass user input into a query string, encoding is the invisible machinery keeping the web coherent.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Encode or Decode with This Tool</h4>
+<p style="margin-bottom: 1rem;">Paste your text or URL into the input field and choose encode or decode. The result appears instantly, ready to copy back into your code, browser bar or marketing platform. The tool handles full UTF-8 input correctly, so emoji, accented characters and non-Latin scripts encode to their proper multi-byte sequences rather than garbage.</p>
+<p style="margin-bottom: 1rem;">Because conversion happens entirely in your browser, you can safely encode URLs containing internal parameters, unreleased product names or staging environment paths. Nothing is transmitted anywhere, which is more than most online encoders can honestly claim.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. encodeURI vs encodeURIComponent - The Distinction That Matters</h4>
+<p style="margin-bottom: 1rem;">JavaScript gives developers two encoding functions and confusing them causes real bugs. <strong>encodeURI</strong> encodes a complete URL while preserving its structural characters, so https://example.com/search?q=a b becomes ...?q=a%20b with the slashes and question mark intact. <strong>encodeURIComponent</strong> encodes a single value aggressively, escaping everything reserved, which is what you want when inserting a value into a query parameter.</p>
+<p style="margin-bottom: 1rem;">The rule of thumb: encoding a whole address, use encodeURI; encoding a value that travels inside an address, use encodeURIComponent. Double-encoding is the related trap, where an already-encoded %20 becomes %2520 and the server decodes it back to a literal %20 string instead of a space. When a parameter looks wrong on the server, count the percent signs first.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Real-World Scenarios Where Encoding Saves You</h4>
+<p style="margin-bottom: 1rem;">Email marketers encoding UTM parameters discover quickly that an unencoded ampersand splits their tracking data in half. Developers building redirect chains learn that a destination URL passed as a parameter must itself be fully encoded. Anyone sharing a WhatsApp or mailto link with prefilled text needs spaces and line breaks encoded or the message truncates.</p>
+<p style="margin-bottom: 1rem;">API consumers meet encoding daily: OAuth callbacks, signed URLs, search endpoints and pagination tokens all ride in query strings. When an API call fails with a mysterious 400 error, decoding the request URL with this tool often reveals the culprit in seconds, whether it is a stray space, an unescaped plus sign or a mangled unicode character.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What is the difference between %20 and + for spaces?</h4>
+<p style="font-size: 0.95rem;">Both represent a space, but in different contexts. Within the path of a URL only %20 is valid. Inside a query string, the older application/x-www-form-urlencoded convention also allows the plus sign. Modern practice is to use %20 everywhere, because a literal plus sign in a path means an actual plus character.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why does my URL contain %25 after encoding?</h4>
+<p style="font-size: 0.95rem;">That is double-encoding. The percent sign itself encodes as %25, so if you encode an already-encoded string, %20 turns into %2520. Decode the string once with this tool to check, then re-encode only the raw value. Double-encoding is one of the most common causes of broken tracking links.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Can this tool encode non-English characters like Arabic or Chinese?</h4>
+<p style="font-size: 0.95rem;">Yes. The encoder is fully UTF-8 aware, converting each character into its correct multi-byte percent sequence. An Arabic product name or Chinese search term encodes into standards-compliant output that works across browsers, email clients and social platforms.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is it safe to paste private URLs here?</h4>
+<p style="font-size: 0.95rem;">Yes. Encoding and decoding run locally in your browser with JavaScript. The URLs you paste never leave your device, are never logged and never touch a server, so staging links, internal tools and unreleased campaign URLs stay private.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Which characters never need encoding?</h4>
+<p style="font-size: 0.95rem;">The unreserved set defined by the URL standard: uppercase and lowercase letters, digits, and the four characters hyphen, period, underscore and tilde. Everything else is either reserved with a structural meaning (like / ? # &) or unsafe, and should be encoded when it appears as data rather than structure.</p>
+</div>
+</div>
+</div>
+</article>
 
                     <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
                         <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>

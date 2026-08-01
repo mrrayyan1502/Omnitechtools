@@ -58,7 +58,8 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "About OmniTools", "url": "https://www.omnitechtools.com/about/", "description": "Learn why OmniTools provides practical, free utilities that process supported inputs locally in your browser.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "About OmniTools", "url": "https://www.omnitechtools.com/about/", "description": "Learn why OmniTools provides practical, free utilities that process supported inputs locally in your browser.", "isAccessibleForFree": true}</script><meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -151,10 +152,6 @@
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
                 </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
-                </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
                     <i data-lucide="unlock"></i>
@@ -245,18 +242,56 @@
                             <p style="color: var(--text-muted); line-height: 1.6;">OmniTools was founded in 2026 with a simple yet powerful goal: to provide top-tier, premium digital utility tools that are completely free to use, and require absolutely zero remote servers to process your private data.</p>
                         </div>
 
+                        <!-- Founder Section -->
+                        <div class="founder-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; padding: 2rem; margin-bottom: 2rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="flex: 0 0 auto;">
+                                <img src="/assets/ash-founder.jpg" alt="ASH - Founder of OmniTools" width="180" height="166" style="width: 180px; height: auto; border-radius: 16px; border: 2px solid var(--accent-primary, #00f2fe); box-shadow: 0 8px 32px rgba(0, 242, 254, 0.15);" loading="lazy">
+                            </div>
+                            <div style="flex: 1; min-width: 260px;">
+                                <h3 style="color: #fff; margin-bottom: 0.25rem; font-size: 1.4rem;">Meet the Founder</h3>
+                                <p style="color: var(--accent-primary, #00f2fe); font-weight: 600; margin-bottom: 1rem;">ASH - Founder &amp; Developer, OmniTools (United Kingdom)</p>
+                                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">Hi, I am ASH, the founder and solo developer behind OmniTools, based in the United Kingdom. I built this platform in 2026 out of personal frustration: every time I needed a quick utility, whether compressing an image, formatting JSON or generating a QR code, I hit a paywall, a forced signup, or worse, a server silently uploading my files.</p>
+                                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">So I decided to build the alternative myself. Every tool on this site is hand-crafted to run entirely in your browser, meaning your documents, images and data never leave your device. What started as a personal side project has grown into a full utility hub used by creators, developers and students around the world.</p>
+                                <p style="color: var(--text-muted); line-height: 1.7; margin: 0;">I personally maintain every tool, write every guide on this site, and read every message that comes through the <a href="/contact/" style="color: var(--accent-primary, #00f2fe);">contact page</a>. If something breaks or you need a tool that does not exist yet, tell me and I will build it.</p>
+                            </div>
+                        </div>
+
                         <div class="guide-grid" style="margin-top: 2rem;">
                             <div class="faq-item">
                                 <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">Why We Built OmniTools</h4>
-                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">Most modern utility web apps lock standard customized downloads, image compressions, or advanced calculators behind heavy paywalls or require users to submit their emails and personal details. We believe basic creators' utilities should be accessible globally without constraints.</p>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">Most modern utility web apps lock standard customized downloads, image compressions, or advanced calculators behind heavy paywalls or require users to submit their emails and personal details. We believe basic creators' utilities should be accessible globally without constraints, accounts or hidden costs.</p>
                             </div>
                             <div class="faq-item">
-                                <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">How It remains Free</h4>
-                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">By building our tools completely "client-side" (executing entirely within the user's browser), we have zero heavy processing hosting server expenses. This allows us to keep the site online forever supported only by unobtrusive Google display advertisements and small donation programs.</p>
+                                <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">Privacy by Architecture, Not Promise</h4>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">Most sites promise privacy in a policy document and then upload your files anyway. OmniTools is different by design: our tools execute completely client-side inside your browser. There is no processing server to trust because there is no processing server at all. Your PDFs, images, tokens and documents physically cannot leave your machine.</p>
                             </div>
-                            <div class="faq-item" style="grid-column: 1 / -1;">
+                            <div class="faq-item">
+                                <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">How the Site Sustains Itself</h4>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">Because every tool runs in your browser rather than on expensive cloud servers, our running costs stay minimal. The site is sustained through ethical, unobtrusive monetisation and the support of our readers, never through paywalls, locked features or selling user data.</p>
+                            </div>
+                            <div class="faq-item">
                                 <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">Commitment to Accessibility</h4>
-                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">OmniTools is designed with accessibility best practices in mind. The site includes scalable text, high-contrast options and keyboard-friendly controls. Please contact us if you encounter an accessibility barrier.</p>
+                                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">OmniTools is designed with accessibility best practices in mind, following UK WCAG guidelines. The site includes scalable text, high-contrast options, dyslexia-friendly fonts and keyboard-friendly controls. Please contact us if you encounter an accessibility barrier and we will fix it.</p>
+                            </div>
+                        </div>
+
+                        <!-- Trust Signals -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                            <div style="text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary, #00f2fe);">25+</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Free Tools</div>
+                            </div>
+                            <div style="text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary, #00f2fe);">0</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Servers Processing Your Data</div>
+                            </div>
+                            <div style="text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary, #00f2fe);">0</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Accounts or Signups Required</div>
+                            </div>
+                            <div style="text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary, #00f2fe);">UK</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Founded &amp; Maintained</div>
                             </div>
                         </div>
                     </div>

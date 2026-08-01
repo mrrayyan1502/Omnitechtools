@@ -58,7 +58,9 @@
     <!-- Lucide Icons for clean UI vectors (Critical) -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
-    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Image Resizer", "url": "https://www.omnitechtools.com/image-resizer/", "description": "Resize image width and height locally in your browser while preserving the aspect ratio when needed.", "isAccessibleForFree": true}</script></head>
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Image Resizer", "url": "https://www.omnitechtools.com/image-resizer/", "description": "Resize image width and height locally in your browser while preserving the aspect ratio when needed.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does resizing reduce image quality?", "acceptedAnswer": {"@type": "Answer", "text": "Making an image smaller preserves apparent quality almost perfectly because the discarded pixels were invisible at the display size anyway. Enlarging an image is different: the tool must invent pixels that never existed, so results soften. The golden rule is to always start from the largest original available and only ever resize downward."}}, {"@type": "Question", "name": "Are my photos uploaded anywhere when I resize them?", "acceptedAnswer": {"@type": "Answer", "text": "No. Resizing happens entirely in your browser with the Canvas API. Your images never leave your device, are never transmitted and never touch a server. For unreleased product photography, client work under NDA or personal pictures, local processing is the privacy-respecting choice."}}, {"@type": "Question", "name": "What is aspect ratio and why does preserving it matter?", "acceptedAnswer": {"@type": "Answer", "text": "Aspect ratio is the proportional relationship between width and height, such as 16:9 or 4:3. Changing one dimension without proportionally adjusting the other stretches or squashes the image, turning circles into ovals and faces into caricatures. This tool locks the ratio by default so proportions always stay true."}}, {"@type": "Question", "name": "What size should I resize images to for my website?", "acceptedAnswer": {"@type": "Answer", "text": "Resize to the largest dimensions the image will actually display at, plus roughly double for retina screens if quality is critical. A full-width hero might need 1920 pixels; a blog content image rarely needs more than 1200; thumbnails a few hundred. Anything beyond display size is dead weight your visitors pay to download."}}, {"@type": "Question", "name": "Which image format should I choose after resizing?", "acceptedAnswer": {"@type": "Answer", "text": "JPEG for photographs and complex images with gradients, PNG when you need transparency or pixel-sharp graphics like logos and screenshots, and WebP for the best of both when you control the platform, offering thirty percent smaller files at equivalent quality. Every modern browser now supports WebP natively."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
 <body>
 
     <!-- App Shell Layout -->
@@ -150,10 +152,6 @@
                 <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
                     <i data-lucide="arrow-right-left"></i>
                     <span>Unit Converter</span>
-                </a>
-                <a href="/youtube-thumbnail-downloader/" class="nav-item" id="nav-youtube-thumbnail">
-                    <i data-lucide="youtube"></i>
-                    <span>YT Thumbnail Gen</span>
                 </a>
                 <!-- 9 NEW TOOLS NAVIGATION -->
                 <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
@@ -306,7 +304,56 @@
                     </div>
                 </section>
 
-                <!-- Sticky Toast Notification popup -->
+                <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Free Image Resizer - Resize Photos for Web, Social and Email</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. Why Image Size Controls Your Website Speed</h4>
+<p style="margin-bottom: 1rem;">Images are the heaviest cargo on the web, routinely accounting for half the total weight of a page. A photograph straight from a modern phone camera measures 4000 pixels wide and weighs five megabytes; displayed in an 800-pixel blog slot, three quarters of those pixels are downloaded for nothing and then discarded by the browser. Multiply that waste across ten images and a page that should load in one second takes eight.</p>
+<p style="margin-bottom: 1rem;">Google made page experience a ranking factor through Core Web Vitals, and oversized images are the single most common cause of poor scores, particularly for the Largest Contentful Paint metric. Resizing images to their actual display dimensions before uploading is the highest-impact speed fix available to any site owner, and it costs nothing but a few seconds.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Resize an Image with This Tool</h4>
+<p style="margin-bottom: 1rem;">Select your image, enter your target width or height, and the tool resizes it instantly with the aspect ratio preserved, so faces never stretch and logos never squash. Download the result and it is ready for your website, marketplace listing, email campaign or social profile. The original file on your device is never touched.</p>
+<p style="margin-bottom: 1rem;">Resizing runs entirely in your browser using the Canvas API, which carries two guarantees worth having. First, privacy: product photos under embargo, personal pictures and client assets never travel to any server. Second, speed: no upload queue, no processing wait, no download delay beyond your own machine working for a fraction of a second.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. The Right Dimensions for Every Platform</h4>
+<p style="margin-bottom: 1rem;">For websites, resize to the largest size the image will actually display at, then add a touch of headroom for retina screens: a 750-pixel content column wants images around 1200 to 1500 pixels wide, not 4000. Blog featured images commonly sit at 1200 by 630 pixels, which doubles as the standard Open Graph share-card size for Facebook and LinkedIn.</p>
+<p style="margin-bottom: 1rem;">Social platforms each have their own geometry. Instagram feed posts are square at 1080 by 1080, stories vertical at 1080 by 1920, Twitter cards landscape at 1200 by 675, and YouTube thumbnails 1280 by 720. Email heroes should stay around 600 pixels wide for compatibility. Getting dimensions right per platform prevents the awkward auto-crops that amputate logos and behead product shots.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Resizing vs Compressing - Know the Difference</h4>
+<p style="margin-bottom: 1rem;">Resizing changes pixel dimensions; compressing reduces file size at the same dimensions. A 4000-pixel photo resized to 1200 pixels sheds pixels permanently and typically drops from five megabytes to three hundred kilobytes. Compressing that same photo without resizing keeps every pixel but encodes them more efficiently, saving perhaps thirty to sixty percent.</p>
+<p style="margin-bottom: 1rem;">For web performance you usually want both: resize to display dimensions first, then compress to trim the remainder. This tool handles the resizing half of the equation; pair it with our Image Compressor for the complete optimisation workflow. Together they routinely cut page image weight by ninety percent or more, which visitors experience as a site that simply feels instant.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Does resizing reduce image quality?</h4>
+<p style="font-size: 0.95rem;">Making an image smaller preserves apparent quality almost perfectly because the discarded pixels were invisible at the display size anyway. Enlarging an image is different: the tool must invent pixels that never existed, so results soften. The golden rule is to always start from the largest original available and only ever resize downward.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Are my photos uploaded anywhere when I resize them?</h4>
+<p style="font-size: 0.95rem;">No. Resizing happens entirely in your browser with the Canvas API. Your images never leave your device, are never transmitted and never touch a server. For unreleased product photography, client work under NDA or personal pictures, local processing is the privacy-respecting choice.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What is aspect ratio and why does preserving it matter?</h4>
+<p style="font-size: 0.95rem;">Aspect ratio is the proportional relationship between width and height, such as 16:9 or 4:3. Changing one dimension without proportionally adjusting the other stretches or squashes the image, turning circles into ovals and faces into caricatures. This tool locks the ratio by default so proportions always stay true.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What size should I resize images to for my website?</h4>
+<p style="font-size: 0.95rem;">Resize to the largest dimensions the image will actually display at, plus roughly double for retina screens if quality is critical. A full-width hero might need 1920 pixels; a blog content image rarely needs more than 1200; thumbnails a few hundred. Anything beyond display size is dead weight your visitors pay to download.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Which image format should I choose after resizing?</h4>
+<p style="font-size: 0.95rem;">JPEG for photographs and complex images with gradients, PNG when you need transparency or pixel-sharp graphics like logos and screenshots, and WebP for the best of both when you control the platform, offering thirty percent smaller files at equivalent quality. Every modern browser now supports WebP natively.</p>
+</div>
+</div>
+</div>
+</article>
+
+                    <!-- Sticky Toast Notification popup -->
             <div id="toastAlert" class="toast-alert-badge">
                 <i data-lucide="check-circle" class="toast-icon"></i>
                 <span id="toastText">Action successful!</span>
