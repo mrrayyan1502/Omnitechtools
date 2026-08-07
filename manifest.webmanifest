@@ -1,0 +1,17 @@
+{
+  "name": "OmniTools",
+  "short_name": "OmniTools",
+  "description": "Free browser-based tools for creators and developers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d19",
+  "theme_color": "#00f2fe",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

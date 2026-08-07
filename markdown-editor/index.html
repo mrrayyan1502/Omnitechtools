@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0HG80BJQ2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': localStorage.getItem('omni-analytics-consent') === 'granted' ? 'granted' : 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+      gtag('js', new Date());
+
+      gtag('config', 'G-T0HG80BJQ2');
+    </script>
+
+    <!-- Google AdSense (Lazy Loaded for 100/100 PageSpeed) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0d19">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="referrer" content="no-referrer">
+    <title>Free Live Markdown Editor &amp; Preview</title>
+    <meta name="description" content="Write Markdown and preview the formatted result live in your browser with no signup or document upload.">
+    <link rel="canonical" href="https://www.omnitechtools.com/markdown-editor/">
+
+        <!-- OpenGraph / Facebook -->
+    <meta property="og:image" content="https://www.omnitechtools.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.omnitechtools.com/markdown-editor/">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Live Markdown Editor &amp; Preview">
+    <meta name="twitter:description" content="Write Markdown and preview the formatted result live in your browser with no signup or document upload.">
+    <meta name="twitter:image" content="https://www.omnitechtools.com/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Live Markdown Editor &amp; Preview">
+    <meta property="og:description" content="Write Markdown and preview the formatted result live in your browser with no signup or document upload.">
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/style.css?v=2.2">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Lexend:wght@400;500;600&amp;display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Lexend:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Lexend:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
+
+    <!-- Third Party CDN Libraries (100% Free & Client-Side) -->
+    <!-- Lucide Icons for clean UI vectors (Critical) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Dynamic SEO Meta Tags (per route) -->
+    <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free Live Markdown Editor & Preview", "url": "https://www.omnitechtools.com/markdown-editor/", "description": "Write Markdown and preview the formatted result live in your browser with no signup or document upload.", "isAccessibleForFree": true}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this editor support GitHub Flavoured Markdown?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The live preview handles the extensions GitHub popularised, including tables, task lists, strikethrough and fenced code blocks with language hints. What you see here is very close to what GitHub will render in your README, issues and pull requests."}}, {"@type": "Question", "name": "Is my writing saved or uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything you type stays inside your browser. The preview is generated locally with JavaScript and nothing is transmitted, logged or stored on any server. Close the tab and the text is gone unless you copied it, which is exactly the privacy guarantee many writers want for unpublished drafts."}}, {"@type": "Question", "name": "Can I export my document as HTML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The rendered preview panel shows the final formatted output, and you can copy the generated HTML for use in a CMS, email template or static site. The raw Markdown copies just as easily for pasting into GitHub, Notion or your favourite docs tool."}}, {"@type": "Question", "name": "Why does my table not render correctly?", "acceptedAnswer": {"@type": "Answer", "text": "Markdown tables are strict about structure. The header row must be followed by a separator row of dashes, such as | --- | --- |, and every row needs the same number of pipe separators. Check that your separator row exists and that no cell contains an unescaped pipe character."}}, {"@type": "Question", "name": "What is the difference between Markdown and HTML?", "acceptedAnswer": {"@type": "Answer", "text": "HTML is the full markup language of the web, powerful but verbose. Markdown is a shorthand for the most common formatting needs, designed to be readable as plain text. Markdown converts to HTML automatically, and most Markdown processors let you mix in raw HTML when you need something the shorthand cannot express."}}]}</script>
+<meta name="google-adsense-account" content="ca-pub-1778765695782629">
+</head>
+<body>
+
+    <!-- App Shell Layout -->
+    <div class="app-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="brand-logo">
+                <div class="logo-icon-wow">
+                    <svg class="wow-logo-svg" viewbox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <lineargradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe"></stop>
+                                <stop offset="100%" stop-color="#4facfe"></stop>
+                            </lineargradient>
+                        </defs>
+                        <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" fill="url(#logoGrad)" opacity="0.15"></path>
+                        <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" stroke="url(#logoGrad)" stroke-width="4" stroke-linejoin="round"></path>
+                        <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#logoGrad)" fill-opacity="0.85"></path>
+                        <path d="M50 28 L38 48 L52 48 L48 70 L62 48 L48 48 Z" fill="#ffffff"></path>
+                    </svg>
+                </div>
+                <span>OmniTools</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="/" class="nav-item" id="nav-dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <div class="nav-label">Utilities</div>
+                <a href="/qr-code-generator/" class="nav-item" id="nav-qr-generator">
+                    <i data-lucide="qr-code"></i>
+                    <span>Custom QR Generator</span>
+                </a>
+                <a href="/image-compressor/" class="nav-item" id="nav-image-compressor">
+                    <i data-lucide="image"></i>
+                    <span>Image Compressor</span>
+                </a>
+                <a href="/css-glassmorphism-generator/" class="nav-item" id="nav-css-builder">
+                    <i data-lucide="code-2"></i>
+                    <span>CSS Studio</span>
+                </a>
+                <a href="/compound-interest-calculator/" class="nav-item" id="nav-finance-calc">
+                    <i data-lucide="trending-up"></i>
+                    <span>FIRE Interest Calc</span>
+                </a>
+                <a href="/json-formatter/" class="nav-item" id="nav-json-formatter">
+                    <i data-lucide="braces"></i>
+                    <span>JSON Formatter</span>
+                </a>
+                <a href="/svg-blob-generator/" class="nav-item" id="nav-svg-blob">
+                    <i data-lucide="waves"></i>
+                    <span>SVG Blob Gen</span>
+                </a>
+                <a href="/color-palette-generator/" class="nav-item" id="nav-color-palette">
+                    <i data-lucide="palette"></i>
+                    <span>Color Palette</span>
+                </a>
+                <a href="/password-generator/" class="nav-item" id="nav-password-generator">
+                    <i data-lucide="key-round"></i>
+                    <span>Password Gen</span>
+                </a>
+                <a href="/base64-encoder-decoder/" class="nav-item" id="nav-base64">
+                    <i data-lucide="binary"></i>
+                    <span>Base64 Encoder</span>
+                </a>
+                <a href="/meta-tag-generator/" class="nav-item" id="nav-meta-generator">
+                    <i data-lucide="tags"></i>
+                    <span>Meta Tag Gen</span>
+                </a>
+                <a href="/inflation-calculator/" class="nav-item" id="nav-inflation-calc">
+                    <i data-lucide="percent"></i>
+                    <span>Inflation Calc</span>
+                </a>
+
+
+
+                <!-- 5 HIGH-TRAFFIC TOOLS NAVIGATION -->
+                <a href="/image-resizer/" class="nav-item" id="nav-image-resizer">
+                    <i data-lucide="crop"></i>
+                    <span>Image Resizer</span>
+                </a>
+                <a href="/pdf-merge/" class="nav-item" id="nav-pdf-merge">
+                    <i data-lucide="file-plus"></i>
+                    <span>PDF Merge</span>
+                </a>
+                <a href="/unit-converter/" class="nav-item" id="nav-unit-converter">
+                    <i data-lucide="arrow-right-left"></i>
+                    <span>Unit Converter</span>
+                </a>
+                <!-- 9 NEW TOOLS NAVIGATION -->
+                <a href="/jwt-decoder/" class="nav-item" id="nav-jwt-decoder">
+                    <i data-lucide="unlock"></i>
+                    <span>JWT Decoder</span>
+                </a>
+                <a href="/markdown-editor/" class="nav-item active" id="nav-markdown-editor" aria-current="page">
+                    <i data-lucide="file-edit"></i>
+                    <span>Markdown Editor</span>
+                </a>
+                <a href="/regex-tester/" class="nav-item" id="nav-regex-tester">
+                    <i data-lucide="regex"></i>
+                    <span>Regex Tester</span>
+                </a>
+                <a href="/sql-formatter/" class="nav-item" id="nav-sql-formatter">
+                    <i data-lucide="database"></i>
+                    <span>SQL Formatter</span>
+                </a>
+                <a href="/css-box-shadow/" class="nav-item" id="nav-css-box-shadow">
+                    <i data-lucide="box"></i>
+                    <span>CSS Box Shadow</span>
+                </a>
+                <a href="/word-counter/" class="nav-item" id="nav-word-counter">
+                    <i data-lucide="type"></i>
+                    <span>Word Counter</span>
+                </a>
+                <a href="/lorem-ipsum/" class="nav-item" id="nav-lorem-ipsum">
+                    <i data-lucide="align-left"></i>
+                    <span>Lorem Ipsum Gen</span>
+                </a>
+                <a href="/uuid-generator/" class="nav-item" id="nav-uuid-generator">
+                    <i data-lucide="fingerprint"></i>
+                    <span>UUID Generator</span>
+                </a>
+                <a href="/url-encoder/" class="nav-item" id="nav-url-encoder">
+                    <i data-lucide="link"></i>
+                    <span>URL Encoder</span>
+                </a>
+
+                <div class="nav-label">Resources</div>
+                <a href="/blog/" class="nav-item" id="nav-blog">
+                    <i data-lucide="book-open"></i>
+                    <span>Creator Blog</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="privacy-badge">
+                    <i data-lucide="shield-check"></i>
+                    <span>100% Client-Side Private</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Body Wrapper -->
+        <div class="main-wrapper">
+
+            <!-- Header -->
+            <header class="app-header">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Toggle Mobile Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="header-search">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="Search tools..." id="toolSearch" aria-label="Search tools" oninput="searchTools()">
+                </div>
+
+            </header>
+
+            <!-- Main Content Panels -->
+            <main class="content-viewport" id="contentViewport">
+                <span class="sr-only">OmniTools - Premium Creator &amp; Developer Utility Hub</span>
+
+                <!-- TAB 1: DASHBOARD -->
+                <!-- TAB 2: QR GENERATOR -->
+                <!-- TAB 3: IMAGE COMPRESSOR -->
+                <!-- TAB 4: CSS STUDIO -->
+                <!-- TAB 5: FINANCE CALCULATOR -->
+                <!-- TAB 6: ABOUT US -->
+                <!-- TAB 7: PRIVACY POLICY -->
+                <!-- TAB 8: CONTACT US -->
+                <!-- TAB 9: TERMS & CONDITIONS -->
+                <!-- TAB 10: JSON FORMATTER & VALIDATOR -->
+                <!-- TAB 11: SVG BLOB GENERATOR -->
+                <!-- TAB 12: COLOR PALETTE GENERATOR & WCAG CHECKER -->
+                <!-- TAB 13: PASSWORD GENERATOR & STRENGTH METER -->
+                <!-- TAB 14: BASE64 ENCODER & DECODER -->
+                <!-- TAB 15: META TAG GENERATOR & PREVIEWER -->
+                <!-- TAB 16: INFLATION CALCULATOR -->
+                <!-- TAB 17: BLOG MAIN VIEW -->
+
+                <!-- TAB: JWT DECODER -->
+                <!-- TAB: MARKDOWN EDITOR -->
+                <section class="tab-panel active" id="panel-markdown-editor">
+                    <h1 class="panel-title">Free Live Markdown Editor &amp; Preview</h1>
+                    <p class="panel-subtitle">Real-time Markdown to HTML live preview editor.</p>
+
+                    <div class="panel-content glass-card" style="padding: 1rem;">
+                        <div class="grid-2" style="gap: 1rem; height: 500px;">
+                            <div class="form-group" style="margin-bottom: 0; display: flex; flex-direction: column;">
+                                <label>Markdown Source</label>
+                                <textarea id="markdownInput" placeholder="# Hello World..." oninput="renderMarkdown()" style="flex: 1; resize: none; font-family: monospace; background: var(--bg-main); color: var(--text-color); border: 1px solid var(--border-color);"></textarea>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0; display: flex; flex-direction: column;">
+                                <label>Live HTML Preview</label>
+                                <div id="markdownPreview" class="code-preview" style="flex: 1; overflow-y: auto; background: var(--bg-main);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <article class="seo-guide-section glass-card" style="line-height: 1.7; color: var(--text-muted); margin-top: 1.5rem; padding: 1.5rem;">
+<h3 style="color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">Free Markdown Editor - Write, Preview and Export with Live Rendering</h3>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">1. What is Markdown and Why Has It Taken Over Writing?</h4>
+<p style="margin-bottom: 1rem;">Markdown is a lightweight formatting language created by John Gruber in 2004 with one goal: let people write for the web using plain text that stays readable even before it is rendered. Two decades later it is the native format of GitHub, Reddit, Notion, Discord, Obsidian, Stack Overflow and virtually every developer documentation platform on earth.</p>
+<p style="margin-bottom: 1rem;">The appeal is speed and portability. Your hands never leave the keyboard to reach for formatting buttons, and the files you produce are future-proof plain text that any tool can read in fifty years. A heading is just a hash symbol, bold is double asterisks, and lists are dashes. You learn the core syntax in ten minutes and use it for the rest of your career.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">2. How to Use This Live Editor</h4>
+<p style="margin-bottom: 1rem;">The screen is split into two panels. On the left you write raw Markdown; on the right the rendered HTML preview updates with every keystroke. There is no save button and no account: your work stays in your browser, and you can copy the finished Markdown or the rendered output whenever you are ready.</p>
+<p style="margin-bottom: 1rem;">Because everything runs client-side, the editor is ideal for sensitive drafts too. Strategy documents, unpublished blog posts, internal runbooks: none of it touches a server. For writers who draft in cafes, trains and airports, the tool also keeps working when Wi-Fi does not.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">3. The Markdown Syntax Cheatsheet You Will Actually Use</h4>
+<p style="margin-bottom: 1rem;">Headings are hashes from # for H1 to ###### for H6. Emphasis uses *italic* and **bold** markers. Links wrap text in square brackets followed by the URL in parentheses, and images are the same with a leading exclamation mark. Unordered lists use dashes, ordered lists use numbers, and task lists use - [ ] checkboxes that GitHub renders interactively.</p>
+<p style="margin-bottom: 1rem;">Code is where Markdown shines for technical writers. Inline code sits between single backticks, while fenced blocks use triple backticks with an optional language name for syntax highlighting, such as ```python. Blockquotes start with a greater-than sign, tables use pipes and dashes, and a horizontal rule is three hyphens on their own line. Mastering this dozen constructs covers ninety-five percent of real documents.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h4 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Outfit';">4. Real-World Workflows This Editor Supports</h4>
+<p style="margin-bottom: 1rem;">Developers draft README files here before pushing them to GitHub, checking that badges, tables of contents and code samples render correctly. Technical writers preview documentation before committing it to a docs-as-code pipeline. Bloggers draft posts in clean Markdown and paste them straight into Ghost, WordPress or static site generators like Hugo and Astro.</p>
+<p style="margin-bottom: 1rem;">Students and researchers use Markdown to keep notes in a format that converts cleanly to PDF, Word or slides via Pandoc. Product managers write specs that engineers can actually read in the repository. Whatever your role, a fast live preview removes the render-commit-check cycle and lets you focus on the words themselves.</p>
+</div>
+<div class="faq-section">
+<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Frequently Asked Questions</h3>
+<div class="faq-grid" style="display: grid; gap: 1rem;">
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Does this editor support GitHub Flavoured Markdown?</h4>
+<p style="font-size: 0.95rem;">Yes. The live preview handles the extensions GitHub popularised, including tables, task lists, strikethrough and fenced code blocks with language hints. What you see here is very close to what GitHub will render in your README, issues and pull requests.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Is my writing saved or uploaded to a server?</h4>
+<p style="font-size: 0.95rem;">No. Everything you type stays inside your browser. The preview is generated locally with JavaScript and nothing is transmitted, logged or stored on any server. Close the tab and the text is gone unless you copied it, which is exactly the privacy guarantee many writers want for unpublished drafts.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Can I export my document as HTML?</h4>
+<p style="font-size: 0.95rem;">Yes. The rendered preview panel shows the final formatted output, and you can copy the generated HTML for use in a CMS, email template or static site. The raw Markdown copies just as easily for pasting into GitHub, Notion or your favourite docs tool.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: Why does my table not render correctly?</h4>
+<p style="font-size: 0.95rem;">Markdown tables are strict about structure. The header row must be followed by a separator row of dashes, such as | --- | --- |, and every row needs the same number of pipe separators. Check that your separator row exists and that no cell contains an unescaped pipe character.</p>
+</div>
+<div class="faq-item">
+<h4 style="margin-bottom: 0.25rem; color: var(--accent-primary);">Q: What is the difference between Markdown and HTML?</h4>
+<p style="font-size: 0.95rem;">HTML is the full markup language of the web, powerful but verbose. Markdown is a shorthand for the most common formatting needs, designed to be readable as plain text. Markdown converts to HTML automatically, and most Markdown processors let you mix in raw HTML when you need something the shorthand cannot express.</p>
+</div>
+</div>
+</div>
+</article>
+
+                    <div class="related-tools mt-4" style="background: rgba(255,255,255,0.02); border-radius: var(--radius-md); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h4 style="margin-top: 0; color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem;"><i data-lucide="layers" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--accent);"></i> Explore Related Tools</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <a href="/jwt-decoder/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">JWT Decoder</a>
+                            <a href="/json-formatter/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">JSON Formatter</a>
+                            <a href="/word-counter/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Word Counter</a>
+                            <a href="/markdown-editor/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Markdown Editor</a>
+                            <a href="/css-box-shadow/" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">CSS Shadows</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: REGEX TESTER -->
+                <!-- TAB: SQL FORMATTER -->
+                <!-- TAB: CSS BOX SHADOW -->
+                <!-- TAB: WORD COUNTER -->
+                <!-- TAB: LOREM IPSUM -->
+                <!-- TAB: UUID GENERATOR -->
+                <!-- TAB: URL ENCODER -->
+                <!-- TAB 18: BLOG POST 1 - QR CODES -->
+                <!-- TAB 19: BLOG POST 2 - IMAGE COMPRESSION -->
+                <!-- TAB 20: BLOG POST 3 - GLASSMORPHISM -->
+                <!-- TAB 21: BLOG POST 4 - FIRE MATH -->
+                <!-- TAB 22: BLOG POST 5 - SECURITY PRIVACY -->
+                <!-- TAB: BLOG ARTICLE - JSON FORMATTER -->
+                <!-- TAB: BLOG ARTICLE - SVG BLOB -->
+                <!-- TAB: BLOG ARTICLE - COLOR PALETTE -->
+                <!-- TAB: BLOG ARTICLE - PASSWORD GEN -->
+                <!-- TAB: BLOG ARTICLE - BASE64 -->
+                <!-- TAB: BLOG ARTICLE - META TAGS -->
+                <!-- TAB: BLOG ARTICLE - INFLATION -->
+                <!-- 5 HIGH-TRAFFIC TOOLS PANELS -->
+                <!-- Sticky Toast Notification popup -->
+            <div id="toastAlert" class="toast-alert-badge">
+                <i data-lucide="check-circle" class="toast-icon"></i>
+                <span id="toastText">Action successful!</span>
+            </div>
+
+            <!-- Premium Multi-Column Footer -->
+            <footer class="app-footer-premium glass-card">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="brand-logo" style="margin-bottom: 1rem; display: flex; align-items: center;">
+                            <div class="logo-icon-wow" style="margin-right: 0.5rem;">
+                                <svg class="wow-logo-svg" viewbox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px;">
+                                    <defs>
+                                        <lineargradient id="logoGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00f2fe"></stop>
+                                            <stop offset="100%" stop-color="#4facfe"></stop>
+                                        </lineargradient>
+                                    </defs>
+                                    <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" fill="url(#logoGradFoot)" opacity="0.15"></path>
+                                    <path d="M50 5 L85 25 L85 65 L50 85 L15 65 L15 25 Z" stroke="url(#logoGradFoot)" stroke-width="4" stroke-linejoin="round"></path>
+                                    <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#logoGradFoot)" fill-opacity="0.85"></path>
+                                    <path d="M50 28 L38 48 L52 48 L48 70 L62 48 L48 48 Z" fill="#ffffff"></path>
+                                </svg>
+                            </div>
+                            <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; background: linear-gradient(to right, #ffffff, #8b92b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OmniTools</span>
+                        </div>
+                        <p class="footer-desc">Premium, 100% free, private-by-design creator &amp; developer utility hub. All files remain strictly in your browser.</p>
+                        <div class="footer-privacy-badge">
+                            <i data-lucide="shield-check"></i>
+                            <span>100% Serverless &amp; Secure</span>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Dev &amp; Security Tools</h4>
+                        <ul>
+                            <li><a href="/jwt-decoder/">JWT Decoder</a></li>
+                            <li><a href="/json-formatter/">JSON Formatter</a></li>
+                            <li><a href="/regex-tester/">Regex Tester</a></li>
+                            <li><a href="/sql-formatter/">SQL Formatter</a></li>
+                            <li><a href="/password-generator/">Password Gen</a></li>
+                            <li><a href="/base64-encoder-decoder/">Base64 Encode</a></li>
+                            <li><a href="/uuid-generator/">UUID Gen</a></li>
+                            <li><a href="/url-encoder/">URL Encoder</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Design &amp; Web Tools</h4>
+                        <ul>
+                            <li><a href="/svg-blob-generator/">SVG Blobs</a></li>
+                            <li><a href="/css-glassmorphism-generator/">Glassmorphism</a></li>
+                            <li><a href="/css-box-shadow/">CSS Box Shadow</a></li>
+                            <li><a href="/color-palette-generator/">Color Palette</a></li>
+                            <li><a href="/image-compressor/">Image Compressor</a></li>
+                            <li><a href="/qr-code-generator/">QR Generator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Content &amp; SEO</h4>
+                        <ul>
+                            <li><a href="/markdown-editor/">Markdown Editor</a></li>
+                            <li><a href="/word-counter/">Word Counter</a></li>
+                            <li><a href="/lorem-ipsum/">Lorem Ipsum</a></li>
+                            <li><a href="/meta-tag-generator/">Meta Tag Gen</a></li>
+                            <li><a href="/compound-interest-calculator/">Finance Calc</a></li>
+                            <li><a href="/inflation-calculator/">Inflation Calc</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Legal &amp; Support</h4>
+                        <ul>
+                            <li><a href="/about/">About Us</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms-of-service/">Terms &amp; Conditions</a></li>
+                            <li><a href="/contact/">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 OmniTools Suite. Privacy-focused browser tools for creators and developers.</p>
+                </div>
+            </footer>
+
+        </main></div>
+    </div>
+
+
+    <!-- Accessibility Widget -->
+    <button class="a11y-fab" id="a11yToggleBtn" onclick="toggleA11yPanel()" aria-label="Accessibility Tools">
+        <i data-lucide="accessibility"></i>
+    </button>
+
+    <div class="a11y-panel glass-card" id="a11yPanel">
+        <div class="a11y-header">
+            <h3>Accessibility Tools</h3>
+            <button class="a11y-close" onclick="toggleA11yPanel()" aria-label="Close Accessibility Panel"><i data-lucide="x"></i></button>
+        </div>
+
+        <div class="a11y-content">
+            <div class="a11y-group">
+                <label>Text Size:</label>
+                <div class="a11y-button-group">
+                    <button class="a11y-btn" onclick="changeTextSize(-1)">A-</button>
+                    <button class="a11y-btn" onclick="changeTextSize(0)">Reset</button>
+                    <button class="a11y-btn" onclick="changeTextSize(1)">A+</button>
+                </div>
+            </div>
+
+            <div class="a11y-group">
+                <label>Contrast:</label>
+                <button class="a11y-btn a11y-toggle-btn" id="a11yContrastBtn" onclick="toggleHighContrast()">Toggle High Contrast</button>
+            </div>
+
+            <div class="a11y-group">
+                <label>Font Style:</label>
+                <button class="a11y-btn a11y-toggle-btn" id="a11yDyslexicBtn" onclick="toggleDyslexicFont()">Dyslexic Friendly Font</button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="cookie-notice glass-card" id="cookieNotice" aria-label="Cookie choices" hidden>
+        <p><strong>Analytics choices</strong><br>We use Google Analytics to understand which pages are useful. You can accept or decline analytics cookies.</p>
+        <div>
+            <button type="button" class="btn btn-outline" onclick="setAnalyticsConsent(false)">Decline</button>
+            <button type="button" class="btn btn-primary" onclick="setAnalyticsConsent(true)">Accept analytics</button>
+        </div>
+        <a href="/privacy-policy/">Read our privacy policy</a>
+    </aside>
+
+
+    <!-- Tool Libraries -->
+            <!-- Core App Engine script -->
+
+    <script src="/app.js?v=3.1" defer></script>
+
+
+
+</body></html>
