@@ -59,6 +59,7 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
     <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "SEO Meta Tags: Titles, Descriptions and Social Cards", "url": "https://www.omnitechtools.com/blog/seo-meta-tags-guide/", "description": "Learn how search titles, descriptions, canonical URLs and social sharing metadata work.", "isAccessibleForFree": true}</script><meta name="google-adsense-account" content="ca-pub-1778765695782629">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do meta keywords still matter for SEO?", "acceptedAnswer": {"@type": "Answer", "text": "No. Google has ignored the meta keywords tag since 2009 because of abuse. Focus effort on the title, description, headings and content itself — those still shape rankings and clicks."}}, {"@type": "Question", "name": "Why is Google showing a different title than the one I wrote?", "acceptedAnswer": {"@type": "Answer", "text": "Google rewrites titles it judges too long, keyword-stuffed or mismatched with the page's H1. Keep titles under ~60 characters, aligned with the H1, and descriptive — rewrites become rare."}}, {"@type": "Question", "name": "How often should I update meta descriptions?", "acceptedAnswer": {"@type": "Answer", "text": "Whenever a page's offer changes or click-through rate underperforms in Search Console. A refreshed, benefit-led description can lift clicks on an already-ranking page within weeks."}}, {"@type": "Question", "name": "Does the og:image size really matter?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. 1200×630 pixels is the safe standard: large enough for high-resolution cards on all major platforms, small enough to load fast. Undersized images get cropped or ignored entirely."}}]}</script>
 </head>
 <body>
 
@@ -273,18 +274,68 @@
                             <h1>SEO Meta Tags: Titles, Descriptions and Social Cards</h1>
                             <div class="blog-post-info">
                                 <span>Published: July 8, 2026</span>
-                                <span>Reading Time: 6 min</span>
+                                <span>Reading Time: 5 min</span>
                             </div>
                         </div>
 
                         <article class="blog-post-content">
-                            <p class="lead" style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 2rem; line-height: 1.8;">Meta tags remain the critical bridge between your website's content and search engine crawlers, dictating how your site appears in Google, Twitter, and Facebook.</p>
+                            <p class="lead" style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 2rem; line-height: 1.8;">
+                                Your page can have brilliant content and still fail &mdash; because Google shows users your meta tags before it shows them your page. The title and description are your shopfront in search results, and Open Graph tags are your shopfront on social media. This guide covers exactly what to write, how long it should be, and the tags that genuinely move the needle.
+                            </p>
 
-                            <h3>Title and Description Optimization</h3>
-                            <p>Your Title Tag should be under 60 characters to prevent truncation, embedding high-intent keywords naturally. The Meta Description, while not a direct ranking factor, drastically affects your Click-Through Rate (CTR) and should act as compelling ad copy under 160 characters.</p>
+                            <h2>1. The Title Tag: Your Single Strongest Ranking Asset</h2>
+                            <p>The <code>&lt;title&gt;</code> tag remains one of the most heavily weighted on-page SEO signals and the blue headline users click. The craft: put the primary keyword near the front, keep it under roughly 60 characters (about 580 pixels) so it does not truncate, and make it a promise a human wants to click &mdash; "Image Compressor: Reduce Photo Size by 80% Free" beats "Tool #14". Every page needs a unique title; duplicates tell Google your pages are interchangeable.</p>
 
-                            <h3>OpenGraph and Twitter Cards</h3>
-                            <p>Social media sharing drives viral growth. Implementing specific OpenGraph (og:title, og:image) and Twitter Card tags ensures that when someone pastes your link into a chat or feed, it generates a beautiful, clickable preview card rather than a boring blue link.</p>
+                            <h2>2. Meta Descriptions: Not a Ranking Factor, Still a Traffic Factor</h2>
+                            <p>Google has confirmed the meta description does not directly influence rankings &mdash; but it absolutely influences <em>clicks</em>, and clicks influence everything. Write 150&ndash;160 characters of honest persuasion: what the page offers, who it helps, and a soft call to action. Include the keyword because Google bolds matching terms in results, drawing the eye. Skip it and Google improvises a snippet from random page text, which is rarely your best pitch.</p>
+
+                            <blockquote>
+                                "Rankings get you seen. Titles and descriptions get you chosen. Most sites optimise the first and improvise the second."
+                            </blockquote>
+
+                            <h2>3. Open Graph and Twitter Cards: Winning the Social Share</h2>
+                            <p>When someone pastes your link into WhatsApp, X, Facebook or LinkedIn, the platform scrapes your Open Graph tags to build the preview card. No tags means a sad, bare URL; proper tags mean a branded card with image, title and summary &mdash; and cards with images earn dramatically more clicks. The essentials: <code>og:title</code>, <code>og:description</code>, <code>og:image</code> (1200&times;630 pixels), <code>og:url</code> and <code>og:type</code>, plus <code>twitter:card</code> set to <code>summary_large_image</code>. Test the result by sharing the link to yourself before any campaign.</p>
+
+                            <h2>4. Canonicals and Robots: The Quiet Technical Tags</h2>
+                            <p>The <strong>canonical tag</strong> tells search engines which URL is the master copy when the same content is reachable at multiple addresses (with parameters, trailing slashes, www variants). Without it, you split ranking signals across duplicates. The <strong>robots meta tag</strong> controls indexing: <code>index,follow</code> for normal pages, <code>noindex</code> for thin utility screens, thank-you pages and staging sites &mdash; entire sites have accidentally launched with <code>noindex</code> left in place. Neither tag is glamorous; both quietly decide whether your content can rank at all.</p>
+
+                            <h2>5. A Pre-Publish Meta Checklist</h2>
+                            <ul>
+                                <li>Unique title under 60 characters, primary keyword near the front</li>
+                                <li>Description of 150&ndash;160 characters with a clear benefit and call to action</li>
+                                <li>Canonical URL pointing at the preferred page version</li>
+                                <li>og:title, og:description, og:image (1200&times;630) and twitter:card present</li>
+                                <li>Robots tag intentionally set &mdash; never inherited by accident</li>
+                                <li>One H1 per page matching the title's core promise</li>
+                            </ul>
+
+                                                        <h2>6. Structured Data: The Tag That Earns Rich Results</h2>
+                            <p>Beyond classic meta tags sits JSON-LD structured data &mdash; the markup that earns star ratings, FAQ dropdowns and sitelinks directly inside search results. Adding FAQPage or HowTo schema does not boost rankings by itself, but the enhanced listing takes more screen space and lifts click-through rates noticeably. Every article on this blog, for example, carries FAQ schema. Validate your markup with Google's Rich Results Test before shipping; broken schema is worse than none.
+
+<h2>7. Generate Perfect Tags in Seconds</h2>
+                            <p>Writing all of this by hand for every page is exactly the kind of task tools exist for. Our <a href="/meta-tag-generator/">Meta Tag Generator</a> builds the complete block &mdash; title, description, canonical, Open Graph and Twitter Card &mdash; from a few fields, with live previews of how the page will appear in Google and on social platforms. It runs entirely in your browser. Once your tags are live, measure their effect with our <a href="/word-counter/">word counter</a> for content length checks, and keep exploring on-page optimisation in the <a href="/blog/">OmniTools blog</a>.</p>
+
+                            <div class="blog-faq-box glass-card mt-5" style="padding: 2rem; background: rgba(99, 102, 241, 0.05);">
+                                <h3 style="margin-top: 0; margin-bottom: 1.5rem;">Frequently Asked Questions</h3>
+                                <div class="faq-item">
+                                    <h4>Q: Do meta keywords still matter for SEO?</h4>
+                                    <p>No. Google has ignored the meta keywords tag since 2009 because of abuse. Focus effort on the title, description, headings and content itself — those still shape rankings and clicks.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>Q: Why is Google showing a different title than the one I wrote?</h4>
+                                    <p>Google rewrites titles it judges too long, keyword-stuffed or mismatched with the page's H1. Keep titles under ~60 characters, aligned with the H1, and descriptive — rewrites become rare.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>Q: How often should I update meta descriptions?</h4>
+                                    <p>Whenever a page's offer changes or click-through rate underperforms in Search Console. A refreshed, benefit-led description can lift clicks on an already-ranking page within weeks.</p>
+                                </div>
+                                <div class="faq-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                                    <h4>Q: Does the og:image size really matter?</h4>
+                                    <p>Yes. 1200×630 pixels is the safe standard: large enough for high-resolution cards on all major platforms, small enough to load fast. Undersized images get cropped or ignored entirely.</p>
+                                </div>
+                            </div>
+
+
                         </article>
                     </div>
                 </section>

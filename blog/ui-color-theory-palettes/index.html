@@ -59,6 +59,7 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <!-- Dynamic SEO Meta Tags (per route) -->
     <meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "UI Colour Theory and Accessible Palettes", "url": "https://www.omnitechtools.com/blog/ui-color-theory-palettes/", "description": "Learn colour harmony, the 60-30-10 guideline and accessible text contrast for interface design.", "isAccessibleForFree": true}</script><meta name="google-adsense-account" content="ca-pub-1778765695782629">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many colours should a website palette have?", "acceptedAnswer": {"@type": "Answer", "text": "Five to seven functional colours is plenty: a background neutral, a surface tint, a primary brand colour, a secondary, an accent for actions, plus semantic colours (success, warning, error). More colours usually means less consistency."}}, {"@type": "Question", "name": "What contrast ratio do I need for accessibility?", "acceptedAnswer": {"@type": "Answer", "text": "WCAG 2.1 AA requires 4.5:1 for normal text and 3:1 for large text (18pt+ or 14pt bold). AAA raises that to 7:1. Check every text/background pair — guessing is how sites end up unreadable."}}, {"@type": "Question", "name": "Is pure black (#000000) a good background for dark mode?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. Pure black creates harsh contrast and visible halation around light text. Very dark greys like #0d1117 or #121212 feel softer and are the standard across major design systems."}}, {"@type": "Question", "name": "How do I choose a call-to-action colour?", "acceptedAnswer": {"@type": "Answer", "text": "Pick the hue in your palette most distant from the background and surrounding elements — often the complementary colour. The CTA should be the single highest-attention element on the page, used nowhere else."}}]}</script>
 </head>
 <body>
 
@@ -270,18 +271,66 @@
                             <h1>UI Colour Theory and Accessible Palettes</h1>
                             <div class="blog-post-info">
                                 <span>Published: July 22, 2026</span>
-                                <span>Reading Time: 7 min</span>
+                                <span>Reading Time: 5 min</span>
                             </div>
                         </div>
 
                         <article class="blog-post-content">
-                            <p class="lead" style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 2rem; line-height: 1.8;">Choosing the right colors is more than just aesthetics; it is about brand psychology, accessibility, and visual hierarchy.</p>
+                            <p class="lead" style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 2rem; line-height: 1.8;">
+                                Colour is the first thing users feel and the last thing designers should improvise. The right palette builds trust, guides attention and passes accessibility standards; the wrong one makes even brilliant functionality look amateur. This guide covers the harmony rules, the famous 60-30-10 split, and the contrast numbers your text must hit.
+                            </p>
 
-                            <h3>The 60-30-10 Rule</h3>
-                            <p>A classic interior design rule that applies perfectly to UI design: 60% of your interface should be a dominant background color, 30% a secondary color (like cards or menus), and 10% an accent color for calls-to-action.</p>
+                            <h2>1. Why Colour Decisions Are Business Decisions</h2>
+                            <p>Users form an impression of a website in about 50 milliseconds &mdash; before reading a single word &mdash; and colour drives most of that judgement. Consistent, harmonious colour signals competence; clashing, arbitrary colour signals carelessness. Colour also steers behaviour: the eye lands on the highest-contrast element first, which is why your call-to-action button should hold the palette's most distinctive hue. In interface design, colour is not decoration &mdash; it is navigation.</p>
 
-                            <h3>WCAG Accessibility Standards</h3>
-                            <p>Color contrast is critical for legibility. Using an HSL-based palette generator allows designers to precisely control lightness and saturation to meet WCAG AA or AAA contrast ratios.</p>
+                            <h2>2. Colour Harmony: Four Schemes That Always Work</h2>
+                            <ul>
+                                <li><strong>Monochromatic:</strong> Variations of one hue in different tints and shades. Foolproof and calm &mdash; ideal for dashboards and productivity tools.</li>
+                                <li><strong>Analogous:</strong> Three neighbours on the colour wheel (blue, blue-violet, violet). Naturally cohesive, low tension, common in wellness and finance brands.</li>
+                                <li><strong>Complementary:</strong> Opposites on the wheel (blue and orange). High energy and strong contrast &mdash; use the secondary colour sparingly for accents and CTAs.</li>
+                                <li><strong>Triadic:</strong> Three evenly spaced hues. Vibrant but risky; let one dominate and demote the other two to supporting roles.</li>
+                            </ul>
+
+                            <blockquote>
+                                "A palette is a hierarchy, not a rainbow: one colour leads, a few support, and everything else politely stays neutral."
+                            </blockquote>
+
+                            <h2>3. The 60-30-10 Rule: Structure Beats Taste</h2>
+                            <p>Interior designers gave interface designers a gift: allocate roughly <strong>60%</strong> of the visual field to a dominant neutral (your background), <strong>30%</strong> to a secondary brand colour (cards, navigation, illustrations), and <strong>10%</strong> to an accent reserved for actions (buttons, links, highlights). The ratio works because it mirrors how we process any scene &mdash; mostly calm context with a few points of deliberate focus. Palettes fail when every element competes at accent volume; if everything shouts, nothing is heard.</p>
+
+                            <h2>4. Accessibility: Contrast Is Law, Not Preference</h2>
+                            <p>WCAG 2.1 sets hard minimums: normal text needs a contrast ratio of at least <strong>4.5:1</strong> against its background, large text 3:1, and interactive elements should remain clearly distinguishable. Around 300 million people live with some form of colour-vision deficiency, so never encode meaning in colour alone &mdash; pair error red with an icon, success green with a tick. The good news: accessible palettes often convert better for everyone, because high-contrast interfaces are simply easier to use. Test every combination with the built-in WCAG checker in our <a href="/color-palette-generator/">colour palette generator</a> before committing.</p>
+
+                            <h2>5. Building a Dark-Mode Palette (the Trap Most Designers Miss)</h2>
+                            <p>Dark mode is not inverted light mode. Pure black backgrounds create harsh halation around white text; rich dark greys (#0d1117 territory) are kinder. Saturated accent colours that look perfect on white often vibrate painfully on dark surfaces &mdash; desaturate them by 10&ndash;20%. Shadows nearly disappear on dark themes, so elevation is communicated with lighter surface tints instead. And re-run every contrast check: ratios that passed on light mode fail constantly after inversion. Glass effects behave differently too &mdash; our <a href="/blog/css-glassmorphism-trends/">glassmorphism guide</a> covers translucent surfaces on dark backgrounds in detail.</p>
+
+                                                        <h2>6. From Palette to System: Design Tokens</h2>
+                            <p>A palette becomes professional when it becomes a system. Instead of scattering hex codes through your CSS, define tokens once &mdash; <code>--color-primary</code>, <code>--color-surface</code>, <code>--color-accent</code> &mdash; and reference them everywhere. One edit then rethemes the entire site, dark mode becomes a swap of token values, and no page drifts off-brand. Teams that skip tokens end up with forty near-identical greys and a redesign cycle that never ends. Start tokens on day one; future you will be grateful.
+
+<h2>7. Build Your Palette in Minutes</h2>
+                            <p>Open the <a href="/color-palette-generator/">Colour Palette Generator</a>, pick a base hue and harmony scheme, and get a complete, contrast-checked palette with hex codes ready to paste into your CSS. It runs entirely in your browser. Then apply the palette to real components: frosted cards with the <a href="/css-glassmorphism-generator/">glassmorphism generator</a>, organic backgrounds with the <a href="/svg-blob-generator/">blob generator</a>, and depth with the <a href="/css-box-shadow/">box shadow tool</a>.</p>
+
+                            <div class="blog-faq-box glass-card mt-5" style="padding: 2rem; background: rgba(99, 102, 241, 0.05);">
+                                <h3 style="margin-top: 0; margin-bottom: 1.5rem;">Frequently Asked Questions</h3>
+                                <div class="faq-item">
+                                    <h4>Q: How many colours should a website palette have?</h4>
+                                    <p>Five to seven functional colours is plenty: a background neutral, a surface tint, a primary brand colour, a secondary, an accent for actions, plus semantic colours (success, warning, error). More colours usually means less consistency.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>Q: What contrast ratio do I need for accessibility?</h4>
+                                    <p>WCAG 2.1 AA requires 4.5:1 for normal text and 3:1 for large text (18pt+ or 14pt bold). AAA raises that to 7:1. Check every text/background pair — guessing is how sites end up unreadable.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>Q: Is pure black (#000000) a good background for dark mode?</h4>
+                                    <p>Usually not. Pure black creates harsh contrast and visible halation around light text. Very dark greys like #0d1117 or #121212 feel softer and are the standard across major design systems.</p>
+                                </div>
+                                <div class="faq-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                                    <h4>Q: How do I choose a call-to-action colour?</h4>
+                                    <p>Pick the hue in your palette most distant from the background and surrounding elements — often the complementary colour. The CTA should be the single highest-attention element on the page, used nowhere else.</p>
+                                </div>
+                            </div>
+
+
                         </article>
                     </div>
                 </section>
