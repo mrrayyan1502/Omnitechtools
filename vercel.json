@@ -3,6 +3,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/base64-converter/",
+      "destination": "/base64-encoder-decoder/",
+      "permanent": true
+    },
+    {
       "source": "/youtube-thumbnail-downloader/",
       "destination": "/",
       "permanent": true
