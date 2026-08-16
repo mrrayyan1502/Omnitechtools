@@ -95,7 +95,6 @@ function startApp() {
     // Core Navigation & Routing Handling
     initNavigation();
     initStandaloneTool();
-    initAnalyticsConsent();
     
     // Core Image Compressor Setup (Pre-instantiated, zero heavy libraries)
     initImageCompressor();
@@ -1158,26 +1157,6 @@ function initGlassStudio() {
     if (!document.getElementById('glassOpacity')) return;
     // Generate initial card visual
     updateGlassStudio();
-}
-
-function initAnalyticsConsent() {
-    const notice = document.getElementById('cookieNotice');
-    if (!notice) return;
-    if (!localStorage.getItem('omni-analytics-consent')) {
-        notice.hidden = false;
-    }
-}
-
-function setAnalyticsConsent(accepted) {
-    const value = accepted ? 'granted' : 'denied';
-    localStorage.setItem('omni-analytics-consent', value);
-    if (typeof gtag === 'function') {
-        gtag('consent', 'update', { analytics_storage: value });
-    }
-    const notice = document.getElementById('cookieNotice');
-    if (notice) notice.hidden = true;
-}
-
 function updateGlassStudio() {
     const opacity = parseFloat(document.getElementById('glassOpacity').value);
     const blur = parseInt(document.getElementById('glassBlur').value);

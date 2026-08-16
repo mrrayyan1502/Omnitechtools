@@ -6,14 +6,7 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      var consentGranted = 'denied';
-      try { consentGranted = localStorage.getItem('omni-analytics-consent') === 'granted' ? 'granted' : 'denied'; } catch(e) {}
-      gtag('consent', 'default', {
-        'analytics_storage': consentGranted,
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
-      });
+
       gtag('js', new Date());
 
       gtag('config', 'G-T0HG80BJQ2');
@@ -3671,14 +3664,7 @@
         </div>
     </div>
 
-    <aside class="cookie-notice glass-card" id="cookieNotice" aria-label="Cookie choices" hidden>
-        <p><strong>Analytics choices</strong><br>We use Google Analytics to understand which pages are useful. You can accept or decline analytics cookies.</p>
-        <div>
-            <button type="button" class="btn btn-outline" onclick="setAnalyticsConsent(false)">Decline</button>
-            <button type="button" class="btn btn-primary" onclick="setAnalyticsConsent(true)">Accept analytics</button>
-        </div>
-        <a href="/privacy-policy/">Read our privacy policy</a>
-    </aside>
+
     
     
     <!-- Tool Libraries -->
